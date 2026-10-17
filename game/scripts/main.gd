@@ -11,6 +11,7 @@
 extends Node
 
 const DrawCtrl := preload("res://scripts/draw_ctrl.gd")
+const MenuNavigation := preload("res://scripts/menu_navigation.gd")
 const LW := SU.LW
 const LH := SU.LH
 
@@ -64,6 +65,7 @@ var _toast_until := 0
 var _covers := {}
 var _menu_items := []
 var _menu_sel := 0
+var _nav := {}
 var _kb_down := {}
 var _cards := []
 var _sync_player: AudioStreamPlayer
@@ -123,6 +125,7 @@ func _ready() -> void:
 	ui.theme = _make_theme()
 	layer.add_child(ui)
 	_build_title(); _build_songs(); _build_settings(); _build_pause(); _build_result(); _build_sync(); _build_calib(); _build_plugin_trust()
+	_setup_navigation()
 	_toast = _label("", 13, 0.9, 6)
 	_toast.position = Vector2(0, LH - 70); _toast.size = Vector2(LW, 30)
 	_toast.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -381,6 +384,7 @@ func _button(t: String, cb: Callable, size := 15) -> Button:
 	b.focus_mode = Control.FOCUS_NONE
 	b.add_theme_font_size_override("font_size", size)
 	b.pressed.connect(cb)
+	b.set_meta("menu_action", cb)
 	return b
 
 func _screen(name: String, mouse := true) -> Control:
@@ -413,7 +417,56 @@ func _h2(t: String) -> Label:
 func _show(name: String) -> void:
 	for k in screens:
 		screens[k].visible = k == name
+	if _nav.has(name):
+		_nav[name].select(1 if name == "PluginTrust" else _nav[name].selected, true)
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN if name == "" and state in ["playing", "resuming", "loading"] else Input.MOUSE_MODE_VISIBLE
+
+func _setup_navigation() -> void:
+	for name in screens:
+		var nav := MenuNavigation.new()
+		screens[name].add_child(nav)
+		_nav[name] = nav
+		if name == "Menu":
+			nav.selection_changed.connect(func(index): _menu_sel = index)
+			for item in _menu_items: nav.add_row(item[0], _menu_go.bind(item[3]))
+		elif name == "Calib":
+			nav.selection_changed.connect(func(index):
+				if index < 2:
+					sel_handle = "L" if index == 0 else "R"
+					_calib_changed())
+			for which in ["L", "R"]:
+				var handle: String = which
+				nav.add_row(_w["handle_" + handle], func(): sel_handle = handle; _calib_changed(),
+					func(direction, fast):
+						sel_handle = handle
+						_move_handle(handle, calib[handle] * LW + direction * (5.0 if fast else 1.0)))
+			_collect_navigation(screens[name], nav)
+		elif name != "Songs" and name != "Result":
+			_collect_navigation(screens[name], nav)
+
+func _collect_navigation(parent: Node, nav: Control) -> void:
+	for child in parent.get_children():
+		if child.has_meta("menu_row"):
+			nav.add_row(child, child.get_meta("menu_action", Callable()), child.get_meta("menu_adjust", Callable()))
+		elif child.has_meta("menu_action"):
+			var action: Callable = child.get_meta("menu_action")
+			nav.add_row(child, action)
+		else: _collect_navigation(child, nav)
+
+func _navigation_key(name: String, code: String, echo: bool, shift: bool) -> bool:
+	var nav: Control = _nav[name]
+	if code in ["ArrowUp", "ArrowDown"]:
+		nav.move_selection(-1 if code == "ArrowUp" else 1)
+	elif code in ["ArrowLeft", "ArrowRight"]:
+		nav.adjust(-1 if code == "ArrowLeft" else 1, shift)
+	elif code in ["Enter", "Space"]:
+		if not echo: nav.activate()
+	else: return false
+	if name == "Menu": _menu_select(nav.selected)
+	if name == "Calib" and nav.selected < 2:
+		sel_handle = "L" if nav.selected == 0 else "R"
+		_calib_changed()
+	return true
 
 func toast(msg: String, sec := 1.8) -> void:
 	_toast.text = msg
@@ -447,11 +500,11 @@ func _build_title() -> void:
 
 func _menu_select(i: int) -> void:
 	_menu_sel = i
+	if _nav.has("Menu"): _nav.Menu.select(i)
 	for k in _menu_items.size():
-		var on: bool = k == i
-		_menu_items[k][0].modulate = Color(1, 1, 1, 1.0 if on else 0.34)
-		_menu_items[k][1].visible = on
-		_menu_items[k][2].visible = on
+		_menu_items[k][0].modulate = Color.WHITE
+		_menu_items[k][1].visible = false
+		_menu_items[k][2].visible = false
 
 func _menu_go(where: String) -> void:
 	match where:
@@ -676,6 +729,9 @@ func _build_cards() -> void:
 		card.gui_input.connect(func(ev): if ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT:
 			if idx == sel_i: _play_selected(0.0)
 			else: _song_select(idx))
+		card.gui_input.connect(func(ev):
+			if state == "songs" and ev is InputEventMouseMotion and ev.relative != Vector2.ZERO and idx != sel_i:
+				_song_select(idx))
 		_w.ss_strip.add_child(card)
 		_cards.append({"card": card, "img": tr, "badge": badge, "bt": bt, "bl": bl, "nm": nm, "sb": sb})
 
@@ -730,7 +786,10 @@ func _song_info() -> void:
 	_w.ss_title.text = sg.title
 	_w.ss_artist.text = sg.artist
 	_w.ss_meta.text = "BPM %d   ·   %d:%02d   ·   %s NOTES" % [int(round(sg.bpm)), int(sg.length) / 60, int(sg.length) % 60, str(df.get("notes", "-"))]
-	for ch in _w.ss_diffs.get_children(): ch.queue_free()
+	for ch in _w.ss_diffs.get_children():
+		_w.ss_diffs.remove_child(ch)
+		ch.queue_free()
+	_nav.Songs.clear()
 	for k in sg.diffs.size():
 		var x: Dictionary = sg.diffs[k]
 		var on: bool = k == sel_d
@@ -756,7 +815,14 @@ func _song_info() -> void:
 			chip.add_child(l)
 		var kk: int = k
 		chip.pressed.connect(func(): sel_d = kk; _song_info())
+		chip.mouse_entered.connect(func():
+			if state == "songs" and sel_d != kk:
+				sel_d = kk
+				_song_info())
 		_w.ss_diffs.add_child(chip)
+		_nav.Songs.add_row(chip, _play_selected.bind(0.0))
+	_nav.Songs.add_row(_w.ss_play, _play_selected.bind(0.0))
+	_nav.Songs.select(sel_d)
 	var c: Dictionary = _cards[sel_i] if sel_i < _cards.size() else {}
 	if not c.is_empty():
 		c.bt.text = _tier(int(df.get("level", 1)))
@@ -921,6 +987,8 @@ func _slider_row(parent: Control, label: String, lo: float, hi: float, step: flo
 	h.add_child(l); h.add_child(sl); h.add_child(val)
 	parent.add_child(h)
 	sl.value_changed.connect(func(x): if not sl.has_meta("syncing"): cb.call(x))
+	h.set_meta("menu_row", true)
+	h.set_meta("menu_adjust", func(direction, fast): sl.value += direction * sl.step * (5.0 if fast else 1.0))
 	return {"slider": sl, "val": val}
 
 func _toggle_row(parent: Control, label: String, cb: Callable) -> Button:
@@ -930,6 +998,9 @@ func _toggle_row(parent: Control, label: String, cb: Callable) -> Button:
 	var b := _button("", cb, 13); b.custom_minimum_size = Vector2(150, 36)
 	h.add_child(l); h.add_child(b)
 	parent.add_child(h)
+	h.set_meta("menu_row", true)
+	h.set_meta("menu_action", cb)
+	h.set_meta("menu_adjust", func(_direction, _fast): cb.call())
 	return b
 
 func _set_toggle(b: Button, txt: String, on: bool) -> void:
@@ -941,8 +1012,9 @@ func _set_toggle(b: Button, txt: String, on: bool) -> void:
 	for c in ["font_color", "font_hover_color", "font_pressed_color"]:
 		b.add_theme_color_override(c, Color.BLACK if on else Color.WHITE)
 
-func _set_slider(w: Dictionary, v: float, txt: String) -> void:
+func _set_slider(w: Dictionary, v: float, txt: String, step := -1.0) -> void:
 	w.slider.set_meta("syncing", true)
+	if step > 0.0: w.slider.step = step
 	w.slider.value = v
 	w.slider.remove_meta("syncing")
 	w.val.text = txt
@@ -984,11 +1056,13 @@ func _sync_settings_ui() -> void:
 	if settings.curve == "accel":
 		var ak := float(settings.get("accel_k", 1.7))
 		amt_label.text = "加速度　ACCEL"
-		_set_slider(_w.curve_amt, inverse_lerp(1.1, 3.5, ak), "x%.2f" % ak + ("　默认" if is_equal_approx(ak, 1.7) else ""))
+		# One representable 0.05 acceleration step in the normalized slider.
+		_set_slider(_w.curve_amt, inverse_lerp(1.1, 3.5, ak), "x%.2f" % ak + ("　默认" if is_equal_approx(ak, 1.7) else ""), 1.0 / 48.0)
 	elif settings.curve == "deemo":
 		var deg := float(settings.get("persp_deg", 35.0))
 		amt_label.text = "透视角度　ANGLE"
-		_set_slider(_w.curve_amt, inverse_lerp(15.0, 75.0, deg), "%d°" % int(deg) + ("　默认" if is_equal_approx(deg, 35.0) else ""))
+		# One degree in the normalized slider; 0.01 could round back unchanged.
+		_set_slider(_w.curve_amt, inverse_lerp(15.0, 75.0, deg), "%d°" % int(deg) + ("　默认" if is_equal_approx(deg, 35.0) else ""), 1.0 / 60.0)
 	_set_toggle(_w.hit, {"wood": "木质 WOOD", "deep": "深沉 DEEP", "crisp": "清脆 CRISP", "off": "OFF"}[settings.hit_kind], settings.hit_kind != "off")
 	_set_toggle(_w.stage, settings.stage.to_upper(), settings.stage == "full")
 	_set_toggle(_w.auto, "ON" if settings.autoplay else "OFF", settings.autoplay)
@@ -1008,6 +1082,7 @@ func _enter_settings() -> void:
 	R.clear_fx()
 	_sync_settings_ui()
 	_show("Settings")
+	_nav.Settings.select(0, true)
 
 func _exit_settings() -> void:
 	if state != "settings": return
@@ -1081,8 +1156,8 @@ func _build_pause() -> void:
 func _build_result() -> void:
 	var s := _screen("Result")
 	var v := ResultView.new()
-	v.restart_pressed.connect(_restart)
-	v.songs_pressed.connect(_quit_to_songs)
+	v.restart_pressed.connect(_result_activate.bind(true))
+	v.songs_pressed.connect(_result_activate.bind(false))
 	s.add_child(v)
 	_w.res = v
 
@@ -1090,7 +1165,17 @@ func _build_result() -> void:
 func _show_result(st: Dictionary = core.stats, rec: Dictionary = _rec, kind: String = end_kind) -> void:
 	var rank := Ranks.rank_of(int(st.score))
 	_w.res.begin(st, meta, rec, rank, kind)
+	_nav.Result.clear()
+	_nav.Result.add_row(_w.res.songs_hint, _result_activate.bind(false))
+	_nav.Result.add_row(_w.res.restart_hint, _result_activate.bind(true))
 	_show("Result")
+	_nav.Result.select(0, true)
+
+func _result_activate(restart: bool) -> void:
+	if state != "result" or not screens.Result.visible: return
+	if not _w.res.can_leave(): _w.res.skip()
+	elif restart: _restart()
+	else: _quit_to_songs()
 
 ## --result-demo=<RANK>: the results screen with made-up numbers for that rank (self-checks / screenshots)
 func _demo_result(rank: String) -> void:
@@ -1130,6 +1215,7 @@ func _pause() -> void:
 	state = "paused"
 	audio.pause()
 	_show("Pause")
+	_nav.Pause.select(0, true)
 
 func _resume() -> void:
 	if state != "paused": return
@@ -1164,7 +1250,7 @@ func _build_sync() -> void:
 	var s := _screen("Sync")
 	var v := _center_panel(s, 760)
 	v.add_child(_h2("SYNC"))
-	var p := _label("听节拍，在每一声上按空格", 15, 0.85, 3); p.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var p := _label("听节拍，选 TAP 后按空格 / Enter，或按字母键　↑ ↓ 选择", 15, 0.85, 3); p.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	v.add_child(p)
 	var m := Control.new()
 	m.set_script(DrawCtrl)
@@ -1175,6 +1261,7 @@ func _build_sync() -> void:
 	var rd := _label("", 15, 0.9, 3, Fonts.hud()); rd.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	v.add_child(rd)
 	_w.sync_read = rd
+	v.add_child(_button("敲击节拍　TAP", _sync_tap))
 	var hb := HBoxContainer.new(); hb.alignment = BoxContainer.ALIGNMENT_CENTER; hb.add_theme_constant_override("separation", 18)
 	hb.add_child(_button("应用　APPLY", _exit_sync.bind(true)))
 	hb.add_child(_button("返回　BACK", _exit_sync.bind(false)))
@@ -1205,6 +1292,7 @@ func _enter_sync() -> void:
 	_sync_t0 = SU.ticks()
 	_sync_player.play()
 	_show("Sync")
+	_nav.Sync.select(0, true)
 
 func _sync_estimate() -> Dictionary:
 	if _sync_taps.size() < 8: return {}
@@ -1259,7 +1347,7 @@ func _exit_sync(apply: bool) -> void:
 func _build_calib() -> void:
 	var s := _screen("Calib")
 	s.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var p := _label("拖动两端手柄，使判定线左右端对齐桌上键盘的左右边缘（` 键左缘 / Backspace 右缘）\n← → 微调 1px（Shift 10px）　Tab 切换端点　按字母键在对应位置打出标记核对",
+	var p := _label("拖动两端手柄，使判定线左右端对齐桌上键盘的左右边缘（` 键左缘 / Backspace 右缘）\n↑ ↓ 选择　← → 微调 1px（Shift 5px）　Tab 切换端点　Enter / 空格 确认　字母键核对",
 		14, 0.85, 2)
 	p.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	p.position = Vector2(0, 120); p.size = Vector2(LW, 60)
@@ -1285,7 +1373,8 @@ func _build_calib() -> void:
 			c.draw_arc(Vector2(17, 17), 16.5, 0, TAU, 40, Color(1, 1, 1, 1.0 if sel else 0.7), 1.0, true)
 			c.draw_circle(Vector2(17, 17), 3, Color.WHITE)
 		h.gui_input.connect(func(ev):
-			if ev is InputEventMouseButton and ev.pressed: sel_handle = w2; _calib_changed()
+			if ev is InputEventMouseButton and ev.pressed:
+				sel_handle = w2; _nav.Calib.select(0 if w2 == "L" else 1); _calib_changed()
 			elif ev is InputEventMouseMotion and (ev.button_mask & MOUSE_BUTTON_MASK_LEFT):
 				_move_handle(w2, h.position.x + ev.position.x))
 		s.add_child(h)
@@ -1314,6 +1403,7 @@ func _enter_calib() -> void:
 	sel_handle = "L"
 	_calib_changed()
 	_show("Calib")
+	_nav.Calib.select(0, true)
 
 func _exit_calib() -> void:
 	if state != "calib": return
@@ -1369,47 +1459,45 @@ func _key_down(code: String, raw: String, echo: bool, now: int, shift: bool) -> 
 	if _marker_key(code, echo, now): return
 	match state:
 		"menu":
-			if code == "ArrowUp" or code == "ArrowDown":
-				_menu_select(posmod(_menu_sel + (-1 if code == "ArrowUp" else 1), _menu_items.size()))
-			elif (code == "Enter" or code == "Space") and not echo:
-				_menu_go(_menu_items[_menu_sel][3])
+			_navigation_key("Menu", code, echo, shift)
 		"songs":
 			if code == "Escape": audio.preview_stop(); state = "menu"; _show("Menu")
 			elif code == "ArrowLeft" or code == "ArrowRight": _song_move(-1 if code == "ArrowLeft" else 1)
 			elif code == "ArrowUp" or code == "ArrowDown": _song_diff(-1 if code == "ArrowUp" else 1)
 			elif (code == "Enter" or code == "Space") and not echo: _play_selected(0.0)
 		"plugin_trust":
+			if _navigation_key("PluginTrust", code, echo, shift): return
 			if echo: return
 			if code == "KeyY": _plugin_trust_answer(true)
 			elif code == "KeyN": _plugin_trust_answer(false)
 			elif code == "Escape": _cancel_plugin_play()
 		"settings":
 			if code == "Escape": _exit_settings()
+			elif _navigation_key("Settings", code, echo, shift): return
 			elif not echo:
 				_kb_down[raw] = 0
 				_w.kbview.queue_redraw()
 		"calib":
 			if code == "Escape": _exit_calib()
-			elif code == "ArrowLeft" or code == "ArrowRight":
-				var step := (10.0 if shift else 1.0) * (-1.0 if code == "ArrowLeft" else 1.0)
-				_move_handle(sel_handle, (calib.L if sel_handle == "L" else calib.R) * LW + step)
+			elif _navigation_key("Calib", code, echo, shift): return
 			elif code == "Tab" and not echo:
-				sel_handle = "R" if sel_handle == "L" else "L"; _calib_changed()
+				sel_handle = "R" if sel_handle == "L" else "L"
+				_nav.Calib.select(0 if sel_handle == "L" else 1); _calib_changed()
 			elif KB.is_key(code) and not echo:
 				R.add_ripple(KB.x_of(code), 1.0)
 		"sync":
 			if code == "Escape": _exit_sync(false)
-			elif code == "Enter": _exit_sync(true)
-			elif (code == "Space" or KB.is_key(code)) and not echo: _sync_tap()
+			elif _navigation_key("Sync", code, echo, shift): return
+			elif KB.is_key(code) and not echo: _sync_tap()
 		"paused":
 			if code == "Escape": _resume()
+			else: _navigation_key("Pause", code, echo, shift)
 		"resuming":
 			if code == "Escape": resume_at = 0; state = "paused"; _show("Pause")
 		"result":
 			if code == "KeyR" and not echo: _restart()
-			elif (code == "Escape" or code == "Enter") and not echo and screens.Result.visible:
-				if _w.res.can_leave(): _quit_to_songs()
-				else: _w.res.skip()
+			elif code == "Escape" and not echo: _result_activate(false)
+			elif screens.Result.visible: _navigation_key("Result", code, echo, shift)
 		"playing":
 			if code == "Escape": _pause(); return
 			if echo: return

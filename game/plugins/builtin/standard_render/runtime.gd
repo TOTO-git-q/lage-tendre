@@ -17,6 +17,17 @@ const PEDAL_XL = BuiltinRenderData.PEDAL_XL
 const MISS_GREY = BuiltinRenderData.MISS_GREY
 const TEX_NAMES = BuiltinRenderData.TEX_NAMES
 
+# Feedback palette and lifetimes live here; no judgement window or score changes.
+const GRADE_COLOURS := {"CRITICAL": Color("ffe85a"), "PERFECT": Color("ffb43c"),
+	"GREAT": Color("ff8cb4"), "GOOD": Color("78d28c"), "MISS": Color("8c8c8c")}
+const GRADE_RANK := {"CRITICAL": 0, "PERFECT": 1, "GREAT": 2, "GOOD": 3, "MISS": 4}
+const PULSE_LIFE := 0.4
+const TIMING_LIFE := 0.9
+const TIMING_PUSH := 0.12
+const SNAP_LIFE := 0.075
+const IMPACT_LIFE := 0.34
+const FX_CAP := 32
+
 var TEX := {}
 var hy0 := HY0                     # horizon / perspective bow / judgement line height (field size; --field= overrides)
 var gamma0 := GAMMA0
@@ -50,6 +61,13 @@ var plucks := []
 var hold_ends := []
 var rings := []
 var judges := []
+var combo_pulses := []
+var timing_stack := []
+var feedback_groups := []
+var impacts := []                 # frame-local note-head bursts; never stored on chart notes
+var combo_colour := Color.WHITE
+var combo_colour_at := -9.0
+var _feedback_seen := {}          # recently identified final notes, not chart state
 var combo_pop_at := -9.0
 var combo_break_v := {}
 var track_flash_at := -9.0
@@ -196,12 +214,18 @@ func _setup_vignette() -> void:
 
 func clear_fx() -> void:
 	hits.clear(); hold_ends.clear(); rings.clear(); judges.clear(); plucks.clear()
+	combo_pulses.clear(); timing_stack.clear(); feedback_groups.clear(); impacts.clear()
+	combo_colour = Color.WHITE; combo_colour_at = -9.0
+	_feedback_seen.clear()
 	combo_break_v = {}; last_combo = 0; score_shown = 0.0; track_flash_at = -9.0
 
 # ---------------------------------------------------------------- per-frame entry
 func frame(fd: Dictionary, stage: StageFx) -> void:
 	f = fd
 	last_fx_t = f.fxT
+	combo_pulses = combo_pulses.filter(func(p): return last_fx_t - p.born < PULSE_LIFE)
+	timing_stack = timing_stack.filter(func(e): return last_fx_t - e.born < TIMING_LIFE and e.grade not in ["CRITICAL", "MISS"])
+	feedback_groups = feedback_groups.filter(func(e): return last_fx_t - e.born < TIMING_LIFE)
 	S = stage.at(f.t) if f.play else StageFx.rest()
 	_breath_on = f.play and stage.mode != "off"
 	if f.play: _refresh_roles()
@@ -258,6 +282,7 @@ func frame(fd: Dictionary, stage: StageFx) -> void:
 	bg.position = Vector2(LW / 2.0 + S.vpx * 0.2, LH / 2.0)
 	(grain.material as ShaderMaterial).set_shader_parameter("seed", floor(f.perf / 0.07))
 	_plan_notes()
+	if hits.size() > FX_CAP: hits = hits.slice(-FX_CAP)
 	for l in L.values():
 		l.queue_redraw()
 
@@ -647,6 +672,15 @@ func _paint_judge_line(c: CanvasItem) -> void:
 		if age >= 0.0 and age < 0.18:
 			var px := G.x_of(pk.xl, 1.0)
 			sprite(c, TEX.line, px, G.jy + _pluck_dy(px), G.key_w * 2.4, 34.0, 0.55 * pk.amp * (1.0 - age / 0.18))
+	# A warm, local bloom follows the strike; it never lights the entire line.
+	for h in hits:
+		var age: float = f.fxT - h.born
+		if h.level < 1.0 or age < 0.0 or age >= 0.2: continue
+		var x := G.x_of(h.xl, 1.0)
+		var q := age / 0.2
+		var a := pow(1.0 - q, 1.5)
+		sprite(c, TEX.glow, x, G.jy, G.key_w * 2.8, 46.0, 0.42 * a, GRADE_COLOURS.CRITICAL)
+		sprite(c, TEX.line, x, G.jy + _pluck_dy(x), G.key_w * 2.6, 24.0 + 14.0 * SU.ease_out(q), 0.85 * a, GRADE_COLOURS.CRITICAL)
 
 func _paint_pedal_receptors(c: CanvasItem) -> void:
 	if f.is_empty(): return
@@ -973,6 +1007,7 @@ func _plan_notes() -> void:
 	_nd_notes.clear()
 	_nd_holds.clear()
 	_nd_letters.clear()
+	impacts.clear()
 	var c = null
 	if f.is_empty() or not f.play: return
 	var t: float = f.t
@@ -1009,7 +1044,8 @@ func _plan_notes() -> void:
 		var p_quick: float = 1.0 - (n.t - t) / fall
 		if p_quick < p_min - 0.05: break
 		var p_end: float = 1.0 - (n.t + n.dur - t) / fall
-		if p_quick < p_min - 0.05 or (p_end > 1.2 and not (n.state in ["miss", "pending"] and t - n.t < 1.0)): continue
+		var recent_head: bool = n.state in ["hit", "holding"] and t - _head_hit_time(n) < SNAP_LIFE + IMPACT_LIFE
+		if p_quick < p_min - 0.05 or (p_end > 1.2 and not recent_head and not (n.state in ["miss", "pending"] and t - n.t < 1.0)): continue
 		var st := _land_st(n, f.get("light_by_id_raw", f.light_by_id)[n.light])
 		if not st.alive: continue
 		_cur_chord = n.get("chord", false)
@@ -1023,10 +1059,7 @@ func _plan_notes() -> void:
 func _plan_tap(n: Dictionary, st: Dictionary, t: float, fall: float, p_min: float, p_quick: float, p_end: float) -> void:
 	var c = null
 	if n.state == "hit":
-		var age: float = t - (n.t + n.hitDt)
-		if age >= 0.0 and age < 0.12:
-			var q := age / 0.12
-			_draw_note(c, _note_at(st, n, 1.0), (1.0 - q) * st.alpha, 1.0 + 0.35 * SU.ease_out(q), Color.WHITE, n.big, n.nw)
+		_plan_hit_head(n, st, t, fall, n.nw)
 		return
 	var dm := _missed(n, st, t, fall)
 	if not dm.is_empty():
@@ -1038,6 +1071,60 @@ func _plan_tap(n: Dictionary, st: Dictionary, t: float, fall: float, p_min: floa
 	_letter_ok = p < 1.0
 	_draw_note(c, _note_at(st, n, p), a, 1.0, Color.WHITE, n.big, n.nw)
 	_letter_ok = false
+
+## Visual-only head trajectory. The live note's judgement/state is never modified.
+## Late pending notes already brake just below the line in _missed; sample that
+## same trajectory at the press so there is no teleport back to the line.
+func _hit_head_position(n: Dictionary, st: Dictionary, fall: float) -> Dictionary:
+	var dt := _head_hit_time(n) - float(n.t)
+	var p := _note_at(st, n, 1.0)
+	if dt > 0.0:
+		p.y += 30.0 * (1.0 - exp(-dt / 0.045))
+	elif dt < -SU.WIN_PERFECT and n.get("headGrade", n.grade) in ["GREAT", "GOOD"]:
+		p = _note_at(st, n, 1.0 + dt / fall)
+	return p
+
+func _head_hit_time(n: Dictionary) -> float:
+	var absolute: float = n.t + n.hitDt
+	var reference: float = n.get("chord_ref", -INF)
+	if reference == -INF or n.ex: return absolute
+	# Follow judgements measure dt from the chord's first press, not chart time.
+	# Confirm with the already emitted immediate ripple; an expired follow window
+	# uses ordinary chart-relative dt and must not be shifted backwards instead.
+	var followed: float = reference + n.hitDt
+	for index in range(hits.size() - 1, -1, -1):
+		var h: Dictionary = hits[index]
+		if h.level >= 1.0 and absf(h.xl - n.hitX) < 1e-6 and absf(h.born - followed) < 0.035:
+			return followed
+	return absolute
+
+func _plan_hit_head(n: Dictionary, st: Dictionary, t: float, fall: float, nw: float) -> bool:
+	var age: float = t - _head_hit_time(n)
+	var snap: bool = n.hitDt < -SU.WIN_PERFECT and n.get("headGrade", n.grade) in ["GREAT", "GOOD"]
+	var delay := SNAP_LIFE if snap else 0.0
+	if age < 0.0 or age > delay + IMPACT_LIFE: return false
+	var p := _hit_head_position(n, st, fall)
+	if snap and age < SNAP_LIFE:
+		var land := _note_at(st, n, 1.0)
+		var q := SU.ease_out(age / SNAP_LIFE)
+		for key in ["x", "y", "s", "xl", "kw"]: p[key] = lerpf(p[key], land[key], q)
+		_draw_note(null, p, st.alpha, 1.0, Color.WHITE, n.big, nw)
+		return true
+	if snap: p = _note_at(st, n, 1.0)
+	var burst_age := age - delay
+	var grade := _feedback_grade(n.get("headGrade", n.grade), 0.0 if n.ex else n.hitDt)
+	var col: Color = GRADE_COLOURS[grade]
+	if impacts.size() < FX_CAP:
+		impacts.append({"x": p.x, "y": p.y, "age": burst_age, "big": n.big, "col": col, "kw": p.kw})
+	if burst_age < 0.12:
+		var first := _nd_notes.size()
+		_draw_note(null, p, (1.0 - burst_age / 0.12) * st.alpha, 1.0, col, n.big, nw)
+		if _nd_notes.size() > first:
+			var d: Array = _nd_notes[-1]
+			var squash := 1.0 - clampf(burst_age / (2.0 / 60.0), 0.0, 1.0)
+			d[2] = minf(d[2] * (1.0 + 0.22 * squash), minf(_cur_note.get("_mw", INF), p.kw * _cur_lw * 15.0 * 0.96))
+			d[3] *= 1.0 - 0.48 * squash
+	return burst_age < 0.12
 
 func _plan_hold(n: Dictionary, st: Dictionary, t: float, fall: float, p_min: float, p_quick: float, p_end: float) -> void:
 	if _custom_geometry and st.has("geometry"):
@@ -1069,6 +1156,8 @@ func _plan_hold(n: Dictionary, st: Dictionary, t: float, fall: float, p_min: flo
 	_nd_holds.append(func(cc): _ribbon(cc, n, stc, tau_h, tau_t, t, fall, hb_a, 0.0, thin_k))
 	if p_end > p_min: _draw_note(c, _note_at_u(st, pe[0], p_end), a * 0.55, 0.7, Color.WHITE, false, pe[1])
 	if not dmh.is_empty(): _draw_note(c, dmh.P, dmh.a, 1.0, dmh.col, n.big, ph[1])
+	elif holding and _plan_hit_head(n, st, t, fall, ph[1]):
+		pass                           # only the head moves; the ribbon above is unchanged
 	elif n.state != "fail":
 		_letter_ok = not active and pb < 1.0
 		_draw_note(c, Pb, a, 1.12 + 0.05 * sin(f.perf * 30.0) if active else 1.0, Color.WHITE, n.big, ph[1])
@@ -1095,9 +1184,21 @@ func _paint_fx(c: CanvasItem) -> void:
 		if age < 0.0: continue
 		if h.level <= 0.0: _dash(c, x, age, 0.0, 22.0, 0.3, kw * 0.9, 0.16); continue
 		if h.level < 1.0: _dash(c, x, age, 0.0, 40.0, 0.45, kw * 0.8, 0.2); continue
-		var big: bool = h.level >= 2.0
-		for j in (4 if h.level >= 3.0 else 3):
-			_dash(c, x, age, j * 0.05, 46.0 + 22.0 * j, 0.5, kw * (1.25 - 0.18 * j), (0.5 if big else 0.36) * (1.0 - 0.22 * j))
+		# Successful note heads supply positioned impacts below. In particular an
+		# early GREAT/GOOD must finish its pull before the dense burst starts.
+	for impact in impacts:
+		var age: float = impact.age
+		var q := clampf(age / IMPACT_LIFE, 0.0, 1.0)
+		var a := pow(1.0 - q, 1.7)
+		var weight := 1.45 if impact.big else 1.0
+		var w: float = impact.kw * weight
+		var col: Color = impact.col
+		sprite(c, TEX.glow, impact.x, impact.y + 5.0, w * 2.5, 60.0 * weight, 0.42 * a, col)
+		sprite(c, TEX.line, impact.x, impact.y + 2.0, w * (2.0 + 0.8 * SU.ease_out(q)), 26.0 * weight, 0.85 * a, col)
+		# A compact downward shock gives weight without a tall spray obscuring notes.
+		if age < 0.16:
+			var shock := age / 0.16
+			sprite(c, TEX.dash, impact.x, impact.y + 8.0 + 35.0 * SU.ease_out(shock), w * (1.5 - 0.4 * shock), 16.0 * weight, 0.6 * pow(1.0 - shock, 1.4), col)
 	for e in hold_ends:
 		var age: float = now - e.born
 		for j in 3:
@@ -1183,9 +1284,15 @@ func _draw_combo(c: CanvasItem, st: Dictionary) -> void:
 		var age := now - combo_pop_at
 		var pop := 1.0 + 0.14 * pow(1.0 - age / 0.12, 2.0) if age >= 0.0 and age < 0.12 else 1.0
 		c.draw_set_transform(Vector2(G.cx, y), 0.0, Vector2(pop, pop))
-		text(c, str(st.combo), 0, 0, 58, 0.85, "center", 3)
+		var tint := 0.16 * maxf(0.0, 1.0 - (now - combo_colour_at) / PULSE_LIFE)
+		text(c, str(st.combo), 0, 0, 58, 0.85, "center", 3, null, Color.WHITE.lerp(combo_colour, tint))
 		c.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 		text(c, "COMBO", G.cx, y + 40, 12, 0.45, "center", 8)
+	for e in timing_stack:
+		var age: float = now - e.born
+		if age < 0.0 or age >= TIMING_LIFE or e.grade in ["CRITICAL", "MISS"]: continue
+		var fade := pow(1.0 - age / TIMING_LIFE, 0.8) * minf(1.0, age / 0.06)
+		text(c, e.label, G.cx, y + 68.0 + _timing_y(e, now), 16, 0.85 * fade, "center", 4, Fonts.ui(), GRADE_COLOURS[e.grade])
 	if not combo_break_v.is_empty():
 		var age: float = now - combo_break_v.born
 		if age >= 0.0 and age < 0.5:
@@ -1234,6 +1341,12 @@ func _paint_hud_add(c: CanvasItem) -> void:
 	if f.is_empty() or not f.play: return
 	var now: float = f.fxT
 	if f.ending.is_empty() and f.countdown <= 0.0:
+		for pulse in combo_pulses:
+			var age: float = now - pulse.born
+			if age < 0.0 or age >= PULSE_LIFE: continue
+			var q := age / PULSE_LIFE
+			var size := lerpf(80.0, 190.0, SU.ease_out(q))
+			sprite(c, TEX.receptor, G.cx, 0.058 * LH, size, size * 0.52, 0.3 * pow(1.0 - q, 1.5), GRADE_COLOURS[pulse.grade])
 		for j in judges:
 			var age: float = now - j.born
 			if age < 0.0 or age > 0.42: continue
@@ -1244,8 +1357,6 @@ func _paint_hud_add(c: CanvasItem) -> void:
 			var y := G.jy - 90.0                                     # fixed above the line, clear of the line's glow
 			var col := Color(0.59, 0.59, 0.59) if j.text == "MISS" else Color.WHITE
 			sprite(c, tex, j.x, y, h * tex.get_width() / tex.get_height(), h, a * (0.8 if j.text == "MISS" else 0.95), col)
-			if j.text == "GREAT" or j.text == "GOOD" or (j.text == "PERFECT" and absf(j.dt) > SU.WIN_CRITICAL):
-				text(c, "FAST" if j.dt < 0.0 else "SLOW", j.x, y + 22, 11, 0.7 * a, "center", 5)
 	judges = judges.filter(func(j): return now - j.born <= 0.45)
 	if judges.size() > 8: judges = judges.slice(judges.size() - 8)
 	if not f.ending.is_empty():
@@ -1262,10 +1373,80 @@ func _paint_hud_add(c: CanvasItem) -> void:
 # ---------------------------------------------------------------- events from the game
 func add_ripple(xl: float, level: float) -> void:
 	hits.append({"xl": xl, "level": level, "born": last_fx_t})
+	if hits.size() > FX_CAP: hits.pop_front()
 	if level >= 1.0:
 		plucks.append({"xl": xl, "amp": 1.6 if level >= 3.0 else (1.0 if level >= 2.0 else 0.8), "born": last_fx_t})
+		if plucks.size() > FX_CAP: plucks.pop_front()
+
+func _feedback_grade(grade: String, dt: float) -> String:
+	return "CRITICAL" if grade == "PERFECT" and absf(dt) <= SU.WIN_CRITICAL + 1e-9 else grade
+
+func _timing_y(e: Dictionary, now: float) -> float:
+	return lerpf(e.y_from, e.y_to, SU.ease_out(clampf((now - e.moved) / TIMING_PUSH, 0.0, 1.0)))
+
+## The signal intentionally stays API-1 compatible. The frame already owns live
+## note references, so identify the settled note locally instead of changing the
+## core signal or its grade protection. Search only the nearby sorted note slice.
+func _feedback_moment(grade: String, xl: float, dt: float) -> String:
+	if f.is_empty() or not f.has("notes"): return ""
+	var notes: Array = f.notes
+	var lo := 0
+	var hi := notes.size()
+	var time: float = f.t
+	if _feedback_seen.size() > 128:
+		for id in _feedback_seen.keys():
+			if _feedback_seen[id] < time - 0.6: _feedback_seen.erase(id)
+	while lo < hi:
+		var mid := (lo + hi) >> 1
+		if notes[mid].t < time - 0.5: lo = mid + 1
+		else: hi = mid
+	for index in range(lo, notes.size()):
+		var n: Dictionary = notes[index]
+		if n.t > time + 0.2: break
+		if _feedback_seen.has(n.id) or n.get("provisional", false) or n.grade != grade or n.state in ["pending", "skip"]: continue
+		var nx: float = n.get("hitX", -1.0)
+		if grade == "MISS": nx = n.get("lineX", -1.0)
+		var ndt: float = 0.0 if n.ex else n.hitDt
+		if grade != "MISS" and absf(ndt - dt) > 1e-6: continue
+		if absf(nx - xl) > 1e-6: continue
+		var moment: float = n.t
+		for sibling in n.get("sibs", []): moment = minf(moment, sibling.t)
+		_feedback_seen[n.id] = n.t
+		return "note:%.6f" % moment
+	return ""
+
+func _add_combo_feedback(grade: String, xl: float, dt: float) -> void:
+	var colour_grade := _feedback_grade(grade, dt)
+	combo_colour = GRADE_COLOURS[colour_grade]; combo_colour_at = last_fx_t
+	combo_pulses.append({"grade": colour_grade, "born": last_fx_t})
+	if combo_pulses.size() > 12: combo_pulses.pop_front()
+	var moment := _feedback_moment(grade, xl, dt)
+	var group := {}
+	for e in feedback_groups:
+		# Distinct chart moments never coalesce just because a stream is fast.
+		# Legacy/plugin callers without note context retain the old proximity rule.
+		if (not moment.is_empty() and e.moment == moment) or (moment.is_empty() and e.moment.is_empty() and absf(last_fx_t - e.born) < 0.04 and absf(e.xl - xl) < 0.135):
+			group = e; break
+	if group.is_empty():
+		group = {"moment": moment, "grade": colour_grade, "dt": dt, "xl": xl, "born": last_fx_t,
+			"y_from": 0.0, "y_to": 0.0, "moved": last_fx_t, "label": ""}
+		feedback_groups.append(group)
+		if feedback_groups.size() > FX_CAP: feedback_groups.pop_front()
+	elif GRADE_RANK[colour_grade] > GRADE_RANK[group.grade] or (colour_grade == group.grade and absf(dt) > absf(group.dt)):
+		group.grade = colour_grade; group.dt = dt
+	group.label = "FAST" if group.dt < 0.0 else "LATE"
+	if group.grade in ["CRITICAL", "MISS"]:
+		timing_stack.erase(group)
+		return
+	if not timing_stack.has(group):
+		for index in timing_stack.size():
+			var e: Dictionary = timing_stack[index]
+			e.y_from = _timing_y(e, last_fx_t); e.y_to = (index + 1) * 24.0; e.moved = last_fx_t
+		timing_stack.push_front(group)
+		if timing_stack.size() > 3: timing_stack.pop_back()
 
 func add_judge(t: String, xl: float, dt: float) -> void:
+	_add_combo_feedback(t, xl, dt)
 	var x := (G.x_of(clampf(xl, 0.0, 1.0), 1.0) if G else LW / 2.0)
 	var RANK := {"PERFECT": 0, "GREAT": 1, "GOOD": 2, "MISS": 3}
 	for j in judges:                                  # a chord lands as one judgement (worst grade wins)
@@ -1280,12 +1461,15 @@ func add_hold_end(n: Dictionary) -> void:
 	var xl: float = n.hitX if n.hitX >= 0.0 else (n.lineX if n.lineX >= 0.0 else 0.5)
 	hold_ends.append({"xl": xl, "born": last_fx_t})
 	plucks.append({"xl": xl, "amp": 0.9, "born": last_fx_t})
+	if hold_ends.size() > FX_CAP: hold_ends.pop_front()
+	if plucks.size() > FX_CAP: plucks.pop_front()
 
 func add_combo_break(v: int) -> void:
 	combo_break_v = {"value": v, "born": last_fx_t}
 
 func add_cue_ring(yellow: bool, from: String) -> void:
 	rings.append({"yellow": yellow, "from": from, "born": last_fx_t})
+	if rings.size() > FX_CAP: rings.pop_front()
 	track_flash_at = last_fx_t
 
 func add_cue_text(t: String, from: String) -> void:

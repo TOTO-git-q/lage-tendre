@@ -20,6 +20,8 @@ const GOLD := Color(1.0, 0.86, 0.55)
 const ICE := Color(0.78, 0.89, 1.0)
 
 var done := false
+var restart_hint: Label
+var songs_hint: Label
 var _t0 := 0
 var _skipped := false
 var _skip_at := 0
@@ -198,7 +200,8 @@ func begin(st: Dictionary, meta: Dictionary, rec: Dictionary, rank: String, kind
 	add_child(vl)
 	_reveal(vl, 0.4, 0.8, Vector2.ZERO)
 	var h1 := _hint("R  重开  RESTART", Vector2(CX - 330, 1000), func(): restart_pressed.emit())
-	var h2 := _hint("Enter  选歌  SONGS", Vector2(CX + 30, 1000), func(): songs_pressed.emit())
+	var h2 := _hint("选歌  SONGS", Vector2(CX + 30, 1000), func(): songs_pressed.emit())
+	restart_hint = h1; songs_hint = h2
 	_reveal(h1, 3.0, 0.5, Vector2.ZERO); _reveal(h2, 3.0, 0.5, Vector2.ZERO)
 	if _grain.get_parent() == null: add_child(_grain)
 	move_child(_grain, get_child_count() - 1)
