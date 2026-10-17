@@ -1,0 +1,43 @@
+{
+  "id": "standard_render",
+  "version": "1.0.0",
+  "api": 1,
+  "tier": "script",
+  "title": "Standard Render",
+  "author": "L'\u00e2ge tendre",
+  "description": "The original, behavior-preserving standard render providers.",
+  "provides": {
+    "elements": [
+      "background",
+      "key_guides",
+      "dividers",
+      "tracks",
+      "lane_edges",
+      "judgement_line",
+      "pedal_receptors",
+      "holds",
+      "notes",
+      "hit_effects",
+      "hud",
+      "hud_additive",
+      "grain",
+      "vignette"
+    ],
+    "motions": [
+      "follow_track"
+    ]
+  },
+  "fields": [],
+  "assets": [],
+  "entry": "entry.gd",
+  "requires": [
+    {
+      "id": "standard_chart",
+      "version": "1.0.0"
+    },
+    {
+      "id": "standard_stage",
+      "version": "1.0.0"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "source_audit": {
+    "scope": "git ls-files --cached --others --exclude-standard -z",
+    "files": 607,
+    "audio": [
+      {
+        "file": "songs/_demo/audio.wav",
+        "bytes": 6174044,
+        "sha256": "ee03f7aab8dc52a8f43167a10514f1f557647f98129a62a40de3e3eeee74f50c"
+      },
+      {
+        "file": "songs/_plugin_demos/glow_ring/audio.wav",
+        "bytes": 6174044,
+        "sha256": "ee03f7aab8dc52a8f43167a10514f1f557647f98129a62a40de3e3eeee74f50c"
+      },
+      {
+        "file": "songs/_plugin_demos/motion/audio.wav",
+        "bytes": 6174044,
+        "sha256": "ee03f7aab8dc52a8f43167a10514f1f557647f98129a62a40de3e3eeee74f50c"
+      },
+      {
+        "file": "songs/_plugin_demos/script_trust/audio.wav",
+        "bytes": 6174044,
+        "sha256": "ee03f7aab8dc52a8f43167a10514f1f557647f98129a62a40de3e3eeee74f50c"
+      },
+      {
+        "file": "songs/_plugin_demos/shapes/audio.wav",
+        "bytes": 6174044,
+        "sha256": "ee03f7aab8dc52a8f43167a10514f1f557647f98129a62a40de3e3eeee74f50c"
+      },
+      {
+        "file": "songs/_plugin_demos/speed/audio.wav",
+        "bytes": 6174044,
+        "sha256": "ee03f7aab8dc52a8f43167a10514f1f557647f98129a62a40de3e3eeee74f50c"
+      }
+    ],
+    "failures": [],
+    "passed": true
+  },
+  "archives": [
+    {
+      "file": "LAgeTendre-win64.zip",
+      "bytes": 74129832,
+      "sha256": "0337a8048fed81e82e077e2ff526a976effff6d04b8ccc6bd3d0623bd1a99a12"
+    },
+    {
+      "file": "LAgeTendreCharter-win64.zip",
+      "bytes": 117778606,
+      "sha256": "f978385fb0bd8c32693e8ef03e105fb518713e4e4f6bf235580c38c88c0c4cc2"
+    }
+  ],
+  "fresh_unzip_smoke": {
+    "game_screenshot": [
+      1600,
+      900
+    ],
+    "charter_songs": 6,
+    "charter_tools": 33,
+    "charter_preview": [
+      752,
+      423
+    ]
+  },
+  "published": false
+}

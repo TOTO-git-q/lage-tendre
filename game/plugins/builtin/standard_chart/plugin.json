@@ -1,0 +1,292 @@
+{
+  "id": "standard_chart",
+  "version": "1.0.0",
+  "api": 1,
+  "tier": "script",
+  "title": "Standard Chart",
+  "author": "L'\u00e2ge tendre",
+  "description": "The original, behavior-preserving standard chart providers.",
+  "provides": {
+    "events": [
+      "on",
+      "sweep",
+      "pulse",
+      "off"
+    ],
+    "note_kinds": [
+      "tap",
+      "hold"
+    ],
+    "flags": [
+      "ex",
+      "big",
+      "grow"
+    ],
+    "track_geometry": [
+      "lane"
+    ],
+    "validators": [
+      "standard_chart"
+    ]
+  },
+  "fields": [
+    {
+      "path": "bpm",
+      "type": "number",
+      "default": 120,
+      "unit": "beats/minute",
+      "doc": "Base tempo used by the original game.",
+      "min": 1,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "path": "offset",
+      "type": "number",
+      "default": 0,
+      "unit": "seconds",
+      "doc": "Chart time minus audio time.",
+      "min": -3600,
+      "max": 3600,
+      "step": 0.001
+    },
+    {
+      "path": "lights[].type",
+      "type": "enum",
+      "default": "on",
+      "unit": "event",
+      "doc": "Light event kind.",
+      "enum": [
+        "on",
+        "sweep",
+        "pulse",
+        "off"
+      ]
+    },
+    {
+      "path": "lights[].from",
+      "type": "enum",
+      "default": "LR",
+      "unit": "side",
+      "doc": "Pedal cue side.",
+      "enum": [
+        "L",
+        "R",
+        "LR"
+      ]
+    },
+    {
+      "path": "lights[].t",
+      "type": "number",
+      "default": 0,
+      "unit": "seconds",
+      "doc": "Event chart time.",
+      "min": 0,
+      "max": 86400,
+      "step": 0.001
+    },
+    {
+      "path": "lights[].id",
+      "type": "integer",
+      "default": 0,
+      "unit": "track id",
+      "doc": "Stable track identity.",
+      "min": 0,
+      "max": 2147483647,
+      "step": 1
+    },
+    {
+      "path": "lights[].x",
+      "type": "number",
+      "default": 0.5,
+      "unit": "line fraction",
+      "doc": "Track centre; one key is 1/15 line.",
+      "min": -1,
+      "max": 2,
+      "step": 0.06666666666666667
+    },
+    {
+      "path": "lights[].w",
+      "type": "number",
+      "default": 0.06666666666666667,
+      "unit": "line fraction",
+      "doc": "Track width.",
+      "min": 0.06666666666666667,
+      "max": 1.2133333333333334,
+      "step": 0.06666666666666667
+    },
+    {
+      "path": "lights[].a",
+      "type": "number",
+      "default": 1,
+      "unit": "opacity",
+      "doc": "Explicit v3 opacity.",
+      "min": 0,
+      "max": 1,
+      "step": 0.01
+    },
+    {
+      "path": "lights[].tint",
+      "type": "integer",
+      "default": -1,
+      "unit": "palette index",
+      "doc": "-1 uses white; 0..9 select the built-in palette.",
+      "min": -1,
+      "max": 9,
+      "step": 1
+    },
+    {
+      "path": "lights[].dur",
+      "type": "number",
+      "default": 0,
+      "unit": "seconds",
+      "doc": "Sweep duration.",
+      "min": 0,
+      "max": 86400,
+      "step": 0.001
+    },
+    {
+      "path": "lights[].ease",
+      "type": "enum",
+      "default": "inout",
+      "unit": "curve",
+      "doc": "Sweep easing.",
+      "enum": [
+        "inout",
+        "linear",
+        "in",
+        "out"
+      ]
+    },
+    {
+      "path": "lights[].auto",
+      "type": "boolean",
+      "default": false,
+      "unit": "flag",
+      "doc": "Suppress the pedal cue."
+    },
+    {
+      "path": "notes[].t",
+      "type": "number",
+      "default": 0,
+      "unit": "seconds",
+      "doc": "Note chart time.",
+      "min": 0,
+      "max": 86400,
+      "step": 0.001
+    },
+    {
+      "path": "notes[].light",
+      "type": "integer",
+      "default": 0,
+      "unit": "track id",
+      "doc": "Track carrying the note.",
+      "min": 0,
+      "max": 2147483647,
+      "step": 1
+    },
+    {
+      "path": "notes[].u",
+      "type": "number",
+      "default": 0.5,
+      "unit": "track fraction",
+      "doc": "Visual note position within its track.",
+      "min": 0,
+      "max": 1,
+      "step": 0.01
+    },
+    {
+      "path": "notes[].kind",
+      "type": "enum",
+      "default": "tap",
+      "unit": "kind",
+      "doc": "Registered note kind.",
+      "enum": [
+        "tap",
+        "hold"
+      ]
+    },
+    {
+      "path": "notes[].dur",
+      "type": "number",
+      "default": 0,
+      "unit": "seconds",
+      "doc": "Hold duration.",
+      "min": 0,
+      "max": 86400,
+      "step": 0.001
+    },
+    {
+      "path": "notes[].nw",
+      "type": "number",
+      "default": 1,
+      "unit": "keys",
+      "doc": "Visual note width.",
+      "min": 0.5,
+      "max": 10,
+      "step": 0.25
+    },
+    {
+      "path": "notes[].k",
+      "type": "integer",
+      "default": -1,
+      "unit": "home-row key",
+      "doc": "Optional fingering hint.",
+      "min": -1,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "path": "notes[].ex",
+      "type": "boolean",
+      "default": false,
+      "unit": "flag",
+      "doc": "Protected yellow note."
+    },
+    {
+      "path": "notes[].big",
+      "type": "boolean",
+      "default": false,
+      "unit": "flag",
+      "doc": "Fill the light width."
+    },
+    {
+      "path": "notes[].grow",
+      "type": "array",
+      "default": [],
+      "unit": "scale pair",
+      "doc": "Appearance and landing scale, each in 0.1..3."
+    },
+    {
+      "path": "notes[].path",
+      "type": "array",
+      "default": [],
+      "unit": "seconds, track fraction, keys",
+      "doc": "Hold path control points."
+    },
+    {
+      "path": "timing",
+      "type": "array",
+      "default": [],
+      "unit": "seconds/beat",
+      "doc": "Tempo and meter segments."
+    },
+    {
+      "path": "meta",
+      "type": "object",
+      "default": {},
+      "unit": "chart metadata",
+      "doc": "Original staging, kiai, breaks and breath metadata."
+    },
+    {
+      "path": "fx",
+      "type": "array",
+      "default": [],
+      "unit": "stage events",
+      "doc": "Explicit stage events; empty uses automatic staging."
+    }
+  ],
+  "assets": [],
+  "entry": "entry.gd",
+  "requires": []
+}

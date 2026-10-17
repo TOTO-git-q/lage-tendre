@@ -1,0 +1,149 @@
+{
+  "bpm": 120,
+  "audio": "audio.wav",
+  "plugins": [
+    {
+      "id": "fall_speed",
+      "version": "1.0.0"
+    },
+    {
+      "id": "shape_tracks",
+      "version": "1.0.0"
+    },
+    {
+      "id": "note_motion",
+      "version": "1.0.0"
+    }
+  ],
+  "lights": [],
+  "tracks": [
+    {
+      "id": 0,
+      "geometry": "shape",
+      "shapes": [
+        {
+          "nodes": [
+            [
+              0.1,
+              0.5
+            ],
+            [
+              0.9,
+              0.5
+            ],
+            [
+              0.9,
+              7
+            ],
+            [
+              0.1,
+              7
+            ]
+          ],
+          "segs": [
+            [
+              "linear"
+            ],
+            [
+              "linear"
+            ],
+            [
+              "linear"
+            ],
+            [
+              "linear"
+            ]
+          ],
+          "holes": [
+            {
+              "nodes": [
+                [
+                  0.4,
+                  0.6
+                ],
+                [
+                  0.6,
+                  0.6
+                ],
+                [
+                  0.6,
+                  6.9
+                ],
+                [
+                  0.4,
+                  6.9
+                ]
+              ],
+              "segs": [
+                [
+                  "linear"
+                ],
+                [
+                  "linear"
+                ],
+                [
+                  "linear"
+                ],
+                [
+                  "linear"
+                ]
+              ]
+            }
+          ],
+          "props": [
+            {
+              "t": 0.5,
+              "a": 0.8,
+              "tint": 4
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "track_speeds": [
+    {
+      "id": 0,
+      "speed": 1.5
+    }
+  ],
+  "sv": [
+    {
+      "t": 1,
+      "speed": 0.5,
+      "dur": 1,
+      "ease": "out"
+    },
+    {
+      "t": 4,
+      "speed": 1.4,
+      "dur": 1,
+      "ease": "in"
+    }
+  ],
+  "notes": [
+    {
+      "t": 3,
+      "light": 0,
+      "u": 0.8,
+      "kind": "tap",
+      "motion": {
+        "type": "horizontal",
+        "x0": 0.2,
+        "ease": "linear"
+      }
+    },
+    {
+      "t": 4,
+      "light": 0,
+      "u": 0.8,
+      "kind": "hold",
+      "dur": 1.25,
+      "motion": {
+        "type": "horizontal",
+        "x0": 0.2,
+        "ease": "linear"
+      }
+    }
+  ]
+}

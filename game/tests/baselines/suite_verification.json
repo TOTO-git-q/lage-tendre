@@ -1,0 +1,62 @@
+{
+  "verification": "Complete original runner plus bounded reruns of affected original-content cases and all charter visual cases",
+  "passed_suites": [
+    "charter-00-charter_model",
+    "charter-01-charter_tools",
+    "charter-02-charter_http",
+    "charter-03-charter_ui",
+    "charter-04-charter_versions",
+    "charter-05-charter_auth",
+    "charter-06-charter_library",
+    "charter-07-charter_timing",
+    "charter-08-charter_plugins",
+    "charter-09-charter_plugins_visual",
+    "charter-10-charter_visual",
+    "game-00-autoplay_test",
+    "game-01-one_chart",
+    "game-02-home_keys_song",
+    "game-03-fat_finger_test",
+    "game-04-one_chart",
+    "game-05-home_keys_song",
+    "game-06-fat_finger_test",
+    "game-07-autoplay_double_test",
+    "game-08-hold_rules_test",
+    "game-09-extap_test",
+    "game-10-snap_test",
+    "game-11-track_any_key_test",
+    "game-12-track_chord_test",
+    "game-13-chord_gap_test",
+    "game-14-ranks_test",
+    "game-15-human_keys_test",
+    "game-16-replay_log",
+    "game-17-affine_section_stability_test",
+    "game-18-fall_speed_dispatch_recovery_test",
+    "game-19-fall_speed_test",
+    "game-20-motion_boundaries_test",
+    "game-21-motion_variable_target_test",
+    "game-22-note_motion_test",
+    "game-24-plugin_demo_test",
+    "game-25-plugin_docs_test",
+    "game-26-plugin_registry_test",
+    "game-27-projection_triangulation_recovery_test",
+    "game-28-scroll_motion_recovery_test",
+    "game-29-scroll_projection_recovery_test",
+    "game-30-scroll_projection_witness_recovery_test",
+    "game-31-shape_hold_test",
+    "game-32-shape_tracks_test"
+  ],
+  "expected_windows_symlink_failures": {
+    "game-23-plugin_demo_app_test": [
+      "FAIL create isolated symlink fixture",
+      "PLUGIN DEMO APP: 123 checks, 1 failures"
+    ],
+    "game-33-song_plugin_session_test": [
+      "FAIL create isolated symlink test fixture",
+      "FAIL trusted snapshot symlink fixture created",
+      "FAIL snapshot ancestor link fixture created",
+      "FAIL snapshot final-component link fixture created",
+      "SONG PLUGIN SESSION: 234 checks, 4 failures"
+    ]
+  },
+  "unexpected_failures": []
+}

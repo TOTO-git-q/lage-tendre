@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+hands together                               ["PERFECT", "PERFECT", "PERFECT"]
+right hand 90 ms after the left              ["PERFECT", "PERFECT", "PERFECT"]
+left 40 ms late, right 130 ms late           ["PERFECT", "PERFECT", "PERFECT"]
+only one hand: the other misses              ["PERFECT", "MISS", "PERFECT"]
+CHORD GAP: PASS
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)

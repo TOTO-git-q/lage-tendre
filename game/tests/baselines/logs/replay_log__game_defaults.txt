@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+replay cut=true(track) guard=0.012  P=422 G=67 g=25 MISS=36 strays=141 maxCombo=43 acc=0.8875
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)

@@ -1,0 +1,134 @@
+{
+  "scope": "full",
+  "checks": {
+    "numbers": {
+      "passed": true,
+      "differences": []
+    },
+    "source_overrides": {
+      "passed": true
+    },
+    "screenshots": {
+      "passed": true,
+      "images": {
+        "screenshots\\fixture_dense__intro.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\fixture_dense__dense.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\fixture_dense__chord.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\fixture_dense__hold.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\fixture_dense__yellow_chain.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\fixture_dense__ending.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\_demo__intro.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\_demo__dense.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\_demo__chorus.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\_demo__hold.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\_demo__yellow_cue.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\_demo__ending.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\demo__intro.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\demo__dense.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\demo__chorus.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\demo__hold.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\demo__yellow_cue.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        },
+        "screenshots\\demo__ending.png": {
+          "passed": true,
+          "max_channel_difference": 0,
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0
+        }
+      }
+    },
+    "performance": {
+      "passed": true,
+      "relative_changes": {
+        "mean_usec": -0.1124103619471758,
+        "p95_usec": -0.1476429287863591
+      },
+      "errors": []
+    }
+  },
+  "passed": true
+}

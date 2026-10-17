@@ -1,0 +1,458 @@
+{
+  "schema": 1,
+  "scope": "numeric",
+  "source_commit": "public-source",
+  "tests": {
+    "autoplay_test": {
+      "script": "autoplay_test",
+      "args": [],
+      "exit_code": 0,
+      "lines": [
+        "OK  demo               total=242 P=242 G=0 g=0 M=0 score=1010000 warn=0 []",
+        "bad charts: 0"
+      ],
+      "errors": [],
+      "stdout_sha256": "47b84245f7d285667e5b83650b67f997549b31f325fc7c83f13ed0d6553a3f41"
+    },
+    "one_chart__fixture_dense": {
+      "script": "one_chart",
+      "args": [
+        "fixture_dense"
+      ],
+      "exit_code": 0,
+      "lines": [
+        "validated: notes 500 -> 500, lights 2 -> 2, warnings 0",
+        "cues: 0  stage majors: []",
+        "autoplay: total=550 P=550 G=0 g=0 M=0 crit=550 score=1010000"
+      ],
+      "errors": [],
+      "stdout_sha256": "e4c2d897c5702a191f30e0607ab521b9fc12051260eca05cde47e2d6c0a8be0e"
+    },
+    "home_keys_song__fixture_dense": {
+      "script": "home_keys_song",
+      "args": [
+        "fixture_dense"
+      ],
+      "exit_code": 0,
+      "lines": [
+        "home-key player on fixture_dense: 500 notes, not PERFECT: 0  []"
+      ],
+      "errors": [],
+      "stdout_sha256": "c6b1827e3e0ae3f053b40d2494570d4e1a1a1d9050228953c9e0ee7565c4f243"
+    },
+    "fat_finger_test__fixture_dense": {
+      "script": "fat_finger_test",
+      "args": [
+        "fixture_dense"
+      ],
+      "exit_code": 0,
+      "lines": [
+        "fat-finger on fixture_dense: 450 strays, notes taken by a stray key: 0, not PERFECT: 0, MISS 0, score 1010000"
+      ],
+      "errors": [],
+      "stdout_sha256": "07d2322160e5cdc98c47d8abefe6a02244ea412150b718f1d07e72810365975d"
+    },
+    "one_chart___demo": {
+      "script": "one_chart",
+      "args": [
+        "_demo"
+      ],
+      "exit_code": 0,
+      "lines": [
+        "validated: notes 199 -> 199, lights 24 -> 24, warnings 0",
+        "cues: 13  stage majors: [\"rise@50.00\"]",
+        "autoplay: total=242 P=242 G=0 g=0 M=0 crit=242 score=1010000"
+      ],
+      "errors": [],
+      "stdout_sha256": "2eec15e690ffe69d411f247c55563c732d365e1abeb8cc5e1e6c8a6d2df77f58"
+    },
+    "home_keys_song___demo": {
+      "script": "home_keys_song",
+      "args": [
+        "_demo"
+      ],
+      "exit_code": 0,
+      "lines": [
+        "home-key player on _demo: 199 notes, not PERFECT: 0  []"
+      ],
+      "errors": [],
+      "stdout_sha256": "22c141e878167e7b1654f235f2e10349b919043c44a8b556c327789a07f8aa60"
+    },
+    "fat_finger_test___demo": {
+      "script": "fat_finger_test",
+      "args": [
+        "_demo"
+      ],
+      "exit_code": 0,
+      "lines": [
+        "fat-finger on _demo: 165 strays, notes taken by a stray key: 0, not PERFECT: 0, MISS 0, score 1010000"
+      ],
+      "errors": [],
+      "stdout_sha256": "b41995f2722ba0e36e94c6061fef94d378e5f9d6845df9f37549b8f3b181ce46"
+    },
+    "autoplay_double_test": {
+      "script": "autoplay_double_test",
+      "args": [],
+      "exit_code": 0,
+      "lines": [
+        "PASS demo               extra +0 ms: total=242 P=242 G=0 g=0 M=0 crit=242 score=1010000 strays=199",
+        "PASS demo               extra +8 ms: total=242 P=242 G=0 g=0 M=0 crit=242 score=1010000 strays=199",
+        "PASS fixture_dense      extra +0 ms: total=550 P=550 G=0 g=0 M=0 crit=550 score=1010000 strays=500",
+        "PASS fixture_dense      extra +8 ms: total=550 P=550 G=0 g=0 M=0 crit=550 score=1010000 strays=500",
+        "PASS _demo              extra +0 ms: total=242 P=242 G=0 g=0 M=0 crit=242 score=1010000 strays=199",
+        "PASS _demo              extra +8 ms: total=242 P=242 G=0 g=0 M=0 crit=242 score=1010000 strays=199",
+        "AUTOPLAY DOUBLE: PASS"
+      ],
+      "errors": [],
+      "stdout_sha256": "e2ed7dc8c7a6ae19ee7c2e03c7fed7f73d44b93d72d790e4167b35fecc239a4b"
+    },
+    "hold_rules_test": {
+      "script": "hold_rules_test",
+      "args": [],
+      "exit_code": 0,
+      "lines": [
+        "held to the end on the head key                  [\"done\", 8, 8, 0, 0]  (want [\"done\", 8, 8, 0, 0])",
+        "switch D -> F mid-hold (overlap)                 [\"done\", 8, 8, 0, 0]  (want [\"done\", 8, 8, 0, 0])",
+        "40 ms gap: tick still CRITICAL                   [\"done\", 8, 8, 0, 0]  (want [\"done\", 8, 8, 0, 0])",
+        "80 ms gap: one tick PERFECT                      [\"done\", 7, 8, 0, 0]  (want [\"done\", 7, 8, 0, 0])",
+        "130 ms gap: one tick GOOD                        [\"done\", 7, 7, 1, 0]  (want [\"done\", 7, 7, 1, 0])",
+        "0.6 s gap: GOOD, 2 MISS, then back               [\"done\", 5, 5, 1, 2]  (want [\"done\", 5, 5, 1, 2])",
+        "released for good at 3.6                         [\"fail\", 3, 3, 1, 4]  (want [\"fail\", 3, 3, 1, 4])",
+        "release in the free last half step               [\"done\", 8, 8, 0, 0]  (want [\"done\", 8, 8, 0, 0])",
+        "a key outside the light does not keep it         [\"fail\", 3, 3, 0, 5]  (want [\"fail\", 3, 3, 0, 5])",
+        "key held from before: head MISS, body counts     [\"done\", 7, 7, 0, 1]  (want [\"done\", 7, 7, 0, 1])",
+        "HOLD RULES: PASS"
+      ],
+      "errors": [],
+      "stdout_sha256": "c3b70a0edd48461f010d62ce145a8199873188a3b09115709e14349313ac05e7"
+    },
+    "extap_test": {
+      "script": "extap_test",
+      "args": [],
+      "exit_code": 0,
+      "lines": [
+        "press 0.12 s late, then roll the chain         [\"PERFECT/KeyD\", \"PERFECT/KeyA\", \"PERFECT/KeyS\", \"PERFECT/KeyD\", \"PERFECT/KeyF\"]",
+        "key held from before catches the lone one      [\"PERFECT/KeyD\", \"MISS/\", \"MISS/\", \"MISS/\", \"MISS/\"]",
+        "one key held through the chain catches it all  [\"MISS/\", \"PERFECT/KeyD\", \"PERFECT/KeyD\", \"PERFECT/KeyD\", \"PERFECT/KeyD\"]",
+        "chain rolled 25 ms early                       [\"MISS/\", \"PERFECT/KeyA\", \"PERFECT/KeyS\", \"PERFECT/KeyD\", \"PERFECT/KeyF\"]",
+        "EXTAP RULES: PASS"
+      ],
+      "errors": [],
+      "stdout_sha256": "e1de564116c1a87e7bb1c5a38eb78290d1a8b1b688c6f42fdb094a5e3d7fed71"
+    },
+    "snap_test": {
+      "script": "snap_test",
+      "args": [],
+      "exit_code": 0,
+      "lines": [
+        "tap 0.25 s early, released -> snaps (GREAT)    GREAT  (want GREAT)",
+        "tap 0.4 s early -> stray, note missed          MISS  (want MISS)",
+        "early tap, then a real press in time wins      PERFECT  (want PERFECT)",
+        "early tap on a key outside the light           MISS  (want MISS)",
+        "SNAP RULES: PASS"
+      ],
+      "errors": [],
+      "stdout_sha256": "3ead697c895b3daf2ffbee00f2e8edf33cbea5cf0e3b6bf973fb0ce32da2be02"
+    },
+    "track_any_key_test": {
+      "script": "track_any_key_test",
+      "args": [],
+      "exit_code": 0,
+      "lines": [
+        "A x5 on a track A..L -> [\"A:PERFECT\", \"S:PERFECT\", \"D:PERFECT\", \"F:PERFECT\", \"G:PERFECT\"]",
+        "TRACK ANY KEY: PASS"
+      ],
+      "errors": [],
+      "stdout_sha256": "4f927ae19a3bf6c4ab64356805ac19a4856d6c3335497305cac41ffeedd94488"
+    },
+    "track_chord_test": {
+      "script": "track_chord_test",
+      "args": [],
+      "exit_code": 0,
+      "lines": [
+        "2-note chord, keys [\"KeyA\"] -> PERFECT 1, MISS 1",
+        "2-note chord, keys [\"KeyA\", \"KeyS\"] -> PERFECT 2, MISS 0",
+        "3-note chord, keys [\"KeyA\"] -> PERFECT 1, MISS 2",
+        "3-note chord, keys [\"KeyA\", \"KeyS\"] -> PERFECT 2, MISS 1",
+        "3-note chord, keys [\"KeyA\", \"KeyS\", \"KeyD\"] -> PERFECT 3, MISS 0",
+        "TRACK CHORDS: PASS"
+      ],
+      "errors": [],
+      "stdout_sha256": "7529255bc05ee087915b18224d689a73c4e0d6c48690925e8b4cd9e11e0eaf13"
+    },
+    "chord_gap_test": {
+      "script": "chord_gap_test",
+      "args": [],
+      "exit_code": 0,
+      "lines": [
+        "hands together                               [\"PERFECT\", \"PERFECT\", \"PERFECT\"]",
+        "right hand 90 ms after the left              [\"PERFECT\", \"PERFECT\", \"PERFECT\"]",
+        "left 40 ms late, right 130 ms late           [\"PERFECT\", \"PERFECT\", \"PERFECT\"]",
+        "only one hand: the other misses              [\"PERFECT\", \"MISS\", \"PERFECT\"]",
+        "CHORD GAP: PASS"
+      ],
+      "errors": [],
+      "stdout_sha256": "bb62995c6d112af221fb13f70a9f07f9daf5329fd0d1f81798aae0f226858dbf"
+    },
+    "ranks_test": {
+      "script": "ranks_test",
+      "args": [],
+      "exit_code": 0,
+      "lines": [
+        "ranks_test: OK"
+      ],
+      "errors": [],
+      "stdout_sha256": "d7fab83a293c03220ad705900962f38eb52efecc8952b8982937727fef177c89"
+    },
+    "human_keys_test": {
+      "script": "human_keys_test",
+      "args": [],
+      "exit_code": 0,
+      "lines": [
+        "==== layout ansi  notes=199 cues=13 warnings=[]",
+        "  static failures: 0",
+        "  drift (note drawn over another key while falling): 32",
+        "    beat 26.50 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)",
+        "    beat 28.50 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)",
+        "    beat 53.50 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 54.50 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 65.00 KeyF drawn over KeyS at 1.13s before arrival (fall 1.5)",
+        "    beat 65.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 65.50 KeyJ drawn over KeyL at 1.13s before arrival (fall 1.5)",
+        "    beat 65.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)",
+        "    beat 66.00 KeyF drawn over KeyS at 1.13s before arrival (fall 1.5)",
+        "    beat 66.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 66.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)",
+        "    beat 67.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 68.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 68.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)",
+        "    beat 69.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 73.00 KeyD drawn over KeyF at 1.13s before arrival (fall 1.5)",
+        "    beat 73.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)",
+        "    beat 74.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 75.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)",
+        "    beat 76.00 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 81.00 KeyD drawn over KeyF at 1.13s before arrival (fall 1.5)",
+        "    beat 81.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)",
+        "    beat 81.50 KeyK drawn over KeyJ at 1.13s before arrival (fall 1.5)",
+        "    beat 81.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 82.00 KeyL drawn over KeyJ at 1.13s before arrival (fall 1.5)",
+        "    beat 82.00 KeyL drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 82.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 85.00 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 113.00 KeyA drawn over KeyS at 1.13s before arrival (fall 1.5)",
+        "    beat 113.00 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 116.00 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)",
+        "    beat 116.50 Semicolon drawn over KeyL at 2.63s before arrival (fall 3.5)",
+        "  run row 2 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off -0.03  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off +0.03  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off -0.06  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off +0.06  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off -0.10  P=71 G=169 g=0 M=2 / 242  cueMiss=0  fails=6",
+        "      beat 105.25 key KeyF -> no note",
+        "      beat 105.50 key KeyD -> took note at beat 105.25 (PERFECT)",
+        "      beat 105.75 key KeyF -> took note at beat 105.50 (PERFECT)",
+        "      beat 106.25 key KeyK -> no note",
+        "      beat 106.50 key KeyJ -> took note at beat 106.25 (PERFECT)",
+        "      beat 106.75 key KeyK -> took note at beat 106.50 (PERFECT)",
+        "  run row 1 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 3 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  notes whose inward-neighbour key (not G/H) registers NOTHING: 0",
+        "  -- hand-anchored human (index on F/J, reads note relative to light inner edge):",
+        "  run row 9 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "==== layout ansi65  notes=199 cues=13 warnings=[]",
+        "  static failures: 0",
+        "  drift (note drawn over another key while falling): 32",
+        "    beat 26.50 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)",
+        "    beat 28.50 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)",
+        "    beat 53.50 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 54.50 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 65.00 KeyF drawn over KeyS at 1.13s before arrival (fall 1.5)",
+        "    beat 65.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 65.50 KeyJ drawn over KeyL at 1.13s before arrival (fall 1.5)",
+        "    beat 65.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)",
+        "    beat 66.00 KeyF drawn over KeyS at 1.13s before arrival (fall 1.5)",
+        "    beat 66.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 66.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)",
+        "    beat 67.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 68.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 68.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)",
+        "    beat 69.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 73.00 KeyD drawn over KeyF at 1.13s before arrival (fall 1.5)",
+        "    beat 73.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)",
+        "    beat 74.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 75.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)",
+        "    beat 76.00 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 81.00 KeyD drawn over KeyF at 1.13s before arrival (fall 1.5)",
+        "    beat 81.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)",
+        "    beat 81.50 KeyK drawn over KeyJ at 1.13s before arrival (fall 1.5)",
+        "    beat 81.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 82.00 KeyL drawn over KeyJ at 1.13s before arrival (fall 1.5)",
+        "    beat 82.00 KeyL drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 82.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 85.00 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 113.00 KeyA drawn over KeyS at 1.13s before arrival (fall 1.5)",
+        "    beat 113.00 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 116.00 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)",
+        "    beat 116.50 Semicolon drawn over KeyL at 2.63s before arrival (fall 3.5)",
+        "  run row 2 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off -0.03  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off +0.03  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off -0.06  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off +0.06  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off -0.10  P=71 G=169 g=0 M=2 / 242  cueMiss=0  fails=6",
+        "      beat 105.25 key KeyF -> no note",
+        "      beat 105.50 key KeyD -> took note at beat 105.25 (PERFECT)",
+        "      beat 105.75 key KeyF -> took note at beat 105.50 (PERFECT)",
+        "      beat 106.25 key KeyK -> no note",
+        "      beat 106.50 key KeyJ -> took note at beat 106.25 (PERFECT)",
+        "      beat 106.75 key KeyK -> took note at beat 106.50 (PERFECT)",
+        "  run row 1 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 3 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  notes whose inward-neighbour key (not G/H) registers NOTHING: 0",
+        "  -- hand-anchored human (index on F/J, reads note relative to light inner edge):",
+        "  run row 9 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "==== layout iso  notes=199 cues=13 warnings=[]",
+        "  static failures: 0",
+        "  drift (note drawn over another key while falling): 32",
+        "    beat 26.50 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)",
+        "    beat 28.50 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)",
+        "    beat 53.50 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 54.50 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 65.00 KeyF drawn over KeyS at 1.13s before arrival (fall 1.5)",
+        "    beat 65.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 65.50 KeyJ drawn over KeyL at 1.13s before arrival (fall 1.5)",
+        "    beat 65.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)",
+        "    beat 66.00 KeyF drawn over KeyS at 1.13s before arrival (fall 1.5)",
+        "    beat 66.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 66.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)",
+        "    beat 67.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 68.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 68.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)",
+        "    beat 69.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 73.00 KeyD drawn over KeyF at 1.13s before arrival (fall 1.5)",
+        "    beat 73.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)",
+        "    beat 74.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 75.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)",
+        "    beat 76.00 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 81.00 KeyD drawn over KeyF at 1.13s before arrival (fall 1.5)",
+        "    beat 81.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)",
+        "    beat 81.50 KeyK drawn over KeyJ at 1.13s before arrival (fall 1.5)",
+        "    beat 81.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 82.00 KeyL drawn over KeyJ at 1.13s before arrival (fall 1.5)",
+        "    beat 82.00 KeyL drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 82.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 85.00 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 113.00 KeyA drawn over KeyS at 1.13s before arrival (fall 1.5)",
+        "    beat 113.00 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 116.00 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)",
+        "    beat 116.50 Semicolon drawn over KeyL at 2.63s before arrival (fall 3.5)",
+        "  run row 2 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off -0.03  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off +0.03  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off -0.06  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off +0.06  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off -0.10  P=71 G=169 g=0 M=2 / 242  cueMiss=0  fails=6",
+        "      beat 105.25 key KeyF -> no note",
+        "      beat 105.50 key KeyD -> took note at beat 105.25 (PERFECT)",
+        "      beat 105.75 key KeyF -> took note at beat 105.50 (PERFECT)",
+        "      beat 106.25 key KeyK -> no note",
+        "      beat 106.50 key KeyJ -> took note at beat 106.25 (PERFECT)",
+        "      beat 106.75 key KeyK -> took note at beat 106.50 (PERFECT)",
+        "  run row 1 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 3 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  notes whose inward-neighbour key (not G/H) registers NOTHING: 0",
+        "  -- hand-anchored human (index on F/J, reads note relative to light inner edge):",
+        "  run row 9 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "==== layout jis  notes=199 cues=13 warnings=[]",
+        "  static failures: 0",
+        "  drift (note drawn over another key while falling): 32",
+        "    beat 26.50 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)",
+        "    beat 28.50 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)",
+        "    beat 53.50 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 54.50 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 65.00 KeyF drawn over KeyS at 1.13s before arrival (fall 1.5)",
+        "    beat 65.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 65.50 KeyJ drawn over KeyL at 1.13s before arrival (fall 1.5)",
+        "    beat 65.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)",
+        "    beat 66.00 KeyF drawn over KeyS at 1.13s before arrival (fall 1.5)",
+        "    beat 66.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 66.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)",
+        "    beat 67.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 68.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 68.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)",
+        "    beat 69.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 73.00 KeyD drawn over KeyF at 1.13s before arrival (fall 1.5)",
+        "    beat 73.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)",
+        "    beat 74.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 75.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)",
+        "    beat 76.00 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 81.00 KeyD drawn over KeyF at 1.13s before arrival (fall 1.5)",
+        "    beat 81.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)",
+        "    beat 81.50 KeyK drawn over KeyJ at 1.13s before arrival (fall 1.5)",
+        "    beat 81.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 82.00 KeyL drawn over KeyJ at 1.13s before arrival (fall 1.5)",
+        "    beat 82.00 KeyL drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 82.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 85.00 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)",
+        "    beat 113.00 KeyA drawn over KeyS at 1.13s before arrival (fall 1.5)",
+        "    beat 113.00 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)",
+        "    beat 116.00 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)",
+        "    beat 116.50 Semicolon drawn over KeyL at 2.63s before arrival (fall 3.5)",
+        "  run row 2 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off -0.03  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off +0.03  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off -0.06  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off +0.06  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 2 off -0.10  P=71 G=169 g=0 M=2 / 242  cueMiss=0  fails=6",
+        "      beat 105.25 key KeyF -> no note",
+        "      beat 105.50 key KeyD -> took note at beat 105.25 (PERFECT)",
+        "      beat 105.75 key KeyF -> took note at beat 105.50 (PERFECT)",
+        "      beat 106.25 key KeyK -> no note",
+        "      beat 106.50 key KeyJ -> took note at beat 106.25 (PERFECT)",
+        "      beat 106.75 key KeyK -> took note at beat 106.50 (PERFECT)",
+        "  run row 1 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  run row 3 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "  notes whose inward-neighbour key (not G/H) registers NOTHING: 0",
+        "  -- hand-anchored human (index on F/J, reads note relative to light inner edge):",
+        "  run row 9 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0",
+        "TOTAL human failures: 32"
+      ],
+      "errors": [],
+      "stdout_sha256": "d9aa86f230b4e839db0f0cac85c55d8a5f8a64976892ef3fbed8f049e0938626"
+    },
+    "replay_log__construction_command": {
+      "script": "replay_log",
+      "args": [
+        "<project>\\tests\\fixtures\\replay_synthetic.json",
+        "fixture_dense"
+      ],
+      "exit_code": 0,
+      "lines": [
+        "replay cut=true guard=0.012  P=422 G=67 g=25 MISS=36 strays=141 maxCombo=43 acc=0.8875"
+      ],
+      "errors": [],
+      "stdout_sha256": "243d9ff4aa29c1783e3fed6efc57767a690e2979c497695c55d279cc66fd1dcf"
+    },
+    "replay_log__game_defaults": {
+      "script": "replay_log",
+      "args": [
+        "<project>\\tests\\fixtures\\replay_synthetic.json",
+        "fixture_dense",
+        "1",
+        "1",
+        "track"
+      ],
+      "exit_code": 0,
+      "lines": [
+        "replay cut=true(track) guard=0.012  P=422 G=67 g=25 MISS=36 strays=141 maxCombo=43 acc=0.8875"
+      ],
+      "errors": [],
+      "stdout_sha256": "31490403a8034af3291ce82819bc4397a635431121e6aa99986f03ffd9a2f896"
+    }
+  },
+  "godot": "4.7.2.stable.official.ed1daf0bf",
+  "numeric_capture_complete": true,
+  "replay_note": "The construction command uses cut_same_track=false; game_defaults explicitly uses true. No game rule was changed."
+}

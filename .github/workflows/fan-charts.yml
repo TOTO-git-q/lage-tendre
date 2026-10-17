@@ -1,0 +1,61 @@
+name: Fan-made charts
+
+on:
+  pull_request:
+    paths:
+      - 'songs/fan-made/**'
+      - 'tools/validate_fan_chart.py'
+      - 'tools/test_validate_fan_chart.py'
+      - 'game/tests/validate_fan_chart.gd'
+      - 'game/scripts/fan_chart_library.gd'
+      - '.github/workflows/fan-charts.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GODOT: ${{ github.workspace }}/.tools/godot
+      APPDATA: ${{ github.workspace }}/dist/ci-user
+      LOCALAPPDATA: ${{ github.workspace }}/dist/ci-local
+      XDG_DATA_HOME: ${{ github.workspace }}/dist/ci-data
+      XDG_CONFIG_HOME: ${{ github.workspace }}/dist/ci-config
+      XDG_CACHE_HOME: ${{ github.workspace }}/dist/ci-cache
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Set up Godot 4.7.2
+        run: bash tools/setup_godot.sh --download
+      - name: Validator regression fixtures
+        run: python tools/test_validate_fan_chart.py
+      - name: Validate changed submissions or all on dispatch
+        env:
+          EVENT: ${{ github.event_name }}
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        shell: bash
+        run: |
+          if [ "$EVENT" = pull_request ]; then
+            python tools/validate_fan_chart.py --changed "$BASE...$HEAD" --summary dist/fan-chart-summary.md
+          else
+            python tools/validate_fan_chart.py --summary dist/fan-chart-summary.md
+          fi
+      - name: Publish Markdown job summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f dist/fan-chart-summary.md ]; then
+            cat dist/fan-chart-summary.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'Fan-chart setup or fixture checks failed; see step logs.' >> "$GITHUB_STEP_SUMMARY"
+          fi

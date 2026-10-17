@@ -1,0 +1,14 @@
+{
+  "id": "trust_spark",
+  "version": "1.0.0",
+  "api": 1,
+  "tier": "script",
+  "title": "Trusted golden sparks",
+  "author": "L’âge tendre",
+  "description": "GDScript draws gold sparks and a SCRIPT ACTIVE label. It creates a temporary user:// marker, removes it on teardown, and never changes judgement or scoring.",
+  "provides": {"elements": ["trust_spark"]},
+  "fields": [],
+  "assets": [],
+  "entry": "entry.gd",
+  "requires": [{"id": "standard_render", "version": "1.0.0"}]
+}

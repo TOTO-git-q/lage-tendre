@@ -1,0 +1,15 @@
+{
+ "zoom":{"label":"远近","unit":"ratio","range":[0.96,1.06],"levels":[{"word":"极远","value":0.96},{"word":"远","value":0.98},{"word":"中","value":1},{"word":"近","value":1.03},{"word":"极近","value":1.06}],"meaning":"改变远景透视比例，判定处不缩放"},
+ "pitch":{"label":"高低","unit":"logical px","range":[-43,65],"levels":[{"word":"低机位","value":-43},{"word":"平视","value":0},{"word":"稍高","value":20},{"word":"高机位","value":43},{"word":"俯瞰","value":65}],"meaning":"正值使远端地平线下移，近端保持固定"},
+ "vpx":{"label":"方向","unit":"logical px","range":[-77,77],"levels":[{"word":"左转大","value":-77},{"word":"左转中","value":-50},{"word":"左转小","value":-25},{"word":"正","value":0},{"word":"右转小","value":25},{"word":"右转中","value":50},{"word":"右转大","value":77}],"meaning":"远端水平偏移；判定处保持固定"},
+ "roll":{"label":"倾斜","unit":"degrees","range":[-3,3],"levels":[{"word":"左倾","value":-3},{"word":"正","value":0},{"word":"右倾","value":3}],"meaning":"透视剪切，远端随倾斜移动，判定线本身不旋转"},
+ "bow":{"label":"弧度","unit":"ratio","range":[0.85,1.3],"levels":[{"word":"平直","value":0.85},{"word":"微弯","value":1},{"word":"弯","value":1.15},{"word":"大弯","value":1.3}],"meaning":"改变透视收窄指数；固定拱形 arc0 不变，平直为相对词"},
+ "exposure":{"label":"曝光","unit":"ratio","range":[0.25,1.15],"levels":[{"word":"暗场","value":0.25},{"word":"昏暗","value":0.55},{"word":"正常","value":0.85},{"word":"明亮","value":1.15}],"meaning":"背景与舞台亮度"},
+ "trauma":{"label":"抖动","unit":"amplitude","range":[0,0.5],"levels":[{"word":"无","value":0},{"word":"微","value":0.08},{"word":"轻","value":0.18},{"word":"中","value":0.32},{"word":"强","value":0.5}],"meaning":"平方幅度的镜头噪声，使用冲击事件"},
+ "flash":{"label":"闪光","unit":"alpha","range":[0,0.25],"levels":[{"word":"无","value":0},{"word":"微","value":0.05},{"word":"亮","value":0.15},{"word":"强","value":0.25}],"meaning":"全场短暂闪亮"},
+ "kick":{"label":"节拍冲击","unit":"amplitude","range":[0,1],"levels":[{"word":"无","value":0},{"word":"轻","value":0.25},{"word":"中","value":0.5},{"word":"强","value":1}],"meaning":"提升轨道边缘辉光"},
+ "rush":{"label":"速度感","unit":"ratio","range":[0.5,3],"levels":[{"word":"缓","value":0.5},{"word":"常","value":1},{"word":"快","value":2},{"word":"急","value":3}],"meaning":"只改变小节线流动速度，音符速度不变"},
+ "line_y":{"label":"判定线高度","unit":"screen height fraction","range":[-0.04,0.04],"levels":[{"word":"上浮","value":-0.04},{"word":"原位","value":0},{"word":"下沉","value":0.04}],"meaning":"整套判定几何上下平移，按键逻辑坐标不变"},
+ "line_tilt":{"label":"判定线倾斜","unit":"degrees","range":[-2,2],"levels":[{"word":"左倾","value":-2},{"word":"正","value":0},{"word":"右倾","value":2}],"meaning":"绕判定中心旋转所有场地层，独立于镜头 roll"},
+ "line_glow":{"label":"判定线辉光","unit":"ratio","range":[0.5,1.5],"levels":[{"word":"隐","value":0.5},{"word":"淡","value":0.75},{"word":"常","value":1},{"word":"亮","value":1.25},{"word":"耀","value":1.5}],"meaning":"判定线纹理透明度倍率"}
+}

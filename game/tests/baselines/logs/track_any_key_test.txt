@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+A x5 on a track A..L -> ["A:PERFECT", "S:PERFECT", "D:PERFECT", "F:PERFECT", "G:PERFECT"]
+TRACK ANY KEY: PASS
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)

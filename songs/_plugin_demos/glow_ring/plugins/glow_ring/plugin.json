@@ -1,0 +1,65 @@
+{
+  "id": "glow_ring",
+  "version": "1.0.0",
+  "api": 1,
+  "tier": "declarative",
+  "title": "Glowing note rings",
+  "author": "L’âge tendre",
+  "description": "Data-only blue rings. Canvas shader, finite scalar formulas and a per-note radius; no GDScript.",
+  "provides": {
+    "flags": [
+      "ring"
+    ],
+    "elements": [
+      "glow_ring"
+    ]
+  },
+  "fields": [
+    {
+      "path": "notes[].ring",
+      "type": "number",
+      "unit": "keys",
+      "min": 0,
+      "max": 4,
+      "step": 0.25,
+      "default": 0,
+      "doc": "Outer halo radius in keyboard key widths. Zero hides the halo."
+    }
+  ],
+  "assets": [
+    "canvas.png",
+    "ring.gdshader"
+  ],
+  "entry": null,
+  "requires": [
+    {
+      "id": "standard_render",
+      "version": "1.0.0"
+    }
+  ],
+  "definitions": {
+    "flags": {
+      "ring": {
+        "field": "ring"
+      }
+    },
+    "elements": {
+      "glow_ring": {
+        "kind": "glow_ring",
+        "field": "ring",
+        "radius": "value * (0.96 + 0.04 * sin(t * tau * 2))",
+        "opacity": "alpha * (0.5 + 0.4 * progress)",
+        "color": [
+          0.42,
+          0.78,
+          1,
+          0.85
+        ],
+        "width": 2,
+        "order": 41,
+        "texture": "canvas.png",
+        "shader": "ring.gdshader"
+      }
+    }
+  }
+}

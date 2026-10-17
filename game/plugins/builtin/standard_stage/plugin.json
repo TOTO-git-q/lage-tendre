@@ -1,0 +1,152 @@
+{
+  "id": "standard_stage",
+  "version": "1.0.0",
+  "api": 1,
+  "tier": "script",
+  "title": "Standard Stage",
+  "author": "L'\u00e2ge tendre",
+  "description": "The original, behavior-preserving standard stage providers.",
+  "provides": {
+    "events": [
+      "fx.tween",
+      "fx.impulse",
+      "fx.ring"
+    ],
+    "channels": [
+      "exposure",
+      "zoom",
+      "roll",
+      "pitch",
+      "vpx",
+      "bow",
+      "rush",
+      "flash",
+      "trauma",
+      "kick",
+      "line_y",
+      "line_tilt",
+      "line_glow"
+    ]
+  },
+  "fields": [
+    {
+      "path": "fx[].type",
+      "type": "enum",
+      "default": "tween",
+      "unit": "event",
+      "doc": "Stage event kind.",
+      "enum": [
+        "tween",
+        "impulse",
+        "ring"
+      ]
+    },
+    {
+      "path": "fx[].ch",
+      "type": "enum",
+      "default": "exposure",
+      "unit": "channel",
+      "doc": "Registered stage channel.",
+      "enum": [
+        "exposure",
+        "zoom",
+        "roll",
+        "pitch",
+        "vpx",
+        "bow",
+        "rush",
+        "flash",
+        "trauma",
+        "kick",
+        "line_y",
+        "line_tilt",
+        "line_glow"
+      ]
+    },
+    {
+      "path": "fx[].t",
+      "type": "number",
+      "default": 0,
+      "unit": "seconds",
+      "doc": "Stage event chart time.",
+      "min": -86400,
+      "max": 86400,
+      "step": 0.001
+    },
+    {
+      "path": "fx[].dur",
+      "type": "number",
+      "default": 0.001,
+      "unit": "seconds",
+      "doc": "Tween duration.",
+      "min": 0.001,
+      "max": 86400,
+      "step": 0.001
+    },
+    {
+      "path": "fx[].to",
+      "type": "number",
+      "default": 0,
+      "unit": "channel units",
+      "doc": "Tween target, clamped by the channel.",
+      "min": -10000,
+      "max": 10000,
+      "step": 0.001
+    },
+    {
+      "path": "fx[].amp",
+      "type": "number",
+      "default": 0,
+      "unit": "channel units",
+      "doc": "Impulse amplitude.",
+      "min": -10000,
+      "max": 10000,
+      "step": 0.001
+    },
+    {
+      "path": "fx[].attack",
+      "type": "number",
+      "default": 0.04,
+      "unit": "seconds",
+      "doc": "Impulse attack.",
+      "min": 0.005,
+      "max": 86400,
+      "step": 0.001
+    },
+    {
+      "path": "fx[].decay",
+      "type": "number",
+      "default": 0.4,
+      "unit": "seconds",
+      "doc": "Impulse decay.",
+      "min": 0.02,
+      "max": 86400,
+      "step": 0.001
+    },
+    {
+      "path": "fx[].ease",
+      "type": "enum",
+      "default": "inOutSine",
+      "unit": "curve",
+      "doc": "Stage easing.",
+      "enum": [
+        "linear",
+        "inQuad",
+        "outQuad",
+        "inCubic",
+        "outCubic",
+        "outExpo",
+        "outBack",
+        "inOutSine"
+      ]
+    }
+  ],
+  "assets": [],
+  "entry": "entry.gd",
+  "requires": [
+    {
+      "id": "standard_chart",
+      "version": "1.0.0"
+    }
+  ]
+}

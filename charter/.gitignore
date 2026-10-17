@@ -1,0 +1,12 @@
+# Generated from game/ by tools/sync_core.py. Edit the authoritative game files.
+/scripts/
+/plugins/
+/assets/
+/icon.png
+/icon.png.import
+/PLUGINS_API.md
+/PLUGINS_API.zh-CN.md
+/PLUGINS_SPEC.md
+/.core-sync.json
+/chart_syntax_reference.md
+/tests/fixtures/generated/

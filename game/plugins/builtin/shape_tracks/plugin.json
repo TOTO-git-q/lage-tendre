@@ -1,0 +1,145 @@
+{
+  "id": "shape_tracks",
+  "version": "1.0.0",
+  "api": 1,
+  "tier": "script",
+  "title": "Closed shape tracks",
+  "author": "L’âge tendre",
+  "description": "Exact float64 line/cubic sections and curved-field polygon tracks. Opt in through chart.plugins.",
+  "provides": {
+    "events": [
+      "shape_track",
+      "shape_track_end",
+      "shape_track_cue"
+    ],
+    "track_geometry": [
+      "shape"
+    ],
+    "validators": [
+      "shape_tracks_prepare",
+      "shape_tracks_finish"
+    ],
+    "elements": [
+      "shape_surfaces",
+      "shape_edges"
+    ]
+  },
+  "fields": [
+    {
+      "path": "tracks",
+      "type": "array",
+      "default": [],
+      "unit": "closed tracks",
+      "doc": "Shape tracks; notes use the same light ID namespace as legacy lights."
+    },
+    {
+      "path": "tracks[].id",
+      "type": "integer",
+      "default": 0,
+      "unit": "track id",
+      "doc": "Unique integer, not shared by lights.",
+      "min": 0,
+      "max": 2147483647,
+      "step": 1
+    },
+    {
+      "path": "tracks[].geometry",
+      "type": "enum",
+      "default": "shape",
+      "unit": "provider",
+      "doc": "Closed path geometry provider.",
+      "enum": [
+        "shape"
+      ]
+    },
+    {
+      "path": "tracks[].shapes",
+      "type": "array",
+      "default": [],
+      "unit": "components",
+      "doc": "Union of charter TrackShape.to_dict objects. Each component may contain holes. Coordinates/handles: |x| <= 8, |t| <= 86400 s; at most 32 components, 32 holes/component, 512 nodes/path. Aggregate compilation budgets are documented in README and reject, never truncate."
+    },
+    {
+      "path": "tracks[].shapes[].nodes",
+      "type": "array",
+      "default": [],
+      "unit": "line fraction, seconds, flag",
+      "doc": "Closed path nodes [x,t,smooth]; x is normalized, t is chart seconds."
+    },
+    {
+      "path": "tracks[].shapes[].segs",
+      "type": "array",
+      "default": [],
+      "unit": "curve and absolute handles",
+      "doc": "One segment per node: [linear|in|out|inout], or [bezier,h1x,h1t,h2x,h2t]. The final segment closes the path."
+    },
+    {
+      "path": "tracks[].shapes[].holes",
+      "type": "array",
+      "default": [],
+      "unit": "closed paths",
+      "doc": "Even-odd holes subtracted from this component, using the same nodes/segs model."
+    },
+    {
+      "path": "tracks[].shapes[].props",
+      "type": "array",
+      "default": [],
+      "unit": "seconds, opacity, palette",
+      "doc": "Charter property keys {t,a,tint}; a=-1 is legacy default, otherwise 0..1; tint=-1 or 0..9."
+    },
+    {
+      "path": "tracks[].shapes[].pins",
+      "type": "object",
+      "default": {},
+      "unit": "editor metadata",
+      "doc": "Original event extras keyed by six-decimal seconds."
+    },
+    {
+      "path": "tracks[].shapes[].keep",
+      "type": "array",
+      "default": [],
+      "unit": "editor metadata",
+      "doc": "Original sweep-end knots, preserved for editor roundtrip."
+    },
+    {
+      "path": "tracks[].shapes[].pulses",
+      "type": "array",
+      "default": [],
+      "unit": "editor metadata",
+      "doc": "Original pulse events, preserved for editor roundtrip."
+    },
+    {
+      "path": "tracks[].shapes[].off",
+      "type": "object",
+      "default": {},
+      "unit": "editor metadata",
+      "doc": "Original off-event extra fields."
+    },
+    {
+      "path": "tracks[].shapes[].open_end",
+      "type": "boolean",
+      "default": false,
+      "unit": "editor metadata",
+      "doc": "Editor open-ended lifetime marker; the serialized outline bounds game geometry."
+    },
+    {
+      "path": "tracks[].charter",
+      "type": "object",
+      "default": {},
+      "unit": "roundtrip metadata",
+      "doc": "Converter-owned original sidecar record and approximate light events; never executed. Preserves unchanged editor export values."
+    }
+  ],
+  "assets": [],
+  "entry": "entry.gd",
+  "requires": [
+    {
+      "id": "standard_chart",
+      "version": "1.0.0"
+    },
+    {
+      "id": "standard_render",
+      "version": "1.0.0"
+    }
+  ]
+}

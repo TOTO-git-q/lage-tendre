@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 617.42 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Laptop GPU
+
+CAPTURE song=_demo chart_time=2.500000000 size=1600x900 seed=20261017 frames=121 path=<repo>\game\tests\baselines\screenshots\_demo__intro.png
+
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)

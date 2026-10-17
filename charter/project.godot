@@ -1,0 +1,44 @@
+; L’âge tendre -- keyboard rhythm game (a quiet nod to Deemo; formerly "SPOTLIGHT") (Godot 4 port of spotlight-rhythm/index.html)
+
+config_version=5
+
+[application]
+
+config/name="L’âge tendre Charter"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="LAgeTendre"
+config/description="Chart editor with live game preview."
+run/main_scene="res://charter_main.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://icon.png"
+run/max_fps=0
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+
+[audio]
+
+driver/output_latency=10
+general/default_playback_type.web=0
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1600
+window/size/window_height_override=900
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+window/vsync/vsync_mode=1
+
+[input_devices]
+
+buffering/agile_event_flushing=true
+pointing/emulate_mouse_from_touch=false
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+textures/canvas_textures/default_texture_filter=1
+2d/snap/snap_2d_transforms_to_pixel=false

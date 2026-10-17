@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+validated: notes 500 -> 500, lights 2 -> 2, warnings 0
+cues: 0  stage majors: []
+autoplay: total=550 P=550 G=0 g=0 M=0 crit=550 score=1010000
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)

@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "resolution": [
+    1600,
+    900
+  ],
+  "seed": 20261017,
+  "fps": 60,
+  "warmup_seconds": 2.0,
+  "shots": [
+    {
+      "song": "fixture_dense",
+      "category": "intro",
+      "chart_time": 3.0,
+      "file": "screenshots/fixture_dense__intro.png"
+    },
+    {
+      "song": "fixture_dense",
+      "category": "dense",
+      "chart_time": 20.0,
+      "file": "screenshots/fixture_dense__dense.png"
+    },
+    {
+      "song": "fixture_dense",
+      "category": "chord",
+      "chart_time": 31.0,
+      "file": "screenshots/fixture_dense__chord.png"
+    },
+    {
+      "song": "fixture_dense",
+      "category": "hold",
+      "chart_time": 35.1,
+      "file": "screenshots/fixture_dense__hold.png"
+    },
+    {
+      "song": "fixture_dense",
+      "category": "yellow_chain",
+      "chart_time": 36.0,
+      "file": "screenshots/fixture_dense__yellow_chain.png"
+    },
+    {
+      "song": "fixture_dense",
+      "category": "ending",
+      "chart_time": 102.0,
+      "file": "screenshots/fixture_dense__ending.png"
+    },
+    {
+      "song": "_demo",
+      "category": "intro",
+      "chart_time": 2.5,
+      "file": "screenshots/_demo__intro.png"
+    },
+    {
+      "song": "_demo",
+      "category": "dense",
+      "chart_time": 54.5,
+      "file": "screenshots/_demo__dense.png"
+    },
+    {
+      "song": "_demo",
+      "category": "chorus",
+      "chart_time": 50.5,
+      "file": "screenshots/_demo__chorus.png"
+    },
+    {
+      "song": "_demo",
+      "category": "hold",
+      "chart_time": 43.0,
+      "file": "screenshots/_demo__hold.png"
+    },
+    {
+      "song": "_demo",
+      "category": "yellow_cue",
+      "chart_time": 14.0,
+      "file": "screenshots/_demo__yellow_cue.png"
+    },
+    {
+      "song": "_demo",
+      "category": "ending",
+      "chart_time": 63.5,
+      "file": "screenshots/_demo__ending.png"
+    },
+    {
+      "song": "demo",
+      "category": "intro",
+      "chart_time": 2.5,
+      "file": "screenshots/demo__intro.png"
+    },
+    {
+      "song": "demo",
+      "category": "dense",
+      "chart_time": 54.5,
+      "file": "screenshots/demo__dense.png"
+    },
+    {
+      "song": "demo",
+      "category": "chorus",
+      "chart_time": 50.5,
+      "file": "screenshots/demo__chorus.png"
+    },
+    {
+      "song": "demo",
+      "category": "hold",
+      "chart_time": 43.0,
+      "file": "screenshots/demo__hold.png"
+    },
+    {
+      "song": "demo",
+      "category": "yellow_cue",
+      "chart_time": 14.0,
+      "file": "screenshots/demo__yellow_cue.png"
+    },
+    {
+      "song": "demo",
+      "category": "ending",
+      "chart_time": 63.5,
+      "file": "screenshots/demo__ending.png"
+    }
+  ],
+  "protocol": "Real gameplay Renderer; fixed chart clock and seeded particles; identical default settings; no audio clock drift.",
+  "demo_note": "The unmodified built-in demo has yellow pedal cues but no ExTap chain. Its fifth capture covers the yellow cue; no notes were invented."
+}

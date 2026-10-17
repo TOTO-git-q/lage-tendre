@@ -1,0 +1,15 @@
+.tools/
+game/.godot/
+charter/.godot/
+game/dist/
+game/tests/out/
+charter/tests/out/
+charter/evidence/
+charter/runtime/
+release/
+dist/
+*.log
+*.exe
+*.avi
+*.bak*
+__pycache__/

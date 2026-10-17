@@ -1,0 +1,15 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+held to the end on the head key                  ["done", 8, 8, 0, 0]  (want ["done", 8, 8, 0, 0])
+switch D -> F mid-hold (overlap)                 ["done", 8, 8, 0, 0]  (want ["done", 8, 8, 0, 0])
+40 ms gap: tick still CRITICAL                   ["done", 8, 8, 0, 0]  (want ["done", 8, 8, 0, 0])
+80 ms gap: one tick PERFECT                      ["done", 7, 8, 0, 0]  (want ["done", 7, 8, 0, 0])
+130 ms gap: one tick GOOD                        ["done", 7, 7, 1, 0]  (want ["done", 7, 7, 1, 0])
+0.6 s gap: GOOD, 2 MISS, then back               ["done", 5, 5, 1, 2]  (want ["done", 5, 5, 1, 2])
+released for good at 3.6                         ["fail", 3, 3, 1, 4]  (want ["fail", 3, 3, 1, 4])
+release in the free last half step               ["done", 8, 8, 0, 0]  (want ["done", 8, 8, 0, 0])
+a key outside the light does not keep it         ["fail", 3, 3, 0, 5]  (want ["fail", 3, 3, 0, 5])
+key held from before: head MISS, body counts     ["done", 7, 7, 0, 1]  (want ["done", 7, 7, 0, 1])
+HOLD RULES: PASS
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)

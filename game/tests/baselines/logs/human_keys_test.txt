@@ -1,0 +1,217 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+==== layout ansi  notes=199 cues=13 warnings=[]
+  static failures: 0
+  drift (note drawn over another key while falling): 32
+    beat 26.50 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)
+    beat 28.50 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)
+    beat 53.50 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 54.50 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 65.00 KeyF drawn over KeyS at 1.13s before arrival (fall 1.5)
+    beat 65.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 65.50 KeyJ drawn over KeyL at 1.13s before arrival (fall 1.5)
+    beat 65.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)
+    beat 66.00 KeyF drawn over KeyS at 1.13s before arrival (fall 1.5)
+    beat 66.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 66.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)
+    beat 67.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 68.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 68.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)
+    beat 69.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 73.00 KeyD drawn over KeyF at 1.13s before arrival (fall 1.5)
+    beat 73.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)
+    beat 74.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 75.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)
+    beat 76.00 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 81.00 KeyD drawn over KeyF at 1.13s before arrival (fall 1.5)
+    beat 81.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)
+    beat 81.50 KeyK drawn over KeyJ at 1.13s before arrival (fall 1.5)
+    beat 81.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 82.00 KeyL drawn over KeyJ at 1.13s before arrival (fall 1.5)
+    beat 82.00 KeyL drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 82.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 85.00 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 113.00 KeyA drawn over KeyS at 1.13s before arrival (fall 1.5)
+    beat 113.00 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 116.00 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)
+    beat 116.50 Semicolon drawn over KeyL at 2.63s before arrival (fall 3.5)
+  run row 2 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off -0.03  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off +0.03  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off -0.06  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off +0.06  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off -0.10  P=71 G=169 g=0 M=2 / 242  cueMiss=0  fails=6
+      beat 105.25 key KeyF -> no note
+      beat 105.50 key KeyD -> took note at beat 105.25 (PERFECT)
+      beat 105.75 key KeyF -> took note at beat 105.50 (PERFECT)
+      beat 106.25 key KeyK -> no note
+      beat 106.50 key KeyJ -> took note at beat 106.25 (PERFECT)
+      beat 106.75 key KeyK -> took note at beat 106.50 (PERFECT)
+  run row 1 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 3 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  notes whose inward-neighbour key (not G/H) registers NOTHING: 0
+    
+  -- hand-anchored human (index on F/J, reads note relative to light inner edge):
+  run row 9 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+==== layout ansi65  notes=199 cues=13 warnings=[]
+  static failures: 0
+  drift (note drawn over another key while falling): 32
+    beat 26.50 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)
+    beat 28.50 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)
+    beat 53.50 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 54.50 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 65.00 KeyF drawn over KeyS at 1.13s before arrival (fall 1.5)
+    beat 65.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 65.50 KeyJ drawn over KeyL at 1.13s before arrival (fall 1.5)
+    beat 65.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)
+    beat 66.00 KeyF drawn over KeyS at 1.13s before arrival (fall 1.5)
+    beat 66.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 66.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)
+    beat 67.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 68.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 68.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)
+    beat 69.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 73.00 KeyD drawn over KeyF at 1.13s before arrival (fall 1.5)
+    beat 73.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)
+    beat 74.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 75.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)
+    beat 76.00 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 81.00 KeyD drawn over KeyF at 1.13s before arrival (fall 1.5)
+    beat 81.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)
+    beat 81.50 KeyK drawn over KeyJ at 1.13s before arrival (fall 1.5)
+    beat 81.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 82.00 KeyL drawn over KeyJ at 1.13s before arrival (fall 1.5)
+    beat 82.00 KeyL drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 82.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 85.00 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 113.00 KeyA drawn over KeyS at 1.13s before arrival (fall 1.5)
+    beat 113.00 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 116.00 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)
+    beat 116.50 Semicolon drawn over KeyL at 2.63s before arrival (fall 3.5)
+  run row 2 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off -0.03  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off +0.03  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off -0.06  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off +0.06  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off -0.10  P=71 G=169 g=0 M=2 / 242  cueMiss=0  fails=6
+      beat 105.25 key KeyF -> no note
+      beat 105.50 key KeyD -> took note at beat 105.25 (PERFECT)
+      beat 105.75 key KeyF -> took note at beat 105.50 (PERFECT)
+      beat 106.25 key KeyK -> no note
+      beat 106.50 key KeyJ -> took note at beat 106.25 (PERFECT)
+      beat 106.75 key KeyK -> took note at beat 106.50 (PERFECT)
+  run row 1 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 3 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  notes whose inward-neighbour key (not G/H) registers NOTHING: 0
+    
+  -- hand-anchored human (index on F/J, reads note relative to light inner edge):
+  run row 9 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+==== layout iso  notes=199 cues=13 warnings=[]
+  static failures: 0
+  drift (note drawn over another key while falling): 32
+    beat 26.50 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)
+    beat 28.50 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)
+    beat 53.50 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 54.50 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 65.00 KeyF drawn over KeyS at 1.13s before arrival (fall 1.5)
+    beat 65.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 65.50 KeyJ drawn over KeyL at 1.13s before arrival (fall 1.5)
+    beat 65.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)
+    beat 66.00 KeyF drawn over KeyS at 1.13s before arrival (fall 1.5)
+    beat 66.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 66.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)
+    beat 67.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 68.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 68.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)
+    beat 69.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 73.00 KeyD drawn over KeyF at 1.13s before arrival (fall 1.5)
+    beat 73.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)
+    beat 74.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 75.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)
+    beat 76.00 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 81.00 KeyD drawn over KeyF at 1.13s before arrival (fall 1.5)
+    beat 81.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)
+    beat 81.50 KeyK drawn over KeyJ at 1.13s before arrival (fall 1.5)
+    beat 81.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 82.00 KeyL drawn over KeyJ at 1.13s before arrival (fall 1.5)
+    beat 82.00 KeyL drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 82.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 85.00 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 113.00 KeyA drawn over KeyS at 1.13s before arrival (fall 1.5)
+    beat 113.00 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 116.00 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)
+    beat 116.50 Semicolon drawn over KeyL at 2.63s before arrival (fall 3.5)
+  run row 2 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off -0.03  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off +0.03  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off -0.06  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off +0.06  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off -0.10  P=71 G=169 g=0 M=2 / 242  cueMiss=0  fails=6
+      beat 105.25 key KeyF -> no note
+      beat 105.50 key KeyD -> took note at beat 105.25 (PERFECT)
+      beat 105.75 key KeyF -> took note at beat 105.50 (PERFECT)
+      beat 106.25 key KeyK -> no note
+      beat 106.50 key KeyJ -> took note at beat 106.25 (PERFECT)
+      beat 106.75 key KeyK -> took note at beat 106.50 (PERFECT)
+  run row 1 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 3 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  notes whose inward-neighbour key (not G/H) registers NOTHING: 0
+    
+  -- hand-anchored human (index on F/J, reads note relative to light inner edge):
+  run row 9 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+==== layout jis  notes=199 cues=13 warnings=[]
+  static failures: 0
+  drift (note drawn over another key while falling): 32
+    beat 26.50 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)
+    beat 28.50 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)
+    beat 53.50 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 54.50 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 65.00 KeyF drawn over KeyS at 1.13s before arrival (fall 1.5)
+    beat 65.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 65.50 KeyJ drawn over KeyL at 1.13s before arrival (fall 1.5)
+    beat 65.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)
+    beat 66.00 KeyF drawn over KeyS at 1.13s before arrival (fall 1.5)
+    beat 66.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 66.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)
+    beat 67.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 68.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 68.50 KeyJ drawn over KeyL at 2.63s before arrival (fall 3.5)
+    beat 69.00 KeyF drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 73.00 KeyD drawn over KeyF at 1.13s before arrival (fall 1.5)
+    beat 73.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)
+    beat 74.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 75.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)
+    beat 76.00 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 81.00 KeyD drawn over KeyF at 1.13s before arrival (fall 1.5)
+    beat 81.00 KeyD drawn over KeyF at 2.63s before arrival (fall 3.5)
+    beat 81.50 KeyK drawn over KeyJ at 1.13s before arrival (fall 1.5)
+    beat 81.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 82.00 KeyL drawn over KeyJ at 1.13s before arrival (fall 1.5)
+    beat 82.00 KeyL drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 82.50 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 85.00 KeyK drawn over KeyJ at 2.63s before arrival (fall 3.5)
+    beat 113.00 KeyA drawn over KeyS at 1.13s before arrival (fall 1.5)
+    beat 113.00 KeyA drawn over KeyS at 2.63s before arrival (fall 3.5)
+    beat 116.00 KeyL drawn over KeyK at 2.63s before arrival (fall 3.5)
+    beat 116.50 Semicolon drawn over KeyL at 2.63s before arrival (fall 3.5)
+  run row 2 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off -0.03  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off +0.03  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off -0.06  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off +0.06  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 2 off -0.10  P=71 G=169 g=0 M=2 / 242  cueMiss=0  fails=6
+      beat 105.25 key KeyF -> no note
+      beat 105.50 key KeyD -> took note at beat 105.25 (PERFECT)
+      beat 105.75 key KeyF -> took note at beat 105.50 (PERFECT)
+      beat 106.25 key KeyK -> no note
+      beat 106.50 key KeyJ -> took note at beat 106.25 (PERFECT)
+      beat 106.75 key KeyK -> took note at beat 106.50 (PERFECT)
+  run row 1 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  run row 3 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+  notes whose inward-neighbour key (not G/H) registers NOTHING: 0
+    
+  -- hand-anchored human (index on F/J, reads note relative to light inner edge):
+  run row 9 off +0.00  P=242 G=0 g=0 M=0 / 242  cueMiss=0  fails=0
+TOTAL human failures: 32
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)

@@ -1,0 +1,665 @@
+{
+  "bpm": 120,
+  "offset": 0,
+  "meta": {
+    "title": "Halo study",
+    "artist": "L’âge tendre",
+    "version": "DECLARATIVE",
+    "plugin_demo": true
+  },
+  "plugins": [
+    {
+      "id": "glow_ring",
+      "version": "1.0.0"
+    }
+  ],
+  "timing": [
+    {
+      "t": 0,
+      "beat": 0.5,
+      "meter": 4
+    }
+  ],
+  "lights": [
+    {
+      "t": 0,
+      "id": 0,
+      "type": "on",
+      "x": 0.28,
+      "w": 0.28,
+      "a": 0.4,
+      "tint": 0,
+      "auto": true
+    },
+    {
+      "t": 0,
+      "id": 1,
+      "type": "on",
+      "x": 0.72,
+      "w": 0.28,
+      "a": 0.4,
+      "tint": 2,
+      "auto": true
+    },
+    {
+      "t": 10,
+      "id": 0,
+      "type": "sweep",
+      "x": 0.36,
+      "w": 0.28,
+      "a": 0.4,
+      "tint": 0,
+      "dur": 1,
+      "auto": true
+    },
+    {
+      "t": 10,
+      "id": 1,
+      "type": "sweep",
+      "x": 0.64,
+      "w": 0.28,
+      "a": 0.4,
+      "tint": 2,
+      "dur": 1,
+      "auto": true
+    },
+    {
+      "t": 18,
+      "id": 0,
+      "type": "sweep",
+      "x": 0.26,
+      "w": 0.28,
+      "a": 0.4,
+      "tint": 0,
+      "dur": 1,
+      "auto": true
+    },
+    {
+      "t": 18,
+      "id": 1,
+      "type": "sweep",
+      "x": 0.74,
+      "w": 0.28,
+      "a": 0.4,
+      "tint": 2,
+      "dur": 1,
+      "auto": true
+    },
+    {
+      "t": 26,
+      "id": 0,
+      "type": "sweep",
+      "x": 0.34,
+      "w": 0.28,
+      "a": 0.4,
+      "tint": 0,
+      "dur": 1,
+      "auto": true
+    },
+    {
+      "t": 26,
+      "id": 1,
+      "type": "sweep",
+      "x": 0.66,
+      "w": 0.28,
+      "a": 0.4,
+      "tint": 2,
+      "dur": 1,
+      "auto": true
+    },
+    {
+      "t": 35.5,
+      "id": 0,
+      "type": "off",
+      "auto": true
+    },
+    {
+      "t": 35.5,
+      "id": 1,
+      "type": "off",
+      "auto": true
+    }
+  ],
+  "notes": [
+    {
+      "t": 2.0,
+      "light": 0,
+      "u": 0.3,
+      "kind": "hold",
+      "ring": 1.05,
+      "dur": 1,
+      "big": true
+    },
+    {
+      "t": 2.0,
+      "light": 1,
+      "u": 0.5,
+      "kind": "tap",
+      "big": true,
+      "ring": 1.05
+    },
+    {
+      "t": 2.5,
+      "light": 1,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 3.0,
+      "light": 0,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 3.5,
+      "light": 1,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 4.0,
+      "light": 0,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 1.05,
+      "big": true
+    },
+    {
+      "t": 4.5,
+      "light": 1,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 5.0,
+      "light": 0,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7,
+      "ex": true
+    },
+    {
+      "t": 5.5,
+      "light": 1,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 6.0,
+      "light": 0,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 1.05,
+      "big": true
+    },
+    {
+      "t": 6.0,
+      "light": 1,
+      "u": 0.5,
+      "kind": "tap",
+      "big": true,
+      "ring": 1.05
+    },
+    {
+      "t": 6.5,
+      "light": 1,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 7.0,
+      "light": 0,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 7.5,
+      "light": 1,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 8.0,
+      "light": 0,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 1.05,
+      "big": true
+    },
+    {
+      "t": 8.5,
+      "light": 1,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 9.0,
+      "light": 0,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7,
+      "ex": true
+    },
+    {
+      "t": 9.5,
+      "light": 1,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 10.0,
+      "light": 0,
+      "u": 0.3,
+      "kind": "hold",
+      "ring": 1.05,
+      "dur": 1,
+      "big": true
+    },
+    {
+      "t": 10.0,
+      "light": 1,
+      "u": 0.5,
+      "kind": "tap",
+      "big": true,
+      "ring": 1.05
+    },
+    {
+      "t": 10.5,
+      "light": 1,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 11.0,
+      "light": 0,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 11.5,
+      "light": 1,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 12.0,
+      "light": 0,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 1.05,
+      "big": true
+    },
+    {
+      "t": 12.5,
+      "light": 1,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 13.0,
+      "light": 0,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7,
+      "ex": true
+    },
+    {
+      "t": 13.5,
+      "light": 1,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 14.0,
+      "light": 0,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 1.05,
+      "big": true
+    },
+    {
+      "t": 14.0,
+      "light": 1,
+      "u": 0.5,
+      "kind": "tap",
+      "big": true,
+      "ring": 1.05
+    },
+    {
+      "t": 14.5,
+      "light": 1,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 15.0,
+      "light": 0,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 15.5,
+      "light": 1,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 16.0,
+      "light": 0,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 1.05,
+      "big": true
+    },
+    {
+      "t": 16.5,
+      "light": 1,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 17.0,
+      "light": 0,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7,
+      "ex": true
+    },
+    {
+      "t": 17.5,
+      "light": 1,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 18.0,
+      "light": 0,
+      "u": 0.3,
+      "kind": "hold",
+      "ring": 1.05,
+      "dur": 1,
+      "big": true
+    },
+    {
+      "t": 18.0,
+      "light": 1,
+      "u": 0.5,
+      "kind": "tap",
+      "big": true,
+      "ring": 1.05
+    },
+    {
+      "t": 18.5,
+      "light": 1,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 19.0,
+      "light": 0,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 19.5,
+      "light": 1,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 20.0,
+      "light": 0,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 1.05,
+      "big": true
+    },
+    {
+      "t": 20.5,
+      "light": 1,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 21.0,
+      "light": 0,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7,
+      "ex": true
+    },
+    {
+      "t": 21.5,
+      "light": 1,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 22.0,
+      "light": 0,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 1.05,
+      "big": true
+    },
+    {
+      "t": 22.0,
+      "light": 1,
+      "u": 0.5,
+      "kind": "tap",
+      "big": true,
+      "ring": 1.05
+    },
+    {
+      "t": 22.5,
+      "light": 1,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 23.0,
+      "light": 0,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 23.5,
+      "light": 1,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 24.0,
+      "light": 0,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 1.05,
+      "big": true
+    },
+    {
+      "t": 24.5,
+      "light": 1,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 25.0,
+      "light": 0,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7,
+      "ex": true
+    },
+    {
+      "t": 25.5,
+      "light": 1,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 26.0,
+      "light": 0,
+      "u": 0.3,
+      "kind": "hold",
+      "ring": 1.05,
+      "dur": 1,
+      "big": true
+    },
+    {
+      "t": 26.0,
+      "light": 1,
+      "u": 0.5,
+      "kind": "tap",
+      "big": true,
+      "ring": 1.05
+    },
+    {
+      "t": 26.5,
+      "light": 1,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 27.0,
+      "light": 0,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 27.5,
+      "light": 1,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 28.0,
+      "light": 0,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 1.05,
+      "big": true
+    },
+    {
+      "t": 28.5,
+      "light": 1,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 29.0,
+      "light": 0,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7,
+      "ex": true
+    },
+    {
+      "t": 29.5,
+      "light": 1,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 30.0,
+      "light": 0,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 1.05,
+      "big": true
+    },
+    {
+      "t": 30.0,
+      "light": 1,
+      "u": 0.5,
+      "kind": "tap",
+      "big": true,
+      "ring": 1.05
+    },
+    {
+      "t": 30.5,
+      "light": 1,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 31.0,
+      "light": 0,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 31.5,
+      "light": 1,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 32.0,
+      "light": 0,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 1.05,
+      "big": true
+    },
+    {
+      "t": 32.5,
+      "light": 1,
+      "u": 0.3,
+      "kind": "tap",
+      "ring": 0.7
+    },
+    {
+      "t": 33.0,
+      "light": 0,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7,
+      "ex": true
+    },
+    {
+      "t": 33.5,
+      "light": 1,
+      "u": 0.7,
+      "kind": "tap",
+      "ring": 0.7
+    }
+  ]
+}

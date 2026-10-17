@@ -1,0 +1,11 @@
+{
+  "title": "Your original song",
+  "audio": "audio.ogg",
+  "bpm": 120,
+  "offset": 0,
+  "timing": [{"t": 0, "beat": 0.5, "meter": 4}],
+  "lights": [{"t": 0, "id": 0, "type": "on", "x": 0.5, "w": 1, "a": 0.5, "auto": true}],
+  "notes": [],
+  "fx": [],
+  "meta": {"title": "Your original song", "artist": "Audio author", "difficulty": "NORMAL"}
+}

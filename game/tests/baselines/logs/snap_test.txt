@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+tap 0.25 s early, released -> snaps (GREAT)    GREAT  (want GREAT)
+tap 0.4 s early -> stray, note missed          MISS  (want MISS)
+early tap, then a real press in time wins      PERFECT  (want PERFECT)
+early tap on a key outside the light           MISS  (want MISS)
+SNAP RULES: PASS
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)

@@ -1,0 +1,64 @@
+{
+  "bpm": 120,
+  "offset": 0,
+  "plugins": [
+    {
+      "id": "note_motion",
+      "version": "1.0.0"
+    }
+  ],
+  "lights": [
+    {
+      "t": 0.1,
+      "id": 0,
+      "type": "on",
+      "x": 0.5,
+      "w": 0.8,
+      "a": 0.65,
+      "auto": true
+    },
+    {
+      "t": 5,
+      "id": 0,
+      "type": "off",
+      "auto": true
+    }
+  ],
+  "notes": [
+    {
+      "t": 3,
+      "light": 0,
+      "u": 0.15,
+      "kind": "tap",
+      "motion": {
+        "type": "horizontal",
+        "x0": 0.5,
+        "ease": "inout"
+      }
+    },
+    {
+      "t": 3,
+      "light": 0,
+      "u": 0.5,
+      "kind": "tap",
+      "motion": {
+        "type": "horizontal",
+        "x0": 0.5,
+        "ease": "inout"
+      }
+    },
+    {
+      "t": 3,
+      "light": 0,
+      "u": 0.85,
+      "kind": "tap",
+      "motion": {
+        "type": "horizontal",
+        "x0": 0.5,
+        "ease": "inout"
+      }
+    }
+  ],
+  "title": "Outward chord",
+  "audio": "audio.wav"
+}

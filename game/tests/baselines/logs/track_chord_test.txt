@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+2-note chord, keys ["KeyA"] -> PERFECT 1, MISS 1
+2-note chord, keys ["KeyA", "KeyS"] -> PERFECT 2, MISS 0
+3-note chord, keys ["KeyA"] -> PERFECT 1, MISS 2
+3-note chord, keys ["KeyA", "KeyS"] -> PERFECT 2, MISS 1
+3-note chord, keys ["KeyA", "KeyS", "KeyD"] -> PERFECT 3, MISS 0
+TRACK CHORDS: PASS
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)

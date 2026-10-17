@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 617.42 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Laptop GPU
+
+PERFORMANCE frames=1800 wall=30.002s mean=3069.908us p95=4985.000us callbacks=12600
+
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)

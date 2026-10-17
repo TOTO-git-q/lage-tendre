@@ -1,0 +1,99 @@
+{
+  "id": "note_motion",
+  "version": "1.0.0",
+  "api": 1,
+  "tier": "script",
+  "title": "Note motion",
+  "author": "L’âge tendre",
+  "description": "Opt-in straight and horizontal visual motion; existing standard follow_track remains unchanged.",
+  "provides": {
+    "motions": [
+      "straight",
+      "horizontal"
+    ],
+    "flags": [
+      "note_motion"
+    ],
+    "validators": [
+      "note_motion"
+    ]
+  },
+  "fields": [
+    {
+      "path": "notes[].motion",
+      "type": "object",
+      "default": {
+        "type": "straight"
+      },
+      "unit": "visual motion",
+      "doc": "Only an explicitly enabled note_motion scope defaults notes to straight; legacy charts retain follow_track."
+    },
+    {
+      "path": "notes[].motion.type",
+      "type": "enum",
+      "default": "straight",
+      "unit": "motion ID",
+      "doc": "Motion provider; follow_track is supplied unchanged by standard_render.",
+      "enum": [
+        "straight",
+        "follow_track",
+        "horizontal"
+      ]
+    },
+    {
+      "path": "notes[].motion.x0",
+      "type": "number",
+      "default": 0.5,
+      "unit": "line fraction",
+      "doc": "Absolute appearance x for horizontal motion; landing still uses the note track.",
+      "min": -2,
+      "max": 3,
+      "step": 0.06666666666666667
+    },
+    {
+      "path": "notes[].motion.begin",
+      "type": "number",
+      "default": 0,
+      "unit": "fall fraction",
+      "doc": "Progress where horizontal travel begins. The combined values must satisfy 0 <= begin < end <= 1; step is an editor suggestion, not a validation increment.",
+      "min": 0,
+      "max": 1,
+      "step": 0.01
+    },
+    {
+      "path": "notes[].motion.end",
+      "type": "number",
+      "default": 1,
+      "unit": "fall fraction",
+      "doc": "Progress where horizontal travel reaches the landing x. The combined values must satisfy 0 <= begin < end <= 1; step is an editor suggestion, not a validation increment.",
+      "min": 0,
+      "max": 1,
+      "step": 0.01
+    },
+    {
+      "path": "notes[].motion.ease",
+      "type": "enum",
+      "default": "inout",
+      "unit": "curve",
+      "doc": "Horizontal travel ease.",
+      "enum": [
+        "linear",
+        "in",
+        "out",
+        "inout"
+      ]
+    }
+  ],
+  "assets": [],
+  "entry": "entry.gd",
+  "requires": [
+    {
+      "id": "standard_chart",
+      "version": "1.0.0"
+    },
+    {
+      "id": "standard_render",
+      "version": "1.0.0"
+    }
+  ]
+}

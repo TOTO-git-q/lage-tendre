@@ -1,0 +1,16 @@
+{
+  "title": "Your original song",
+  "artist": "Audio author",
+  "version": "NORMAL",
+  "level": 3,
+  "bpm": 120,
+  "preview": 0,
+  "audio": "audio.ogg",
+  "chart_author": "Your mapper name",
+  "chart_license": "CC-BY-SA-4.0",
+  "audio_license": {
+    "id": "",
+    "url": "",
+    "evidence": ""
+  }
+}

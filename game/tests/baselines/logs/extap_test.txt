@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+press 0.12 s late, then roll the chain         ["PERFECT/KeyD", "PERFECT/KeyA", "PERFECT/KeyS", "PERFECT/KeyD", "PERFECT/KeyF"]
+key held from before catches the lone one      ["PERFECT/KeyD", "MISS/", "MISS/", "MISS/", "MISS/"]
+one key held through the chain catches it all  ["MISS/", "PERFECT/KeyD", "PERFECT/KeyD", "PERFECT/KeyD", "PERFECT/KeyD"]
+chain rolled 25 ms early                       ["MISS/", "PERFECT/KeyA", "PERFECT/KeyS", "PERFECT/KeyD", "PERFECT/KeyF"]
+EXTAP RULES: PASS
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)

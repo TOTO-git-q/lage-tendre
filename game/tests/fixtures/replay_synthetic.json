@@ -1,0 +1,4149 @@
+{
+  "provenance": "Seeded synthetic test input, not a player recording",
+  "seed": 20261017,
+  "notes": [
+    {
+      "t": 3.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.08871,
+      "state": "done"
+    },
+    {
+      "t": 3.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": 0.036515,
+      "state": "done"
+    },
+    {
+      "t": 3.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.073265,
+      "state": "done"
+    },
+    {
+      "t": 3.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.029357,
+      "state": "done"
+    },
+    {
+      "t": 3.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.01946,
+      "state": "done"
+    },
+    {
+      "t": 4.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.035501,
+      "state": "done"
+    },
+    {
+      "t": 4.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.026281,
+      "state": "done"
+    },
+    {
+      "t": 4.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.008531,
+      "state": "done"
+    },
+    {
+      "t": 4.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.028182,
+      "state": "done"
+    },
+    {
+      "t": 4.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.065185,
+      "state": "done"
+    },
+    {
+      "t": 5.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.178505,
+      "state": "done"
+    },
+    {
+      "t": 5.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.004867,
+      "state": "done"
+    },
+    {
+      "t": 5.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.011404,
+      "state": "done"
+    },
+    {
+      "t": 5.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.056305,
+      "state": "done"
+    },
+    {
+      "t": 5.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.109111,
+      "state": "done"
+    },
+    {
+      "t": 6.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.020631,
+      "state": "done"
+    },
+    {
+      "t": 6.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.046458,
+      "state": "done"
+    },
+    {
+      "t": 6.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.033357,
+      "state": "done"
+    },
+    {
+      "t": 6.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.01298,
+      "state": "done"
+    },
+    {
+      "t": 6.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.083706,
+      "state": "done"
+    },
+    {
+      "t": 7.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": 0.061431,
+      "state": "done"
+    },
+    {
+      "t": 7.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": -0.027933,
+      "state": "done"
+    },
+    {
+      "t": 7.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.010459,
+      "state": "done"
+    },
+    {
+      "t": 7.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.036726,
+      "state": "done"
+    },
+    {
+      "t": 7.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.031994,
+      "state": "done"
+    },
+    {
+      "t": 8.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.065033,
+      "state": "done"
+    },
+    {
+      "t": 8.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.02733,
+      "state": "done"
+    },
+    {
+      "t": 8.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.107604,
+      "state": "done"
+    },
+    {
+      "t": 8.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.077319,
+      "state": "done"
+    },
+    {
+      "t": 8.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.079768,
+      "state": "done"
+    },
+    {
+      "t": 9.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.073446,
+      "state": "done"
+    },
+    {
+      "t": 9.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 9.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.101886,
+      "state": "done"
+    },
+    {
+      "t": 9.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.019977,
+      "state": "done"
+    },
+    {
+      "t": 9.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.003671,
+      "state": "done"
+    },
+    {
+      "t": 10.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.03621,
+      "state": "done"
+    },
+    {
+      "t": 10.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.018511,
+      "state": "done"
+    },
+    {
+      "t": 10.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.083235,
+      "state": "done"
+    },
+    {
+      "t": 10.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.070498,
+      "state": "done"
+    },
+    {
+      "t": 10.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.137971,
+      "state": "done"
+    },
+    {
+      "t": 11.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.001312,
+      "state": "done"
+    },
+    {
+      "t": 11.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": 0.002206,
+      "state": "done"
+    },
+    {
+      "t": 11.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.008995,
+      "state": "done"
+    },
+    {
+      "t": 11.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.06554,
+      "state": "done"
+    },
+    {
+      "t": 11.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.030227,
+      "state": "done"
+    },
+    {
+      "t": 12.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.043444,
+      "state": "done"
+    },
+    {
+      "t": 12.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.048753,
+      "state": "done"
+    },
+    {
+      "t": 12.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.073933,
+      "state": "done"
+    },
+    {
+      "t": 12.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.046048,
+      "state": "done"
+    },
+    {
+      "t": 12.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 13.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.005666,
+      "state": "done"
+    },
+    {
+      "t": 13.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.035478,
+      "state": "done"
+    },
+    {
+      "t": 13.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.001206,
+      "state": "done"
+    },
+    {
+      "t": 13.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.012678,
+      "state": "done"
+    },
+    {
+      "t": 13.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 14.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.080865,
+      "state": "done"
+    },
+    {
+      "t": 14.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 14.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.065165,
+      "state": "done"
+    },
+    {
+      "t": 14.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.03537,
+      "state": "done"
+    },
+    {
+      "t": 14.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.005655,
+      "state": "done"
+    },
+    {
+      "t": 15.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.046691,
+      "state": "done"
+    },
+    {
+      "t": 15.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": 0.00746,
+      "state": "done"
+    },
+    {
+      "t": 15.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.006803,
+      "state": "done"
+    },
+    {
+      "t": 15.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.060417,
+      "state": "done"
+    },
+    {
+      "t": 15.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.054835,
+      "state": "done"
+    },
+    {
+      "t": 16.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.028838,
+      "state": "done"
+    },
+    {
+      "t": 16.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.085884,
+      "state": "done"
+    },
+    {
+      "t": 16.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.020787,
+      "state": "done"
+    },
+    {
+      "t": 16.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.008394,
+      "state": "done"
+    },
+    {
+      "t": 16.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.002677,
+      "state": "done"
+    },
+    {
+      "t": 17.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.110991,
+      "state": "done"
+    },
+    {
+      "t": 17.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.014821,
+      "state": "done"
+    },
+    {
+      "t": 17.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.010513,
+      "state": "done"
+    },
+    {
+      "t": 17.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.115786,
+      "state": "done"
+    },
+    {
+      "t": 17.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.008832,
+      "state": "done"
+    },
+    {
+      "t": 18.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.061926,
+      "state": "done"
+    },
+    {
+      "t": 18.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.031391,
+      "state": "done"
+    },
+    {
+      "t": 18.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.028584,
+      "state": "done"
+    },
+    {
+      "t": 18.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.015533,
+      "state": "done"
+    },
+    {
+      "t": 18.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.066304,
+      "state": "done"
+    },
+    {
+      "t": 19.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.08244,
+      "state": "done"
+    },
+    {
+      "t": 19.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": 0.019596,
+      "state": "done"
+    },
+    {
+      "t": 19.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.060824,
+      "state": "done"
+    },
+    {
+      "t": 19.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.15067,
+      "state": "done"
+    },
+    {
+      "t": 19.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.121688,
+      "state": "done"
+    },
+    {
+      "t": 20.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.017334,
+      "state": "done"
+    },
+    {
+      "t": 20.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.041532,
+      "state": "done"
+    },
+    {
+      "t": 20.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.041307,
+      "state": "done"
+    },
+    {
+      "t": 20.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.142751,
+      "state": "done"
+    },
+    {
+      "t": 20.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.039577,
+      "state": "done"
+    },
+    {
+      "t": 21.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.03552,
+      "state": "done"
+    },
+    {
+      "t": 21.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.056606,
+      "state": "done"
+    },
+    {
+      "t": 21.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.043715,
+      "state": "done"
+    },
+    {
+      "t": 21.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.126978,
+      "state": "done"
+    },
+    {
+      "t": 21.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.006066,
+      "state": "done"
+    },
+    {
+      "t": 22.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.04847,
+      "state": "done"
+    },
+    {
+      "t": 22.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.131586,
+      "state": "done"
+    },
+    {
+      "t": 22.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.063747,
+      "state": "done"
+    },
+    {
+      "t": 22.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.051947,
+      "state": "done"
+    },
+    {
+      "t": 22.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.03786,
+      "state": "done"
+    },
+    {
+      "t": 23.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.053355,
+      "state": "done"
+    },
+    {
+      "t": 23.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": -0.055104,
+      "state": "done"
+    },
+    {
+      "t": 23.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.071978,
+      "state": "done"
+    },
+    {
+      "t": 23.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.009374,
+      "state": "done"
+    },
+    {
+      "t": 23.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.003588,
+      "state": "done"
+    },
+    {
+      "t": 24.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.014226,
+      "state": "done"
+    },
+    {
+      "t": 24.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.022348,
+      "state": "done"
+    },
+    {
+      "t": 24.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.018415,
+      "state": "done"
+    },
+    {
+      "t": 24.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.04363,
+      "state": "done"
+    },
+    {
+      "t": 24.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.111958,
+      "state": "done"
+    },
+    {
+      "t": 25.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.037572,
+      "state": "done"
+    },
+    {
+      "t": 25.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.016681,
+      "state": "done"
+    },
+    {
+      "t": 25.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.054038,
+      "state": "done"
+    },
+    {
+      "t": 25.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.051136,
+      "state": "done"
+    },
+    {
+      "t": 25.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.050407,
+      "state": "done"
+    },
+    {
+      "t": 26.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.075923,
+      "state": "done"
+    },
+    {
+      "t": 26.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 26.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.127163,
+      "state": "done"
+    },
+    {
+      "t": 26.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.07412,
+      "state": "done"
+    },
+    {
+      "t": 26.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.110647,
+      "state": "done"
+    },
+    {
+      "t": 27.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.029135,
+      "state": "done"
+    },
+    {
+      "t": 27.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": 0.009235,
+      "state": "done"
+    },
+    {
+      "t": 27.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.031398,
+      "state": "done"
+    },
+    {
+      "t": 27.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.038575,
+      "state": "done"
+    },
+    {
+      "t": 27.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.053239,
+      "state": "done"
+    },
+    {
+      "t": 28.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.055622,
+      "state": "done"
+    },
+    {
+      "t": 28.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.015505,
+      "state": "done"
+    },
+    {
+      "t": 28.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.010214,
+      "state": "done"
+    },
+    {
+      "t": 28.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.038205,
+      "state": "done"
+    },
+    {
+      "t": 28.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.022185,
+      "state": "done"
+    },
+    {
+      "t": 29.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.007751,
+      "state": "done"
+    },
+    {
+      "t": 29.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.030393,
+      "state": "done"
+    },
+    {
+      "t": 29.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.116654,
+      "state": "done"
+    },
+    {
+      "t": 29.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.137098,
+      "state": "done"
+    },
+    {
+      "t": 29.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.047133,
+      "state": "done"
+    },
+    {
+      "t": 30.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.077296,
+      "state": "done"
+    },
+    {
+      "t": 30.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.116936,
+      "state": "done"
+    },
+    {
+      "t": 30.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.074374,
+      "state": "done"
+    },
+    {
+      "t": 30.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.001637,
+      "state": "done"
+    },
+    {
+      "t": 30.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.040262,
+      "state": "done"
+    },
+    {
+      "t": 31.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.074147,
+      "state": "done"
+    },
+    {
+      "t": 31.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": -0.056913,
+      "state": "done"
+    },
+    {
+      "t": 31.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.098577,
+      "state": "done"
+    },
+    {
+      "t": 31.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.168245,
+      "state": "done"
+    },
+    {
+      "t": 31.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.004277,
+      "state": "done"
+    },
+    {
+      "t": 32.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.032158,
+      "state": "done"
+    },
+    {
+      "t": 32.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 32.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.018624,
+      "state": "done"
+    },
+    {
+      "t": 32.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.035979,
+      "state": "done"
+    },
+    {
+      "t": 32.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.062521,
+      "state": "done"
+    },
+    {
+      "t": 33.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.014661,
+      "state": "done"
+    },
+    {
+      "t": 33.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.052618,
+      "state": "done"
+    },
+    {
+      "t": 33.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.036876,
+      "state": "done"
+    },
+    {
+      "t": 33.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.093059,
+      "state": "done"
+    },
+    {
+      "t": 33.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.028468,
+      "state": "done"
+    },
+    {
+      "t": 34.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.01786,
+      "state": "done"
+    },
+    {
+      "t": 34.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.023324,
+      "state": "done"
+    },
+    {
+      "t": 34.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.084219,
+      "state": "done"
+    },
+    {
+      "t": 34.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.025367,
+      "state": "done"
+    },
+    {
+      "t": 34.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.041773,
+      "state": "done"
+    },
+    {
+      "t": 35.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.126519,
+      "state": "done"
+    },
+    {
+      "t": 35.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": 0.068891,
+      "state": "done"
+    },
+    {
+      "t": 35.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.066206,
+      "state": "done"
+    },
+    {
+      "t": 35.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 35.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.077371,
+      "state": "done"
+    },
+    {
+      "t": 36.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.020138,
+      "state": "done"
+    },
+    {
+      "t": 36.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.0556,
+      "state": "done"
+    },
+    {
+      "t": 36.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.021199,
+      "state": "done"
+    },
+    {
+      "t": 36.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 36.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.136008,
+      "state": "done"
+    },
+    {
+      "t": 37.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.026093,
+      "state": "done"
+    },
+    {
+      "t": 37.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.072035,
+      "state": "done"
+    },
+    {
+      "t": 37.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.030349,
+      "state": "done"
+    },
+    {
+      "t": 37.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.123816,
+      "state": "done"
+    },
+    {
+      "t": 37.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.117437,
+      "state": "done"
+    },
+    {
+      "t": 38.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.023626,
+      "state": "done"
+    },
+    {
+      "t": 38.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.071153,
+      "state": "done"
+    },
+    {
+      "t": 38.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.002699,
+      "state": "done"
+    },
+    {
+      "t": 38.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.035295,
+      "state": "done"
+    },
+    {
+      "t": 38.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.055821,
+      "state": "done"
+    },
+    {
+      "t": 39.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.055113,
+      "state": "done"
+    },
+    {
+      "t": 39.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": -0.078977,
+      "state": "done"
+    },
+    {
+      "t": 39.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.040836,
+      "state": "done"
+    },
+    {
+      "t": 39.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.033671,
+      "state": "done"
+    },
+    {
+      "t": 39.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.073664,
+      "state": "done"
+    },
+    {
+      "t": 40.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.015701,
+      "state": "done"
+    },
+    {
+      "t": 40.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.041486,
+      "state": "done"
+    },
+    {
+      "t": 40.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.015791,
+      "state": "done"
+    },
+    {
+      "t": 40.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.004508,
+      "state": "done"
+    },
+    {
+      "t": 40.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 41.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 41.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.14888,
+      "state": "done"
+    },
+    {
+      "t": 41.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.013031,
+      "state": "done"
+    },
+    {
+      "t": 41.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.050665,
+      "state": "done"
+    },
+    {
+      "t": 41.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.026818,
+      "state": "done"
+    },
+    {
+      "t": 42.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.039254,
+      "state": "done"
+    },
+    {
+      "t": 42.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.052898,
+      "state": "done"
+    },
+    {
+      "t": 42.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 42.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 42.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.052656,
+      "state": "done"
+    },
+    {
+      "t": 43.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.017232,
+      "state": "done"
+    },
+    {
+      "t": 43.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": -0.002644,
+      "state": "done"
+    },
+    {
+      "t": 43.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.000885,
+      "state": "done"
+    },
+    {
+      "t": 43.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.039899,
+      "state": "done"
+    },
+    {
+      "t": 43.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.02805,
+      "state": "done"
+    },
+    {
+      "t": 44.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.059077,
+      "state": "done"
+    },
+    {
+      "t": 44.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.086074,
+      "state": "done"
+    },
+    {
+      "t": 44.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.077908,
+      "state": "done"
+    },
+    {
+      "t": 44.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.101861,
+      "state": "done"
+    },
+    {
+      "t": 44.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.078337,
+      "state": "done"
+    },
+    {
+      "t": 45.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.015258,
+      "state": "done"
+    },
+    {
+      "t": 45.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.078829,
+      "state": "done"
+    },
+    {
+      "t": 45.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.054616,
+      "state": "done"
+    },
+    {
+      "t": 45.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.072173,
+      "state": "done"
+    },
+    {
+      "t": 45.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.15667,
+      "state": "done"
+    },
+    {
+      "t": 46.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.069174,
+      "state": "done"
+    },
+    {
+      "t": 46.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.074636,
+      "state": "done"
+    },
+    {
+      "t": 46.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.04099,
+      "state": "done"
+    },
+    {
+      "t": 46.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.030799,
+      "state": "done"
+    },
+    {
+      "t": 46.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.021976,
+      "state": "done"
+    },
+    {
+      "t": 47.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.058459,
+      "state": "done"
+    },
+    {
+      "t": 47.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": 0.121215,
+      "state": "done"
+    },
+    {
+      "t": 47.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.062276,
+      "state": "done"
+    },
+    {
+      "t": 47.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.000397,
+      "state": "done"
+    },
+    {
+      "t": 47.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.103569,
+      "state": "done"
+    },
+    {
+      "t": 48.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.021032,
+      "state": "done"
+    },
+    {
+      "t": 48.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.051854,
+      "state": "done"
+    },
+    {
+      "t": 48.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.097272,
+      "state": "done"
+    },
+    {
+      "t": 48.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.008299,
+      "state": "done"
+    },
+    {
+      "t": 48.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.058699,
+      "state": "done"
+    },
+    {
+      "t": 49.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.136458,
+      "state": "done"
+    },
+    {
+      "t": 49.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.082861,
+      "state": "done"
+    },
+    {
+      "t": 49.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 49.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.045358,
+      "state": "done"
+    },
+    {
+      "t": 49.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.024276,
+      "state": "done"
+    },
+    {
+      "t": 50.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.077289,
+      "state": "done"
+    },
+    {
+      "t": 50.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.098207,
+      "state": "done"
+    },
+    {
+      "t": 50.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.095227,
+      "state": "done"
+    },
+    {
+      "t": 50.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.004854,
+      "state": "done"
+    },
+    {
+      "t": 50.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.103859,
+      "state": "done"
+    },
+    {
+      "t": 51.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.053203,
+      "state": "done"
+    },
+    {
+      "t": 51.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": -0.062307,
+      "state": "done"
+    },
+    {
+      "t": 51.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.079934,
+      "state": "done"
+    },
+    {
+      "t": 51.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.062074,
+      "state": "done"
+    },
+    {
+      "t": 51.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.002514,
+      "state": "done"
+    },
+    {
+      "t": 52.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.020538,
+      "state": "done"
+    },
+    {
+      "t": 52.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.139994,
+      "state": "done"
+    },
+    {
+      "t": 52.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.042308,
+      "state": "done"
+    },
+    {
+      "t": 52.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.055508,
+      "state": "done"
+    },
+    {
+      "t": 52.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.111581,
+      "state": "done"
+    },
+    {
+      "t": 53.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.031969,
+      "state": "done"
+    },
+    {
+      "t": 53.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.021591,
+      "state": "done"
+    },
+    {
+      "t": 53.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.175109,
+      "state": "done"
+    },
+    {
+      "t": 53.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.00484,
+      "state": "done"
+    },
+    {
+      "t": 53.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.062539,
+      "state": "done"
+    },
+    {
+      "t": 54.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.001238,
+      "state": "done"
+    },
+    {
+      "t": 54.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.023689,
+      "state": "done"
+    },
+    {
+      "t": 54.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 54.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.062841,
+      "state": "done"
+    },
+    {
+      "t": 54.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.053778,
+      "state": "done"
+    },
+    {
+      "t": 55.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.164454,
+      "state": "done"
+    },
+    {
+      "t": 55.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": 0.016304,
+      "state": "done"
+    },
+    {
+      "t": 55.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.037467,
+      "state": "done"
+    },
+    {
+      "t": 55.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.087509,
+      "state": "done"
+    },
+    {
+      "t": 55.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.062257,
+      "state": "done"
+    },
+    {
+      "t": 56.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.026647,
+      "state": "done"
+    },
+    {
+      "t": 56.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.04475,
+      "state": "done"
+    },
+    {
+      "t": 56.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.023596,
+      "state": "done"
+    },
+    {
+      "t": 56.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 56.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.086901,
+      "state": "done"
+    },
+    {
+      "t": 57.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.002122,
+      "state": "done"
+    },
+    {
+      "t": 57.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.088035,
+      "state": "done"
+    },
+    {
+      "t": 57.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.002686,
+      "state": "done"
+    },
+    {
+      "t": 57.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 57.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.039783,
+      "state": "done"
+    },
+    {
+      "t": 58.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 58.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.030768,
+      "state": "done"
+    },
+    {
+      "t": 58.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.093615,
+      "state": "done"
+    },
+    {
+      "t": 58.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.004226,
+      "state": "done"
+    },
+    {
+      "t": 58.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.003294,
+      "state": "done"
+    },
+    {
+      "t": 59.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": 0.089141,
+      "state": "done"
+    },
+    {
+      "t": 59.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": 0.047444,
+      "state": "done"
+    },
+    {
+      "t": 59.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.049446,
+      "state": "done"
+    },
+    {
+      "t": 59.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.098315,
+      "state": "done"
+    },
+    {
+      "t": 59.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.045735,
+      "state": "done"
+    },
+    {
+      "t": 60.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.070841,
+      "state": "done"
+    },
+    {
+      "t": 60.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.043181,
+      "state": "done"
+    },
+    {
+      "t": 60.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 60.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.014743,
+      "state": "done"
+    },
+    {
+      "t": 60.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.045275,
+      "state": "done"
+    },
+    {
+      "t": 61.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.132101,
+      "state": "done"
+    },
+    {
+      "t": 61.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.064295,
+      "state": "done"
+    },
+    {
+      "t": 61.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.004698,
+      "state": "done"
+    },
+    {
+      "t": 61.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.020353,
+      "state": "done"
+    },
+    {
+      "t": 61.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.075354,
+      "state": "done"
+    },
+    {
+      "t": 62.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.040455,
+      "state": "done"
+    },
+    {
+      "t": 62.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.101786,
+      "state": "done"
+    },
+    {
+      "t": 62.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.130543,
+      "state": "done"
+    },
+    {
+      "t": 62.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.016646,
+      "state": "done"
+    },
+    {
+      "t": 62.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.021706,
+      "state": "done"
+    },
+    {
+      "t": 63.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.0348,
+      "state": "done"
+    },
+    {
+      "t": 63.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": -0.008324,
+      "state": "done"
+    },
+    {
+      "t": 63.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.090162,
+      "state": "done"
+    },
+    {
+      "t": 63.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.124524,
+      "state": "done"
+    },
+    {
+      "t": 63.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.052407,
+      "state": "done"
+    },
+    {
+      "t": 64.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.034785,
+      "state": "done"
+    },
+    {
+      "t": 64.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.018076,
+      "state": "done"
+    },
+    {
+      "t": 64.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.006658,
+      "state": "done"
+    },
+    {
+      "t": 64.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.080812,
+      "state": "done"
+    },
+    {
+      "t": 64.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.027897,
+      "state": "done"
+    },
+    {
+      "t": 65.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.000755,
+      "state": "done"
+    },
+    {
+      "t": 65.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.045227,
+      "state": "done"
+    },
+    {
+      "t": 65.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.033484,
+      "state": "done"
+    },
+    {
+      "t": 65.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.029771,
+      "state": "done"
+    },
+    {
+      "t": 65.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.070957,
+      "state": "done"
+    },
+    {
+      "t": 66.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.06232,
+      "state": "done"
+    },
+    {
+      "t": 66.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.019637,
+      "state": "done"
+    },
+    {
+      "t": 66.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.027608,
+      "state": "done"
+    },
+    {
+      "t": 66.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 66.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.063406,
+      "state": "done"
+    },
+    {
+      "t": 67.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.013972,
+      "state": "done"
+    },
+    {
+      "t": 67.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": -0.012567,
+      "state": "done"
+    },
+    {
+      "t": 67.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.024223,
+      "state": "done"
+    },
+    {
+      "t": 67.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.00111,
+      "state": "done"
+    },
+    {
+      "t": 67.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 68.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.040278,
+      "state": "done"
+    },
+    {
+      "t": 68.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.013711,
+      "state": "done"
+    },
+    {
+      "t": 68.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.106188,
+      "state": "done"
+    },
+    {
+      "t": 68.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.034563,
+      "state": "done"
+    },
+    {
+      "t": 68.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.002434,
+      "state": "done"
+    },
+    {
+      "t": 69.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.013656,
+      "state": "done"
+    },
+    {
+      "t": 69.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.013225,
+      "state": "done"
+    },
+    {
+      "t": 69.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 69.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.012648,
+      "state": "done"
+    },
+    {
+      "t": 69.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.020499,
+      "state": "done"
+    },
+    {
+      "t": 70.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.057586,
+      "state": "done"
+    },
+    {
+      "t": 70.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.067936,
+      "state": "done"
+    },
+    {
+      "t": 70.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.103583,
+      "state": "done"
+    },
+    {
+      "t": 70.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.138302,
+      "state": "done"
+    },
+    {
+      "t": 70.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.054322,
+      "state": "done"
+    },
+    {
+      "t": 71.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.042921,
+      "state": "done"
+    },
+    {
+      "t": 71.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": -0.109099,
+      "state": "done"
+    },
+    {
+      "t": 71.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.041739,
+      "state": "done"
+    },
+    {
+      "t": 71.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.04596,
+      "state": "done"
+    },
+    {
+      "t": 71.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.052134,
+      "state": "done"
+    },
+    {
+      "t": 72.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 72.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.081142,
+      "state": "done"
+    },
+    {
+      "t": 72.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.034313,
+      "state": "done"
+    },
+    {
+      "t": 72.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.102264,
+      "state": "done"
+    },
+    {
+      "t": 72.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.087244,
+      "state": "done"
+    },
+    {
+      "t": 73.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.000299,
+      "state": "done"
+    },
+    {
+      "t": 73.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.057254,
+      "state": "done"
+    },
+    {
+      "t": 73.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.036188,
+      "state": "done"
+    },
+    {
+      "t": 73.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.021463,
+      "state": "done"
+    },
+    {
+      "t": 73.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.006119,
+      "state": "done"
+    },
+    {
+      "t": 74.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 74.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.049395,
+      "state": "done"
+    },
+    {
+      "t": 74.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.035644,
+      "state": "done"
+    },
+    {
+      "t": 74.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.03947,
+      "state": "done"
+    },
+    {
+      "t": 74.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.073347,
+      "state": "done"
+    },
+    {
+      "t": 75.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.065776,
+      "state": "done"
+    },
+    {
+      "t": 75.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": -0.04508,
+      "state": "done"
+    },
+    {
+      "t": 75.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 75.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.137824,
+      "state": "done"
+    },
+    {
+      "t": 75.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.063192,
+      "state": "done"
+    },
+    {
+      "t": 76.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.055544,
+      "state": "done"
+    },
+    {
+      "t": 76.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.138235,
+      "state": "done"
+    },
+    {
+      "t": 76.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.076251,
+      "state": "done"
+    },
+    {
+      "t": 76.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.059678,
+      "state": "done"
+    },
+    {
+      "t": 76.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.067624,
+      "state": "done"
+    },
+    {
+      "t": 77.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.012322,
+      "state": "done"
+    },
+    {
+      "t": 77.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.003945,
+      "state": "done"
+    },
+    {
+      "t": 77.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 77.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.023301,
+      "state": "done"
+    },
+    {
+      "t": 77.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.095663,
+      "state": "done"
+    },
+    {
+      "t": 78.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.059518,
+      "state": "done"
+    },
+    {
+      "t": 78.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.050135,
+      "state": "done"
+    },
+    {
+      "t": 78.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.072609,
+      "state": "done"
+    },
+    {
+      "t": 78.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.066914,
+      "state": "done"
+    },
+    {
+      "t": 78.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.033222,
+      "state": "done"
+    },
+    {
+      "t": 79.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": 0.071077,
+      "state": "done"
+    },
+    {
+      "t": 79.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": 0.036868,
+      "state": "done"
+    },
+    {
+      "t": 79.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.076,
+      "state": "done"
+    },
+    {
+      "t": 79.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.048504,
+      "state": "done"
+    },
+    {
+      "t": 79.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.031782,
+      "state": "done"
+    },
+    {
+      "t": 80.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.029809,
+      "state": "done"
+    },
+    {
+      "t": 80.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.007347,
+      "state": "done"
+    },
+    {
+      "t": 80.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.024719,
+      "state": "done"
+    },
+    {
+      "t": 80.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 80.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.05206,
+      "state": "done"
+    },
+    {
+      "t": 81.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.144656,
+      "state": "done"
+    },
+    {
+      "t": 81.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.015914,
+      "state": "done"
+    },
+    {
+      "t": 81.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.026287,
+      "state": "done"
+    },
+    {
+      "t": 81.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.005747,
+      "state": "done"
+    },
+    {
+      "t": 81.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.03398,
+      "state": "done"
+    },
+    {
+      "t": 82.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.092007,
+      "state": "done"
+    },
+    {
+      "t": 82.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.079478,
+      "state": "done"
+    },
+    {
+      "t": 82.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.038849,
+      "state": "done"
+    },
+    {
+      "t": 82.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.072498,
+      "state": "done"
+    },
+    {
+      "t": 82.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.009186,
+      "state": "done"
+    },
+    {
+      "t": 83.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.104521,
+      "state": "done"
+    },
+    {
+      "t": 83.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": -0.023786,
+      "state": "done"
+    },
+    {
+      "t": 83.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.013868,
+      "state": "done"
+    },
+    {
+      "t": 83.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 83.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.013244,
+      "state": "done"
+    },
+    {
+      "t": 84.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.027012,
+      "state": "done"
+    },
+    {
+      "t": 84.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.038672,
+      "state": "done"
+    },
+    {
+      "t": 84.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.011688,
+      "state": "done"
+    },
+    {
+      "t": 84.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.037143,
+      "state": "done"
+    },
+    {
+      "t": 84.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.134119,
+      "state": "done"
+    },
+    {
+      "t": 85.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.003384,
+      "state": "done"
+    },
+    {
+      "t": 85.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 85.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.092106,
+      "state": "done"
+    },
+    {
+      "t": 85.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.020161,
+      "state": "done"
+    },
+    {
+      "t": 85.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.005778,
+      "state": "done"
+    },
+    {
+      "t": 86.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.03738,
+      "state": "done"
+    },
+    {
+      "t": 86.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.13689,
+      "state": "done"
+    },
+    {
+      "t": 86.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.09506,
+      "state": "done"
+    },
+    {
+      "t": 86.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.033077,
+      "state": "done"
+    },
+    {
+      "t": 86.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.029376,
+      "state": "done"
+    },
+    {
+      "t": 87.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": -0.003481,
+      "state": "done"
+    },
+    {
+      "t": 87.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": 0.077474,
+      "state": "done"
+    },
+    {
+      "t": 87.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.162349,
+      "state": "done"
+    },
+    {
+      "t": 87.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.077008,
+      "state": "done"
+    },
+    {
+      "t": 87.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.008935,
+      "state": "done"
+    },
+    {
+      "t": 88.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.046181,
+      "state": "done"
+    },
+    {
+      "t": 88.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.011073,
+      "state": "done"
+    },
+    {
+      "t": 88.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.038816,
+      "state": "done"
+    },
+    {
+      "t": 88.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.079184,
+      "state": "done"
+    },
+    {
+      "t": 88.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.091018,
+      "state": "done"
+    },
+    {
+      "t": 89.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.037942,
+      "state": "done"
+    },
+    {
+      "t": 89.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.165737,
+      "state": "done"
+    },
+    {
+      "t": 89.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.041932,
+      "state": "done"
+    },
+    {
+      "t": 89.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.002362,
+      "state": "done"
+    },
+    {
+      "t": 89.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.053945,
+      "state": "done"
+    },
+    {
+      "t": 90.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.041402,
+      "state": "done"
+    },
+    {
+      "t": 90.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.044423,
+      "state": "done"
+    },
+    {
+      "t": 90.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.102979,
+      "state": "done"
+    },
+    {
+      "t": 90.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.001326,
+      "state": "done"
+    },
+    {
+      "t": 90.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 91.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": 0.040581,
+      "state": "done"
+    },
+    {
+      "t": 91.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": -0.014524,
+      "state": "done"
+    },
+    {
+      "t": 91.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.043806,
+      "state": "done"
+    },
+    {
+      "t": 91.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.000394,
+      "state": "done"
+    },
+    {
+      "t": 91.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.048288,
+      "state": "done"
+    },
+    {
+      "t": 92.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.065817,
+      "state": "done"
+    },
+    {
+      "t": 92.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.020556,
+      "state": "done"
+    },
+    {
+      "t": 92.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.030527,
+      "state": "done"
+    },
+    {
+      "t": 92.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.010988,
+      "state": "done"
+    },
+    {
+      "t": 92.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.017209,
+      "state": "done"
+    },
+    {
+      "t": 93.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.191986,
+      "state": "done"
+    },
+    {
+      "t": 93.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.017108,
+      "state": "done"
+    },
+    {
+      "t": 93.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 93.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.057979,
+      "state": "done"
+    },
+    {
+      "t": 93.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.051661,
+      "state": "done"
+    },
+    {
+      "t": 94.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.025785,
+      "state": "done"
+    },
+    {
+      "t": 94.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.067563,
+      "state": "done"
+    },
+    {
+      "t": 94.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.049314,
+      "state": "done"
+    },
+    {
+      "t": 94.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.003961,
+      "state": "done"
+    },
+    {
+      "t": 94.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.107557,
+      "state": "done"
+    },
+    {
+      "t": 95.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": 0.056568,
+      "state": "done"
+    },
+    {
+      "t": 95.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": -0.099081,
+      "state": "done"
+    },
+    {
+      "t": 95.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.073353,
+      "state": "done"
+    },
+    {
+      "t": 95.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.021907,
+      "state": "done"
+    },
+    {
+      "t": 95.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.037657,
+      "state": "done"
+    },
+    {
+      "t": 96.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.03575,
+      "state": "done"
+    },
+    {
+      "t": 96.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.088272,
+      "state": "done"
+    },
+    {
+      "t": 96.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 96.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.015576,
+      "state": "done"
+    },
+    {
+      "t": 96.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.01374,
+      "state": "done"
+    },
+    {
+      "t": 97.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.002627,
+      "state": "done"
+    },
+    {
+      "t": 97.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.111305,
+      "state": "done"
+    },
+    {
+      "t": 97.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.007527,
+      "state": "done"
+    },
+    {
+      "t": 97.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.01551,
+      "state": "done"
+    },
+    {
+      "t": 97.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.074513,
+      "state": "done"
+    },
+    {
+      "t": 98.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.02919,
+      "state": "done"
+    },
+    {
+      "t": 98.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.173952,
+      "state": "done"
+    },
+    {
+      "t": 98.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.046889,
+      "state": "done"
+    },
+    {
+      "t": 98.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": -0.112782,
+      "state": "done"
+    },
+    {
+      "t": 98.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.054756,
+      "state": "done"
+    },
+    {
+      "t": 99.0,
+      "dur": 0.375,
+      "key": "KeyD",
+      "hitDt": 0.015523,
+      "state": "done"
+    },
+    {
+      "t": 99.0,
+      "dur": 0.375,
+      "key": "KeyL",
+      "hitDt": -0.084226,
+      "state": "done"
+    },
+    {
+      "t": 99.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.086179,
+      "state": "done"
+    },
+    {
+      "t": 99.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.015963,
+      "state": "done"
+    },
+    {
+      "t": 99.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.038312,
+      "state": "done"
+    },
+    {
+      "t": 100.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.084593,
+      "state": "done"
+    },
+    {
+      "t": 100.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.003101,
+      "state": "done"
+    },
+    {
+      "t": 100.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 100.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.003342,
+      "state": "done"
+    },
+    {
+      "t": 100.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.063259,
+      "state": "done"
+    },
+    {
+      "t": 101.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.016024,
+      "state": "done"
+    },
+    {
+      "t": 101.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.061462,
+      "state": "done"
+    },
+    {
+      "t": 101.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.05726,
+      "state": "done"
+    },
+    {
+      "t": 101.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.017838,
+      "state": "done"
+    },
+    {
+      "t": 101.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": null,
+      "state": "done"
+    },
+    {
+      "t": 102.0,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.025992,
+      "state": "done"
+    },
+    {
+      "t": 102.0,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.093909,
+      "state": "done"
+    },
+    {
+      "t": 102.25,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": 0.055376,
+      "state": "done"
+    },
+    {
+      "t": 102.5,
+      "dur": 0,
+      "key": "KeyD",
+      "hitDt": 0.038158,
+      "state": "done"
+    },
+    {
+      "t": 102.75,
+      "dur": 0,
+      "key": "KeyL",
+      "hitDt": -0.040556,
+      "state": "done"
+    }
+  ],
+  "strays": [
+    {
+      "ts": 20.557059,
+      "key": "KeyK"
+    },
+    {
+      "ts": 49.112557,
+      "key": "KeyF"
+    },
+    {
+      "ts": 18.416842,
+      "key": "KeyS"
+    },
+    {
+      "ts": 84.470365,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 11.630208,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 51.797901,
+      "key": "KeyF"
+    },
+    {
+      "ts": 34.39159,
+      "key": "KeyK"
+    },
+    {
+      "ts": 34.719622,
+      "key": "KeyK"
+    },
+    {
+      "ts": 43.882615,
+      "key": "KeyF"
+    },
+    {
+      "ts": 89.365934,
+      "key": "KeyK"
+    },
+    {
+      "ts": 57.416187,
+      "key": "KeyK"
+    },
+    {
+      "ts": 34.928095,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 95.548836,
+      "key": "KeyK"
+    },
+    {
+      "ts": 93.991089,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 55.424362,
+      "key": "KeyK"
+    },
+    {
+      "ts": 18.315827,
+      "key": "KeyS"
+    },
+    {
+      "ts": 18.110819,
+      "key": "KeyS"
+    },
+    {
+      "ts": 93.836854,
+      "key": "KeyF"
+    },
+    {
+      "ts": 9.152143,
+      "key": "KeyS"
+    },
+    {
+      "ts": 56.036489,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 61.105542,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 34.719032,
+      "key": "KeyS"
+    },
+    {
+      "ts": 80.363183,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 43.105943,
+      "key": "KeyF"
+    },
+    {
+      "ts": 15.837912,
+      "key": "KeyF"
+    },
+    {
+      "ts": 21.5413,
+      "key": "KeyK"
+    },
+    {
+      "ts": 92.135112,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 76.366319,
+      "key": "KeyS"
+    },
+    {
+      "ts": 84.316429,
+      "key": "KeyK"
+    },
+    {
+      "ts": 87.078308,
+      "key": "KeyK"
+    },
+    {
+      "ts": 29.448818,
+      "key": "KeyK"
+    },
+    {
+      "ts": 26.980224,
+      "key": "KeyF"
+    },
+    {
+      "ts": 24.961198,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 99.696356,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 79.588414,
+      "key": "KeyF"
+    },
+    {
+      "ts": 82.201392,
+      "key": "KeyF"
+    },
+    {
+      "ts": 36.074499,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 3.001636,
+      "key": "KeyF"
+    },
+    {
+      "ts": 65.587018,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 26.4521,
+      "key": "KeyF"
+    },
+    {
+      "ts": 37.636342,
+      "key": "KeyS"
+    },
+    {
+      "ts": 43.495959,
+      "key": "KeyS"
+    },
+    {
+      "ts": 54.291392,
+      "key": "KeyF"
+    },
+    {
+      "ts": 27.254138,
+      "key": "KeyF"
+    },
+    {
+      "ts": 70.795363,
+      "key": "KeyF"
+    },
+    {
+      "ts": 43.001275,
+      "key": "KeyS"
+    },
+    {
+      "ts": 31.598458,
+      "key": "KeyS"
+    },
+    {
+      "ts": 54.468634,
+      "key": "KeyF"
+    },
+    {
+      "ts": 4.150742,
+      "key": "KeyK"
+    },
+    {
+      "ts": 17.537492,
+      "key": "KeyS"
+    },
+    {
+      "ts": 71.129182,
+      "key": "KeyK"
+    },
+    {
+      "ts": 19.772558,
+      "key": "KeyK"
+    },
+    {
+      "ts": 12.504592,
+      "key": "KeyF"
+    },
+    {
+      "ts": 79.627194,
+      "key": "KeyK"
+    },
+    {
+      "ts": 13.845748,
+      "key": "KeyS"
+    },
+    {
+      "ts": 4.290503,
+      "key": "KeyS"
+    },
+    {
+      "ts": 62.795829,
+      "key": "KeyF"
+    },
+    {
+      "ts": 41.675394,
+      "key": "KeyF"
+    },
+    {
+      "ts": 35.814379,
+      "key": "KeyS"
+    },
+    {
+      "ts": 68.786666,
+      "key": "KeyK"
+    },
+    {
+      "ts": 62.379126,
+      "key": "KeyS"
+    },
+    {
+      "ts": 73.988584,
+      "key": "KeyS"
+    },
+    {
+      "ts": 77.747696,
+      "key": "KeyF"
+    },
+    {
+      "ts": 93.211119,
+      "key": "KeyK"
+    },
+    {
+      "ts": 68.333682,
+      "key": "KeyF"
+    },
+    {
+      "ts": 88.834684,
+      "key": "KeyF"
+    },
+    {
+      "ts": 6.721428,
+      "key": "KeyF"
+    },
+    {
+      "ts": 90.725995,
+      "key": "KeyS"
+    },
+    {
+      "ts": 55.550139,
+      "key": "KeyF"
+    },
+    {
+      "ts": 61.928352,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 5.89332,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 101.977568,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 33.08414,
+      "key": "KeyF"
+    },
+    {
+      "ts": 17.581032,
+      "key": "KeyF"
+    },
+    {
+      "ts": 78.455071,
+      "key": "KeyS"
+    },
+    {
+      "ts": 27.804203,
+      "key": "KeyF"
+    },
+    {
+      "ts": 19.941164,
+      "key": "KeyS"
+    },
+    {
+      "ts": 6.779608,
+      "key": "KeyF"
+    },
+    {
+      "ts": 36.103971,
+      "key": "KeyF"
+    },
+    {
+      "ts": 43.25194,
+      "key": "KeyF"
+    },
+    {
+      "ts": 97.355164,
+      "key": "KeyF"
+    },
+    {
+      "ts": 102.719846,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 72.446508,
+      "key": "KeyK"
+    },
+    {
+      "ts": 80.613727,
+      "key": "KeyF"
+    },
+    {
+      "ts": 15.406057,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 52.61079,
+      "key": "KeyK"
+    },
+    {
+      "ts": 94.957022,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 70.649709,
+      "key": "KeyF"
+    },
+    {
+      "ts": 3.144438,
+      "key": "KeyS"
+    },
+    {
+      "ts": 74.695532,
+      "key": "KeyK"
+    },
+    {
+      "ts": 78.408462,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 70.248396,
+      "key": "KeyS"
+    },
+    {
+      "ts": 12.610669,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 34.496729,
+      "key": "KeyS"
+    },
+    {
+      "ts": 92.756538,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 90.676694,
+      "key": "KeyF"
+    },
+    {
+      "ts": 28.430077,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 21.97264,
+      "key": "KeyS"
+    },
+    {
+      "ts": 52.582723,
+      "key": "KeyF"
+    },
+    {
+      "ts": 100.485934,
+      "key": "KeyF"
+    },
+    {
+      "ts": 56.664619,
+      "key": "KeyS"
+    },
+    {
+      "ts": 11.605642,
+      "key": "KeyS"
+    },
+    {
+      "ts": 84.670096,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 59.589379,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 11.322131,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 60.016248,
+      "key": "KeyS"
+    },
+    {
+      "ts": 31.636938,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 9.471272,
+      "key": "KeyS"
+    },
+    {
+      "ts": 48.704653,
+      "key": "KeyK"
+    },
+    {
+      "ts": 95.693968,
+      "key": "KeyF"
+    },
+    {
+      "ts": 77.543834,
+      "key": "KeyS"
+    },
+    {
+      "ts": 13.509362,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 23.469452,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 3.901809,
+      "key": "KeyF"
+    },
+    {
+      "ts": 55.643363,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 18.6921,
+      "key": "KeyK"
+    },
+    {
+      "ts": 52.964442,
+      "key": "KeyS"
+    },
+    {
+      "ts": 76.252518,
+      "key": "KeyS"
+    },
+    {
+      "ts": 40.30325,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 17.254215,
+      "key": "KeyF"
+    },
+    {
+      "ts": 22.057614,
+      "key": "KeyS"
+    },
+    {
+      "ts": 80.755882,
+      "key": "KeyS"
+    },
+    {
+      "ts": 41.692378,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 6.259188,
+      "key": "KeyS"
+    },
+    {
+      "ts": 10.059799,
+      "key": "KeyS"
+    },
+    {
+      "ts": 61.708711,
+      "key": "KeyK"
+    },
+    {
+      "ts": 102.028922,
+      "key": "KeyK"
+    },
+    {
+      "ts": 37.890772,
+      "key": "KeyS"
+    },
+    {
+      "ts": 19.296934,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 28.311171,
+      "key": "KeyS"
+    },
+    {
+      "ts": 35.712932,
+      "key": "KeyK"
+    },
+    {
+      "ts": 52.817016,
+      "key": "KeyK"
+    },
+    {
+      "ts": 82.287187,
+      "key": "KeyS"
+    },
+    {
+      "ts": 66.77668,
+      "key": "KeyF"
+    },
+    {
+      "ts": 27.278022,
+      "key": "KeyF"
+    },
+    {
+      "ts": 25.062158,
+      "key": "KeyK"
+    },
+    {
+      "ts": 91.345975,
+      "key": "KeyF"
+    },
+    {
+      "ts": 18.707356,
+      "key": "KeyS"
+    },
+    {
+      "ts": 58.333644,
+      "key": "KeyF"
+    },
+    {
+      "ts": 81.904345,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 51.564998,
+      "key": "KeyF"
+    },
+    {
+      "ts": 23.225748,
+      "key": "KeyF"
+    },
+    {
+      "ts": 39.964502,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 98.406089,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 32.565533,
+      "key": "KeyS"
+    },
+    {
+      "ts": 27.948371,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 25.679051,
+      "key": "KeyF"
+    },
+    {
+      "ts": 35.549082,
+      "key": "KeyK"
+    },
+    {
+      "ts": 84.058873,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 38.903301,
+      "key": "KeyK"
+    },
+    {
+      "ts": 68.230485,
+      "key": "KeyK"
+    },
+    {
+      "ts": 25.466419,
+      "key": "KeyF"
+    },
+    {
+      "ts": 5.213095,
+      "key": "KeyF"
+    },
+    {
+      "ts": 102.890656,
+      "key": "KeyS"
+    },
+    {
+      "ts": 80.272233,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 42.359338,
+      "key": "KeyK"
+    },
+    {
+      "ts": 26.059945,
+      "key": "KeyK"
+    },
+    {
+      "ts": 34.872712,
+      "key": "KeyS"
+    },
+    {
+      "ts": 61.624498,
+      "key": "KeyJ"
+    },
+    {
+      "ts": 102.45599,
+      "key": "KeyS"
+    }
+  ],
+  "cues": []
+}

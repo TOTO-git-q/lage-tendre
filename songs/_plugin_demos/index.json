@@ -1,0 +1,72 @@
+[
+  {
+    "dir": "_plugin_demos/shapes",
+    "set": "plugin_shapes",
+    "title": "Star and heart",
+    "artist": "L’âge tendre",
+    "version": "STAR + HEART",
+    "bpm": 120,
+    "length": 70,
+    "audio": "audio.wav",
+    "preview": 2,
+    "notes": 10,
+    "level": 1,
+    "cover": "_covers/demo.jpg"
+  },
+  {
+    "dir": "_plugin_demos/motion",
+    "set": "plugin_motion",
+    "title": "Outward chord",
+    "artist": "L’âge tendre",
+    "version": "NOTE MOTION",
+    "bpm": 120,
+    "length": 70,
+    "audio": "audio.wav",
+    "preview": 2,
+    "notes": 3,
+    "level": 1,
+    "cover": "_covers/demo.jpg"
+  },
+  {
+    "dir": "_plugin_demos/speed",
+    "set": "plugin_speed",
+    "title": "Two speeds, one pulse",
+    "artist": "L’âge tendre",
+    "version": "FALL SPEED + SV",
+    "bpm": 120,
+    "length": 70,
+    "audio": "audio.wav",
+    "preview": 2,
+    "notes": 18,
+    "level": 1,
+    "cover": "_covers/demo.jpg"
+  },
+  {
+    "dir": "_plugin_demos/glow_ring",
+    "set": "plugin_glow_ring",
+    "title": "Halo study",
+    "artist": "L’âge tendre",
+    "version": "DECLARATIVE",
+    "bpm": 120,
+    "length": 70,
+    "audio": "audio.wav",
+    "preview": 8,
+    "notes": 72,
+    "level": 2,
+    "cover": "_covers/demo.jpg"
+  },
+  {
+    "dir": "_plugin_demos/script_trust",
+    "set": "plugin_script_trust",
+    "title": "A little permission",
+    "artist": "L’âge tendre",
+    "version": "SCRIPT TRUST",
+    "bpm": 120,
+    "length": 70,
+    "audio": "audio.wav",
+    "preview": 8,
+    "notes": 72,
+    "level": 2,
+    "cover": "_covers/demo.jpg"
+  }
+]

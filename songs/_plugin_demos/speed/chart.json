@@ -1,0 +1,185 @@
+{
+  "title": "Two speeds, one pulse",
+  "audio": "audio.wav",
+  "bpm": 120,
+  "offset": 0,
+  "meta": {
+    "stage": "off"
+  },
+  "plugins": [
+    {
+      "id": "fall_speed",
+      "version": "1.0.0"
+    }
+  ],
+  "lights": [
+    {
+      "t": 0.1,
+      "id": 0,
+      "type": "on",
+      "x": 0.3,
+      "w": 0.22,
+      "a": 0.75,
+      "tint": 3,
+      "auto": true
+    },
+    {
+      "t": 0.1,
+      "id": 1,
+      "type": "on",
+      "x": 0.7,
+      "w": 0.22,
+      "a": 0.75,
+      "tint": 4,
+      "auto": true
+    },
+    {
+      "t": 14,
+      "id": 0,
+      "type": "off",
+      "auto": true
+    },
+    {
+      "t": 14,
+      "id": 1,
+      "type": "off",
+      "auto": true
+    }
+  ],
+  "track_speeds": [
+    {
+      "id": 0,
+      "speed": 1.8
+    },
+    {
+      "id": 1,
+      "speed": 0.65
+    }
+  ],
+  "sv": [
+    {
+      "t": 4,
+      "speed": 0.35,
+      "dur": 1.5,
+      "ease": "inout"
+    },
+    {
+      "t": 7,
+      "speed": 1,
+      "dur": 1,
+      "ease": "out"
+    }
+  ],
+  "notes": [
+    {
+      "t": 3,
+      "light": 0,
+      "u": 0.5,
+      "kind": "tap"
+    },
+    {
+      "t": 3,
+      "light": 1,
+      "u": 0.5,
+      "kind": "tap"
+    },
+    {
+      "t": 4,
+      "light": 0,
+      "u": 0.5,
+      "kind": "tap"
+    },
+    {
+      "t": 4,
+      "light": 1,
+      "u": 0.5,
+      "kind": "tap"
+    },
+    {
+      "t": 5,
+      "light": 0,
+      "u": 0.5,
+      "kind": "tap"
+    },
+    {
+      "t": 5,
+      "light": 1,
+      "u": 0.5,
+      "kind": "tap"
+    },
+    {
+      "t": 6,
+      "light": 0,
+      "u": 0.5,
+      "kind": "tap"
+    },
+    {
+      "t": 6,
+      "light": 1,
+      "u": 0.5,
+      "kind": "tap"
+    },
+    {
+      "t": 7,
+      "light": 0,
+      "u": 0.5,
+      "kind": "tap"
+    },
+    {
+      "t": 7,
+      "light": 1,
+      "u": 0.5,
+      "kind": "tap"
+    },
+    {
+      "t": 8,
+      "light": 0,
+      "u": 0.5,
+      "kind": "tap"
+    },
+    {
+      "t": 8,
+      "light": 1,
+      "u": 0.5,
+      "kind": "tap"
+    },
+    {
+      "t": 9,
+      "light": 0,
+      "u": 0.5,
+      "kind": "tap"
+    },
+    {
+      "t": 9,
+      "light": 1,
+      "u": 0.5,
+      "kind": "tap"
+    },
+    {
+      "t": 10,
+      "light": 0,
+      "u": 0.5,
+      "kind": "tap"
+    },
+    {
+      "t": 10,
+      "light": 1,
+      "u": 0.5,
+      "kind": "tap"
+    },
+    {
+      "t": 11,
+      "light": 0,
+      "u": 0.5,
+      "kind": "hold",
+      "dur": 1.5
+    },
+    {
+      "t": 11,
+      "light": 1,
+      "u": 0.5,
+      "kind": "hold",
+      "dur": 1.5
+    }
+  ]
+}

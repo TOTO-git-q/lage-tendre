@@ -1,0 +1,12 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "machine": "AMD64",
+  "cpu_affinity": [],
+  "loadavg_before": [],
+  "renderer_environment": {
+    "LP_NUM_THREADS": "<default>",
+    "LIBGL_ALWAYS_SOFTWARE": "<default>",
+    "MESA_LOADER_DRIVER_OVERRIDE": "<default>"
+  },
+  "loadavg_after": []
+}

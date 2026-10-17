@@ -1,0 +1,105 @@
+{
+  "id": "fall_speed",
+  "version": "1.0.0",
+  "api": 1,
+  "tier": "script",
+  "title": "Fall speed and SV",
+  "author": "L’âge tendre",
+  "description": "Per-track speeds and exact integrated global scroll velocity; judgement remains at original chart times.",
+  "provides": {
+    "validators": [
+      "fall_speed"
+    ]
+  },
+  "fields": [
+    {
+      "path": "track_speeds",
+      "type": "array",
+      "default": [],
+      "unit": "tracks",
+      "doc": "Per-track speed multipliers; shared lights/tracks ID namespace. At most 1024 unique live IDs."
+    },
+    {
+      "path": "track_speeds[].id",
+      "type": "number",
+      "default": 0,
+      "unit": "track ID",
+      "doc": "Existing lane or shape track ID.",
+      "min": 0,
+      "max": 2147483647,
+      "step": 1
+    },
+    {
+      "path": "track_speeds[].speed",
+      "type": "number",
+      "default": 1,
+      "unit": "multiplier",
+      "doc": "Positive speed only; zero, negative, non-finite and out-of-range values are diagnosed and ignored.",
+      "min": 0.05,
+      "max": 8,
+      "step": 0.05
+    },
+    {
+      "path": "sv",
+      "type": "array",
+      "default": [],
+      "unit": "events",
+      "doc": "At most 1024 positive global scroll-speed events. Later events truncate previous ramps continuously; same-time last event wins."
+    },
+    {
+      "path": "sv[].t",
+      "type": "number",
+      "default": 0,
+      "unit": "seconds",
+      "doc": "Start time; t+dur must not exceed 86400.",
+      "min": 0,
+      "max": 86400,
+      "step": 0.001
+    },
+    {
+      "path": "sv[].speed",
+      "type": "number",
+      "default": 1,
+      "unit": "multiplier",
+      "doc": "Target global scroll speed. Stops/reverse speeds are unsupported.",
+      "min": 0.05,
+      "max": 8,
+      "step": 0.05
+    },
+    {
+      "path": "sv[].dur",
+      "type": "number",
+      "default": 0,
+      "unit": "seconds",
+      "doc": "Transition duration; 0 changes immediately. t+dur <= 86400.",
+      "min": 0,
+      "max": 86400,
+      "step": 0.001
+    },
+    {
+      "path": "sv[].ease",
+      "type": "enum",
+      "default": "linear",
+      "unit": "curve",
+      "doc": "Interpolation from actual speed at this time to target speed.",
+      "enum": [
+        "linear",
+        "in",
+        "out",
+        "inout"
+      ]
+    }
+  ],
+  "assets": [],
+  "entry": "entry.gd",
+  "requires": [
+    {
+      "id": "standard_chart",
+      "version": "1.0.0"
+    },
+    {
+      "id": "standard_render",
+      "version": "1.0.0"
+    }
+  ]
+}
