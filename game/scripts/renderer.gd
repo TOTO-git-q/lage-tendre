@@ -60,6 +60,12 @@ var line_r: Variant:
 var curve: String:
 	get: return _runtime.curve
 	set(value): _runtime.curve = value
+var accel_k: float:
+	get: return _runtime.accel_k
+	set(value): _runtime.accel_k = value
+var persp_k: float:
+	get: return _runtime.persp_k
+	set(value): _runtime.persp_k = value
 
 var calib_mode: bool:
 	get: return _runtime.calib_mode

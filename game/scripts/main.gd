@@ -296,6 +296,8 @@ func _apply_settings() -> void:
 	core.stage.mode = settings.stage
 	core.autoplay = settings.autoplay
 	R.curve = settings.curve
+	R.accel_k = float(settings.get("accel_k", 1.7))
+	R.persp_k = _persp_k(float(settings.get("persp_deg", 35.0)))
 	R.note_scale = 1.5 * settings.note_size
 	R.hint_mode = "off"                         # 2026-10-16: no letters; faint key guides on the track instead
 	R.line_l = calib.L * LW
@@ -853,6 +855,11 @@ func _build_settings() -> void:
 	left.add_child(_col_head("游玩　PLAY"))
 	_w.fall = _slider_row(left, "下落时间　FALL", 0.6, 3.5, 0.05, func(x): settings.fall = x; _sync_settings_ui(); _save_settings())
 	_w.curve = _toggle_row(left, "下落方式　APPROACH", func(): settings.curve = {"deemo": "accel", "accel": "linear", "linear": "deemo"}[settings.curve]; _after_change())
+	# one row that follows the curve (owner, 2026-10-18): 透视 -> perspective angle, 加速 -> acceleration; hidden for 匀速
+	_w.curve_amt = _slider_row(left, "透视角度　ANGLE", 0.0, 1.0, 0.01, func(x):
+		if settings.curve == "accel": settings.accel_k = snappedf(lerpf(1.1, 3.5, x), 0.05)
+		elif settings.curve == "deemo": settings.persp_deg = roundf(lerpf(15.0, 75.0, x))
+		_after_change())
 	_w.reach = _slider_row(left, "轨道长度　REACH", 0.25, 1.0, 0.05, func(x): settings.reach = x; _sync_settings_ui(); _save_settings())
 	_w.offset = _slider_row(left, "音频偏移　OFFSET", -200, 200, 1, func(x): settings.offset_ms = int(x); _sync_settings_ui(); _save_settings())
 	_w.size = _slider_row(left, "按键大小　NOTE SIZE", 0.5, 1.5, 0.05, func(x): settings.note_size = x; _after_change())
@@ -940,6 +947,11 @@ func _set_slider(w: Dictionary, v: float, txt: String) -> void:
 	w.slider.remove_meta("syncing")
 	w.val.text = txt
 
+## camera angle -> depth factor of the perspective fall: 35 deg keeps the original look (k = 9, far end at 1/10 size);
+## a steeper camera (bigger angle) flattens the perspective, a lower one deepens it
+static func _persp_k(deg: float) -> float:
+	return 9.0 * tan(deg_to_rad(35.0)) / tan(deg_to_rad(clampf(deg, 10.0, 80.0)))
+
 func _deemo_speed(fall: float) -> float:
 	var M := [8.91, 7, 6.39, 5.86, 5.86, 5.86, 6.1, 6.6, 6.8, 7.45, 8, 9, 10, 11.1, 13, 14, 15, 17.4]
 	var t_of := func(sp: float) -> float:
@@ -966,6 +978,17 @@ func _sync_settings_ui() -> void:
 	_set_slider(_w.offset, settings.offset_ms, ("+" if settings.offset_ms > 0 else "") + "%d ms" % settings.offset_ms)
 	_set_slider(_w.size, settings.note_size, "%.2f x" % settings.note_size)
 	_set_toggle(_w.curve, {"deemo": "透视 DEEMO", "accel": "加速 ACCEL", "linear": "匀速 LINEAR"}[settings.curve], settings.curve == "deemo")
+	var amt_row: Control = _w.curve_amt.slider.get_parent()
+	amt_row.visible = settings.curve != "linear"
+	var amt_label := amt_row.get_child(0) as Label
+	if settings.curve == "accel":
+		var ak := float(settings.get("accel_k", 1.7))
+		amt_label.text = "加速度　ACCEL"
+		_set_slider(_w.curve_amt, inverse_lerp(1.1, 3.5, ak), "x%.2f" % ak + ("　默认" if is_equal_approx(ak, 1.7) else ""))
+	elif settings.curve == "deemo":
+		var deg := float(settings.get("persp_deg", 35.0))
+		amt_label.text = "透视角度　ANGLE"
+		_set_slider(_w.curve_amt, inverse_lerp(15.0, 75.0, deg), "%d°" % int(deg) + ("　默认" if is_equal_approx(deg, 35.0) else ""))
 	_set_toggle(_w.hit, {"wood": "木质 WOOD", "deep": "深沉 DEEP", "crisp": "清脆 CRISP", "off": "OFF"}[settings.hit_kind], settings.hit_kind != "off")
 	_set_toggle(_w.stage, settings.stage.to_upper(), settings.stage == "full")
 	_set_toggle(_w.auto, "ON" if settings.autoplay else "OFF", settings.autoplay)
@@ -1306,6 +1329,10 @@ func _input(event: InputEvent) -> void:
 	var e := event as InputEventKey
 	var now := SU.ticks()
 	var raw := KB.code_of(e)
+	if raw == "Escape" and e.pressed and not e.echo:
+		if _esc_udp != null and _keyguard_pid > 0 and not _esc_from("os"):
+			get_viewport().set_input_as_handled()
+			return
 	if e.pressed and not e.echo:
 		if ((e.keycode == KEY_ENTER and e.alt_pressed) or e.keycode == KEY_F11) and not state in ["playing", "paused", "resuming"]:
 			settings.fullscreen = not settings.fullscreen
@@ -1407,6 +1434,7 @@ func _notification(what: int) -> void:
 
 # ================================================================ main loop
 func _process(_delta: float) -> void:
+	_poll_esc_fast()
 	var now := SU.ticks()
 	if _uses_song_plugins and _song_plugins != null and now >= _plugin_notice_at:
 		_plugin_notice_at = now + 1000000
@@ -1536,6 +1564,28 @@ func _exit_tree() -> void:
 # keys are swallowed while this window is in front, the StickyKeys-style hotkeys are off while it runs; only Esc keeps
 # its meaning.  It watches our pid and restores everything if we exit or crash.  Never in shot / test runs.
 var _keyguard_pid := -1
+# Esc fast path (2026-10-18): KeyGuard sends "ESC" the instant the key goes down; the same press then also arrives as
+# a normal (possibly ~1 s late) key event. Each source counts its presses; a press acts only when its source is ahead,
+# so whichever copy comes first acts and the other is dropped, and a lost packet heals itself.
+var _esc_udp: PacketPeerUDP
+var _esc_n := {"udp": 0, "os": 0}
+var _esc_last := 0
+
+func _esc_from(source: String) -> bool:
+	var now := SU.ticks()
+	if now - _esc_last > 3000000:             # quiet for 3 s: both sources agree again
+		var m: int = maxi(_esc_n.udp, _esc_n.os)
+		_esc_n.udp = m; _esc_n.os = m
+	_esc_last = now
+	_esc_n[source] += 1
+	var other := "os" if source == "udp" else "udp"
+	return _esc_n[source] > _esc_n[other]
+
+func _poll_esc_fast() -> void:
+	if _esc_udp == null: return
+	while _esc_udp.get_available_packet_count() > 0:
+		if _esc_udp.get_packet().get_string_from_ascii() == "ESC" and _esc_from("udp"):
+			_key_down("Escape", "Escape", false, SU.ticks(), false)
 
 func _keyguard_path() -> String:
 	var p := OS.get_executable_path().get_base_dir().path_join("KeyGuard.exe")
@@ -1567,7 +1617,13 @@ func _keyguard_update() -> void:
 	var want: bool = settings.keyguard and OS.get_name() == "Windows" and not args.has("shot") and not args.has("windowed")
 	if want and _keyguard_pid < 0:
 		var p := _keyguard_path()
-		if p != "": _keyguard_pid = OS.create_process(p, [str(OS.get_process_id())])
+		if p != "":
+			var kg_args := [str(OS.get_process_id())]
+			if _esc_udp == null:
+				_esc_udp = PacketPeerUDP.new()
+				if _esc_udp.bind(0, "127.0.0.1") != OK: _esc_udp = null
+			if _esc_udp != null: kg_args += ["--esc-port", str(_esc_udp.get_local_port())]
+			_keyguard_pid = OS.create_process(p, kg_args)
 	elif not want: _keyguard_stop()
 
 func _keyguard_stop() -> void:

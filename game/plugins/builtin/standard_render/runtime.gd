@@ -25,6 +25,17 @@ var judge_y := SU.JUDGE_Y
 var line_l := 0.0                 # line ends (logical px): the keyboard's left Shift .. right Shift = the screen edges
 var line_r := LW
 var curve := "deemo"
+# 2026-10-18 owner: the fall curves are adjustable. accel_k = exponent of the accelerating fall (1.0 would be linear);
+# persp_k = depth factor of the perspective fall (far end shown at 1 / (1 + k) of full size; 9 = the original look).
+var accel_k := 1.7:
+	set(v):
+		if not is_equal_approx(v, accel_k): accel_k = v; _drop_curve_caches()
+var persp_k := PK:
+	set(v):
+		if not is_equal_approx(v, persp_k): persp_k = v; _drop_curve_caches()
+
+func _drop_curve_caches() -> void:
+	_band_rows.clear(); _curve_points.clear(); _curve_grids.clear()
 var calib_mode := false
 
 var f := {}                        # current frame data
@@ -116,8 +127,8 @@ func s_of_p(p: float) -> float:
 	p = clampf(p, 0.0, 1.25)
 	var s: float
 	if curve == "linear": s = S0 + (1.0 - S0) * p
-	elif curve == "accel": s = S0 + (1.0 - S0) * pow(p, 1.7)
-	else: s = 1.0 / (1.0 + PK * (1.0 - p)) if p <= 1.0 else 1.0 + PK * (p - 1.0)
+	elif curve == "accel": s = S0 + (1.0 - S0) * pow(p, accel_k)
+	else: s = 1.0 / (1.0 + persp_k * (1.0 - p)) if p <= 1.0 else 1.0 + persp_k * (p - 1.0)
 	return minf(1.25, s)
 
 # ---------------------------------------------------------------- setup
@@ -1096,20 +1107,22 @@ func _paint_fx(c: CanvasItem) -> void:
 	hold_ends = hold_ends.filter(func(e): return now - e.born <= 0.65 and now - e.born > -0.05)
 	if f.play:
 		var t: float = f.t
+		# 2026-10-18 owner: pedal orbs fall with the player's speed setting like the notes (was a fixed SU.APPROACH 1.6 s)
+		var ap: float = float(f.fall) if float(f.fall) > 0.05 else SU.APPROACH
 		for q in f.cues:
-			var e: float = t - (q.t - SU.APPROACH)
-			if e < 0.0 or e > SU.APPROACH + q.dur + 0.4: continue
+			var e: float = t - (q.t - ap)
+			if e < 0.0 or e > ap + q.dur + 0.4: continue
 			if (q.dur <= 0.0 and q.state == "hit") or q.state == "skip": continue
 			var a := 1.0
 			if q.state == "miss": a = clampf(1.0 - (t - q.t - SU.WIN_GOOD) / 0.25, 0.0, 1.0) * 0.5
 			if q.state == "fail": a = 0.35
 			if a <= 0.01: continue
-			var p := minf(e / SU.APPROACH, 1.0)
+			var p := minf(e / ap, 1.0)
 			var s := s_of_p(p)
 			var col := SU.YEL if q.yellow else Color.WHITE
 			for xl in _sides(q.from):
 				if q.dur > 0.0:
-					var pt := maxf(0.0, (e - q.dur) / SU.APPROACH)
+					var pt := maxf(0.0, (e - q.dur) / ap)
 					if pt < 1.0: band(c, TEX.hold, xl - 0.014, xl + 0.014, s_of_p(pt), s, 0.85 * a, 0.3)
 					if pt >= 1.0: continue
 				var sz := (150.0 if q.state == "holding" else 124.0) * (0.35 + 0.65 * s)

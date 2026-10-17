@@ -166,7 +166,7 @@ func _test_judgement() -> void:
 	var raw={"bpm":120,"lights":[{"id":0,"t":0.1,"type":"on","x":0.8,"w":0.15,"auto":true}],"notes":[{"t":3.0,"light":0,"u":0.5,"kind":"tap","motion":{"type":"horizontal","x0":0.05,"begin":0.95,"end":1.0}}]}
 	var scoped_chart:=scoped(raw); var core:=GameCore.new(scoped_chart.registry); core.load_chart(scoped_chart.chart_data); core.playing=true
 	check(core.press_key("KeyA",2.925)==null and core.stats.judged==0,"key at visual-only x cannot hit remote original track")
-	check(core.press_key("KeyL",2.925)!=null and core.stats.PERFECT==1,"original track hits while note is still at remote visual x")
+	check(core.press_key("KeyL",2.925)!=null and core.stats.GREAT==1,"original track hits while note is still at remote visual x (75 ms early = GREAT under the 50/80 ms windows)")
 	scoped_chart.close()
 	var demo: Dictionary=fixture_chart.duplicate(true); var demo_session:=scoped(demo)
 	core=GameCore.new(demo_session.registry); core.load_chart(demo_session.chart_data); core.playing=true

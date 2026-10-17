@@ -38,6 +38,10 @@ var cut_by_landing:
 	get: return GameCore.cut_by_landing
 var fifo_compensate:
 	get: return GameCore.fifo_compensate
+var regrade_enabled:
+	get: return GameCore.regrade
+var snap_enabled:
+	get: return GameCore.snap
 var cluster_s:
 	get: return GameCore.cluster_s
 var cluster_reach:
@@ -341,7 +345,65 @@ func _rule_key_input(context: Dictionary) -> void:
 
 func _rule_nearest_time(context: Dictionary) -> void:
 	var k: Dictionary = context.k
-	context.note = resolve_hit(k.cx, context.ts, k.x0 / 15.0 - SU.KEY_PAD, (k.x0 + k.w) / 15.0 + SU.KEY_PAD, context.code)
+	var k0: float = k.x0 / 15.0 - SU.KEY_PAD
+	var k1: float = (k.x0 + k.w) / 15.0 + SU.KEY_PAD
+	context.note = resolve_hit(k.cx, context.ts, k0, k1, context.code)
+	if regrade_enabled: _try_regrade(context, k0, k1)
+
+## Grade protection (owner, 2026-10-18). A tap taken more than PERFECT early is provisional: its hit effect shows at
+## once, its grade is settled PERFECT after its own time. Until then a later press on its track that is closer to the
+## note's time re-judges it with the better timing -- that press is used up there (it does not go on to take the next
+## note early, so one extra key of a slap no longer drags every following note down to GOOD), and the earlier press
+## counts as the stray. A press is only superseded by a better press for the same note; a single press always counts.
+func _try_regrade(context: Dictionary, k0: float, k1: float) -> void:
+	var ts: float = context.ts
+	var best = null
+	var best_d := INF
+	for r in notes:
+		if not r.get("provisional", false) or not (r.state in ["hit", "holding"]): continue
+		if ts > r.t + SU.WIN_PERFECT + 1e-9: continue
+		var d := absf(ts - r.t)
+		if d >= absf(float(r.hitDt)) - 1e-4: continue
+		if not _overlaps(_light_at(tl[r.light], r.t), k0, k1): continue
+		if d < best_d:
+			best = r; best_d = d
+	if best == null: return
+	var n = context.note
+	# owner 2026-10-18 ("two presses became one"): the press is matched against both the provisional note and the
+	# next pending one and goes where it earns the better grade; on a tie it takes the pending note, so a second
+	# press is never swallowed while a real note is waiting for it
+	if n != null and _grade_rank(absf(ts - n.t)) <= _grade_rank(best_d): return
+	var r: Dictionary = best
+	var old_grade: String = r.grade
+	var old_crit: bool = r.crit
+	var old_dt: float = r.hitDt
+	if strays.size() < 4000: strays.append({"ts": snappedf(r.get("prov_ts", ts), 1e-4), "key": r.key})
+	var dt: float = ts - r.t
+	var grade := grade_of(absf(dt))
+	r.crit = absf(dt) <= SU.WIN_CRITICAL + 1e-9
+	_count(old_grade, -1, old_crit); _count(grade, 1, r.crit)
+	if absf(old_dt) > SU.WIN_CRITICAL: stats.fast = maxi(0, stats.fast - 1)
+	_log_hit(dt, grade)
+	r.grade = grade; r.headGrade = grade; r.key = context.code; r.hitDt = dt; r.hitX = context.k.cx
+	r.fb = {"grade": grade, "x": context.k.cx, "dt": dt}
+	ripple.emit(context.k.cx, (3.0 if r.big else 2.0) if grade == "PERFECT" else 1.0)
+	if grade == "PERFECT" or ts >= r.t:
+		_settle(r)
+	context.result = r
+	context.stop = true
+
+## 0 CRITICAL, 1 PERFECT, 2 GREAT, 3 GOOD (smaller is better)
+static func _grade_rank(d: float) -> int:
+	if d <= SU.WIN_CRITICAL + 1e-9: return 0
+	if d <= SU.WIN_PERFECT + 1e-9: return 1
+	if d <= SU.WIN_GREAT + 1e-9: return 2
+	return 3
+
+func _settle(n: Dictionary) -> void:
+	if not n.get("provisional", false): return
+	n.provisional = false
+	var fb: Dictionary = n.get("fb", {})
+	if not fb.is_empty(): judged.emit(fb.grade, fb.x, fb.dt)
 
 func _rule_slap_guard(context: Dictionary) -> void:
 	var k: Dictionary = context.k
@@ -374,7 +436,7 @@ func _rule_early_snap(context: Dictionary) -> void:
 	if context.slap:
 		if strays.size() < 4000: strays.append({"ts": snappedf(ts, 1e-4), "key": code})
 		return
-	var sn = _snap_target(ts, k.x0 / 15.0 - SU.KEY_PAD, (k.x0 + k.w) / 15.0 + SU.KEY_PAD)
+	var sn = _snap_target(ts, k.x0 / 15.0 - SU.KEY_PAD, (k.x0 + k.w) / 15.0 + SU.KEY_PAD) if snap_enabled else null
 	if sn != null:
 		sn["snap"] = {"code": code, "ts": ts, "x": k.cx}
 		ripple.emit(k.cx, 0.5)
@@ -395,6 +457,10 @@ func _rule_chord_follow(context: Dictionary) -> void:
 	n.crit = n.ex or absf(dt) <= SU.WIN_CRITICAL + 1e-9
 	_chord_begun(n, ts)
 	n.grade = grade; n.headGrade = grade; n.key = context.code; n.hitDt = dt; n.hitX = k.cx
+	# hold heads too (owner, 2026-10-18): the body is kept by any key in the track, so re-judging the head never
+	# touches the hold itself
+	n["provisional"] = regrade_enabled and not follow and not n.ex and dt < -SU.WIN_CRITICAL - 1e-9
+	if n.provisional: n["prov_ts"] = ts
 	context.dt = dt
 	context.grade = grade
 
@@ -413,7 +479,10 @@ func _rule_hit_feedback(context: Dictionary) -> void:
 	var k: Dictionary = context.k
 	var grade: String = context.grade
 	ripple.emit(k.cx, (3.0 if n.big else 2.0) if grade == "PERFECT" else 1.0)
-	judged.emit(grade, k.cx, 0.0 if n.ex else context.dt)
+	if n.get("provisional", false):
+		n["fb"] = {"grade": grade, "x": k.cx, "dt": context.dt}
+	else:
+		judged.emit(grade, k.cx, 0.0 if n.ex else context.dt)
 	context.result = n
 
 func _chord_begun(n: Dictionary, ts: float) -> void:
@@ -638,7 +707,8 @@ func _autoplay(ts: float) -> void:
 			if c.state == "pending" and not c.auto and c.t <= ts and c.t < bt - 1e-12: best = c; bt = c.t; kind = "cue"
 		for n in notes:
 			if n.t > ts: break
-			if n.state == "pending" and not n.auto and n.t <= ts and n.t < bt - 1e-12: best = n; bt = n.t; kind = "note"
+			# a note an extra key took early (provisional) still gets its own on-time press, which re-judges it
+			if (n.state == "pending" or n.get("provisional", false)) and not n.auto and n.t <= ts and n.t < bt - 1e-12: best = n; bt = n.t; kind = "note"
 		for r in xp:                   # a slap's extra key comes after every real note of the same instant
 			if r.ts <= ts and r.ts < bt - 1e-12: best = r; bt = r.ts; kind = "xp"
 		if best == null: break
@@ -683,6 +753,8 @@ func _update_notes(ts: float) -> void:
 				var future: Dictionary = cache[n.light]
 				if future.alive: n.lineX = future.x + (n.u - 0.5) * future.w
 			continue
+		if n.get("provisional", false) and ts > n.t + SU.WIN_PERFECT:
+			_settle(n)
 		if n.state == "pending" and n.ex and ts >= n.t and not down.is_empty():
 			if not cache.has(n.light): cache[n.light] = _light_at(tl[n.light], ts)
 			if cache[n.light].alive: _catch(n, ts, cache[n.light])

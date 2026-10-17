@@ -24,10 +24,13 @@ const APPROACH := 1.6                 # pedal cue pre-announce time (s)
 #   simply ignored -- no early-press penalty.
 # 2026-10-16: widened after a real run (75 % of hits within +-66 ms, 91 % within +-100): keyboard play on a
 # dense two-hand chart is looser than a touch screen, so PERFECT covers +-80 and GREAT / GOOD give more credit
-const WIN_CRITICAL := 0.040
-const WIN_PERFECT := 0.080
-const WIN_GREAT := 0.120
-const WIN_GOOD := 0.160
+# 2026-10-18 owner: narrowed again once presses were no longer thrown away (no cut / no slap guard, FIFO + grade
+# protection): CRITICAL 30, PERFECT 50, GREAT 80, GOOD 110. Earlier than GOOD is not a miss (the press is just a
+# stray); only a note that passes GOOD late is a MISS. Snap (adsorption) is off.
+const WIN_CRITICAL := 0.030
+const WIN_PERFECT := 0.050
+const WIN_GREAT := 0.080
+const WIN_GOOD := 0.110
 const CREDIT_GREAT := 0.8
 const SNAP_EARLY := 0.30           # an early press latches the next normal note of its light landing within this
 const CREDIT_GOOD := 0.5

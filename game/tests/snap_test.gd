@@ -10,6 +10,7 @@ func chart() -> Dictionary:
 		"notes": [{"t": 3.0, "light": 0, "u": 0.5625, "kind": "tap"}]}
 
 func run(name: String, steps: Array, want: String) -> bool:
+	GameCore.snap = true      # the mechanism is off in the game (2026-10-18) but still kept and tested
 	var core := GameCore.new()
 	core.load_chart(chart())
 	core.playing = true

@@ -35,7 +35,7 @@ func _init() -> void:
 	KB.set_layout("ansi")
 	var ok := true
 	var chain := ["PERFECT/KeyA", "PERFECT/KeyS", "PERFECT/KeyD", "PERFECT/KeyF"]
-	ok = run("press 0.12 s late, then roll the chain", [[3.12, "down", "KeyD"], [3.2, "up", "KeyD"],
+	ok = run("press 0.10 s late, then roll the chain", [[3.10, "down", "KeyD"], [3.2, "up", "KeyD"],
 		[4.0, "down", "KeyA"], [4.06, "down", "KeyS"], [4.12, "down", "KeyD"], [4.18, "down", "KeyF"]], ["PERFECT/KeyD"] + chain) and ok
 	ok = run("key held from before catches the lone one", [[2.5, "down", "KeyD"], [3.5, "up", "KeyD"]], ["PERFECT/KeyD", "MISS/", "MISS/", "MISS/", "MISS/"]) and ok
 	ok = run("one key held through the chain catches it all", [[3.9, "down", "KeyD"], [4.4, "up", "KeyD"]], ["MISS/", "PERFECT/KeyD", "PERFECT/KeyD", "PERFECT/KeyD", "PERFECT/KeyD"]) and ok

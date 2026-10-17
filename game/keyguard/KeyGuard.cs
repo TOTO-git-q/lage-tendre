@@ -15,6 +15,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Net.Sockets;
 
 static class KeyGuard
 {
@@ -50,6 +51,12 @@ static class KeyGuard
     [DllImport("user32.dll", EntryPoint = "SystemParametersInfo")] static extern bool SpiFilter(uint a, uint b, ref FILTERKEYS p, uint f);
 
     static uint gamePid;
+    // 2026-10-18 (owner: Esc menu ~1 s late): another program's keyboard hook later in the chain held Esc for about a
+    // second (the hook timeout) before the game saw it. This hook runs first, so it tells the game right away over a
+    // localhost UDP port the game passes as --esc-port; Esc still goes on to Windows (the game drops the late copy).
+    static UdpClient escUdp;
+    static int escPort = 0;
+    static readonly byte[] EscMsg = System.Text.Encoding.ASCII.GetBytes("ESC");
     static IntPtr hook = IntPtr.Zero;
     static LowLevelProc proc = Hook;                  // kept alive for the GC
     static STICKYKEYS sk0; static TOGGLEKEYS tk0; static FILTERKEYS fk0;
@@ -82,6 +89,11 @@ static class KeyGuard
         if (nCode >= 0 && GameInFront())
         {
             var k = (KBDLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(KBDLLHOOKSTRUCT));
+            if (escUdp != null && k.vkCode == 0x1B && (k.flags & LLKHF_INJECTED) == 0 && ((int)wParam == 0x100 || (int)wParam == 0x104)
+                && GetAsyncKeyState(0x11) >= 0)
+            {
+                try { escUdp.Send(EscMsg, EscMsg.Length, "127.0.0.1", escPort); } catch { }
+            }
             if ((k.flags & LLKHF_INJECTED) == 0 && Swallow(k.vkCode)) return (IntPtr)1;
         }
         return CallNextHookEx(hook, nCode, wParam, lParam);
@@ -122,6 +134,11 @@ static class KeyGuard
     {
         if (args.Length < 1 || !uint.TryParse(args[0], out gamePid)) return 2;
         bool spi = Array.IndexOf(args, "--no-spi") < 0;
+        int pi = Array.IndexOf(args, "--esc-port");
+        if (pi >= 0 && pi + 1 < args.Length && int.TryParse(args[pi + 1], out escPort) && escPort > 0)
+        {
+            try { escUdp = new UdpClient(); } catch { escUdp = null; }
+        }
         Process game;
         try { game = Process.GetProcessById((int)gamePid); } catch { return 3; }
         uint mainThread = GetCurrentThreadId();
